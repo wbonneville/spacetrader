@@ -38,7 +38,7 @@ export const RESOURCE_DEFINITIONS = {
     min: 10,
     max: 20,
     politicalSystem: {
-      communism: 1,
+      communismState: 1,
       monarchy: 3
     },
     techLevel: 1
@@ -47,7 +47,7 @@ export const RESOURCE_DEFINITIONS = {
     min: 10,
     max: 20,
     politicalSystem: {
-      communism: 1,
+      communismState: 1,
       monarchy: 3
     },
     techLevel: 1
@@ -56,7 +56,7 @@ export const RESOURCE_DEFINITIONS = {
     min: 10,
     max: 20,
     politicalSystem: {
-      communism: 1,
+      communismState: 1,
       monarchy: 3
     },
     techLevel: 1
@@ -65,7 +65,7 @@ export const RESOURCE_DEFINITIONS = {
     min: 10,
     max: 20,
     politicalSystem: {
-      communism: 1,
+      communismState: 1,
       monarchy: 3
     },
     techLevel: 1
@@ -74,7 +74,7 @@ export const RESOURCE_DEFINITIONS = {
     min: 10,
     max: 20,
     politicalSystem: {
-      communism: 1,
+      communismState: 1,
       monarchy: 3
     },
     techLevel: 1
@@ -83,7 +83,7 @@ export const RESOURCE_DEFINITIONS = {
     min: 10,
     max: 20,
     politicalSystem: {
-      communism: 1,
+      communismState: 1,
       monarchy: 3
     },
     techLevel: 1
@@ -92,7 +92,7 @@ export const RESOURCE_DEFINITIONS = {
     min: 10,
     max: 20,
     politicalSystem: {
-      communism: 1,
+      communismState: 1,
       monarchy: 3
     },
     techLevel: 1
@@ -101,7 +101,7 @@ export const RESOURCE_DEFINITIONS = {
     min: 1,
     max: 5,
     politicalSystem: {
-      communism: 1,
+      communismState: 1,
       monarchy: 0.5
     },
     techLevel: 8
@@ -110,7 +110,7 @@ export const RESOURCE_DEFINITIONS = {
     min: 1,
     max: 5,
     politicalSystem: {
-      communism: 1,
+      communismState: 1,
       monarchy: 0.5
     },
     techLevel: 8

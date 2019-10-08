@@ -12,10 +12,12 @@ import { POLITICAL_SYSTEMS } from "./planetData";
 import { selectPlanet } from "./redux/selectPlanet.action";
 import { createPlanet } from "./redux/planet.action";
 import { createMarket } from "./redux/market.action";
+import { createPlayer } from "./redux/createPlayer.action";
+
 // import { createTechLevels } from "./redux/techLevels.action";
 import generatePlanet from "./generatePlanet";
 
-const Canvas = styled.canvas`
+const GalacticChart = styled.canvas`
   background-color: #f6f6f6;
   width: 400px;
   height: 200px;
@@ -121,6 +123,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Target System</h1>
       {selectedPlanet && <h1>Planet ID: {selectedPlanet}</h1>}
       {selectedPlanetData && <h1>X-Coordinate: {selectedPlanetData.x}</h1>}
       {selectedPlanetData && <h1>Y-Coordinate: {selectedPlanetData.y}</h1>}
@@ -143,8 +146,8 @@ function App() {
           ))}
         </h1>
       )}
-
-      <Canvas
+      <h1>Galactic Chart</h1>
+      <GalacticChart
         onClick={handleCanvasClick}
         ref={canvas}
         width={800}

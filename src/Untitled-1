@@ -1,0 +1,24 @@
+How to go to a planet
+
+1. User state 
+2. User state can move from planet ID to planet ID
+3. If user clicks a button, user has moved from ID A to ID B. 
+
+What is player state?
+
+User is inside a ship
+User is ship
+
+What is player state?
+
+Ship has cargo
+Ship has crew
+Ship has credits
+Ship hull strength
+Ship shield strength
+Ship distance
+Ship fuel   
+Current costs (credits - current costs)
+
+How can player state and market data state interact? 
+How can I take 10 water from market data and add it to player state?
