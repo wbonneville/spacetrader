@@ -8,7 +8,7 @@ export const SHIPS = {
     cargoContainers: 10
   },
   gnat: {
-    displayName: "Flea",
+    displayName: "Gnat",
     ship: 2,
     hullStrength: 10,
     shield: 25,
@@ -16,7 +16,7 @@ export const SHIPS = {
     cargoContainers: 10
   },
   firefly: {
-    displayName: "Flea",
+    displayName: "Firefly",
     ship: 3,
     hullStrength: 50,
     shield: 30,
@@ -24,7 +24,7 @@ export const SHIPS = {
     cargoContainers: 10
   },
   mosquito: {
-    displayName: "Flea",
+    displayName: "Mosquito",
     ship: 4,
     hullStrength: 10,
     shield: 20,
@@ -32,7 +32,7 @@ export const SHIPS = {
     cargoContainers: 10
   },
   bumblebee: {
-    displayName: "Flea",
+    displayName: "Bumblebee",
     ship: 5,
     hullStrength: 10,
     shield: 20,
@@ -40,7 +40,7 @@ export const SHIPS = {
     cargoContainers: 10
   },
   beetle: {
-    displayName: "Flea",
+    displayName: "Beetle",
     ship: 6,
     hullStrength: 10,
     shield: 20,
@@ -48,7 +48,7 @@ export const SHIPS = {
     cargoContainers: 10
   },
   hornet: {
-    displayName: "Flea",
+    displayName: "Hornet",
     ship: 7,
     hullStrength: 10,
     shield: 20,
@@ -56,7 +56,7 @@ export const SHIPS = {
     cargoContainers: 10
   },
   grasshopper: {
-    displayName: "Flea",
+    displayName: "Grasshopper",
     ship: 8,
     hullStrength: 10,
     shield: 20,
@@ -64,7 +64,7 @@ export const SHIPS = {
     cargoContainers: 10
   },
   termite: {
-    displayName: "Flea",
+    displayName: "Termite",
     ship: 9,
     hullStrength: 10,
     shield: 20,
@@ -72,7 +72,7 @@ export const SHIPS = {
     cargoContainers: 10
   },
   wasp: {
-    displayName: "Flea",
+    displayName: "Wasp",
     ship: 10,
     hullStrength: 10,
     shield: 20,
