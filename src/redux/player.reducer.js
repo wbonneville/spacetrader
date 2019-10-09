@@ -1,7 +1,8 @@
 const defaultPlayersState = {
-  ship: {
-    playerShipId
+  playerShip: {
+    id: 1
   },
+
   person: {
     credits: 1000,
     rank: 0,
@@ -13,6 +14,7 @@ const defaultPlayersState = {
   },
 
   status: {
+    normal: true,
     pirate: false
   }
 };

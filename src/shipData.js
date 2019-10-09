@@ -7,6 +7,7 @@ export const SHIPS = {
     fuel: 100,
     cargoContainers: 10
   },
+
   gnat: {
     displayName: "Gnat",
     ship: 2,

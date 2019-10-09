@@ -46,6 +46,10 @@ function App() {
   // this is the hook that selects planets data from state
   const planets = useSelector(state => state.planets);
   const markets = useSelector(state => state.markets);
+
+  // get player data
+  const player = useSelector(state => state.player);
+
   const selectedPlanet = useSelector(state => state.selectedPlanet);
 
   // i want the clicked planets DATA to be console logged
@@ -123,6 +127,17 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Player Credits: {player.person.credits}</h1>
+      <h1>Player Rank: {player.person.rank}</h1>
+      <h1>Player Experience: {player.person.experience}</h1>
+      <h1>Player Piloting Skill: {player.person.pilotSkill}</h1>
+      <h1>Player Fighter Skill: {player.person.fighterSkill}</h1>
+      <h1>Player Trader Skill: {player.person.traderSkill}</h1>
+      <h1>Player Engineer Skill: {player.person.engineerSkill}</h1>
+      {player.status.normal && (
+        <h1>Player Status: Good Standing {player.status.normal}</h1>
+      )}
+
       <h1>Target System</h1>
       {selectedPlanet && <h1>Planet ID: {selectedPlanet}</h1>}
       {selectedPlanetData && <h1>X-Coordinate: {selectedPlanetData.x}</h1>}
