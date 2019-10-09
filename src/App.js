@@ -127,13 +127,13 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Player Credits: {player.person.credits}</h1>
-      <h1>Player Rank: {player.person.rank}</h1>
-      <h1>Player Experience: {player.person.experience}</h1>
-      <h1>Player Piloting Skill: {player.person.pilotSkill}</h1>
-      <h1>Player Fighter Skill: {player.person.fighterSkill}</h1>
-      <h1>Player Trader Skill: {player.person.traderSkill}</h1>
-      <h1>Player Engineer Skill: {player.person.engineerSkill}</h1>
+      <h1>Cash: {player.person.credits}</h1>
+      <h1>Rank: {player.person.rank}</h1>
+      <h1>Experience: {player.person.experience}</h1>
+      <h1>Piloting Skill: {player.person.pilotSkill}</h1>
+      <h1>Fighter Skill: {player.person.fighterSkill}</h1>
+      <h1>Trader Skill: {player.person.traderSkill}</h1>
+      <h1>Engineer Skill: {player.person.engineerSkill}</h1>
       <h1>Empty Cargo Bays: {player.person.emptyBays}</h1>
 
       {player.status.normal && (
@@ -164,6 +164,12 @@ function App() {
         </h1>
       )}
       <h1>Galactic Chart</h1>
+
+      {/* Move ship state to other planet */}
+      {/* Warp to planet */}
+      <h1>
+        <button>Go to other planet</button>
+      </h1>
       <GalacticChart
         onClick={handleCanvasClick}
         ref={canvas}
