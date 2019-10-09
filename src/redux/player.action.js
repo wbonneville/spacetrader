@@ -1,7 +1,6 @@
-export function createPlayer(planetId, planetData) {
+export function createPlayer(shipId) {
   return {
     type: "CREATE_PLAYER",
-    planetId,
-    inventory
+    shipId
   };
 }

@@ -1,10 +1,6 @@
 const defaultPlayersState = {
   ship: {
-    ship: 1,
-    hullStrength: 10,
-    shield: 20,
-    fuel: 100,
-    cargoContainers: 10
+    playerShipId
   },
   person: {
     credits: 1000,
@@ -31,11 +27,3 @@ const playerGeneration = (state = defaultPlayersState, action) => {
 };
 
 export default playerGeneration;
-
-// const defaultPlanetsState = {
-//     asfdgih: {
-//       x: 0.01,
-//       y: 0.01,
-//       name: "Starting"
-//     },
-//   };
