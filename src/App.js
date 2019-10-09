@@ -12,7 +12,7 @@ import { POLITICAL_SYSTEMS } from "./planetData";
 import { selectPlanet } from "./redux/selectPlanet.action";
 import { createPlanet } from "./redux/planet.action";
 import { createMarket } from "./redux/market.action";
-import { createPlayer } from "./redux/createPlayer.action";
+import { createPlayer } from "./redux/player.action";
 
 // import { createTechLevels } from "./redux/techLevels.action";
 import generatePlanet from "./generatePlanet";
