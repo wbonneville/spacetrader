@@ -134,6 +134,8 @@ function App() {
       <h1>Player Fighter Skill: {player.person.fighterSkill}</h1>
       <h1>Player Trader Skill: {player.person.traderSkill}</h1>
       <h1>Player Engineer Skill: {player.person.engineerSkill}</h1>
+      <h1>Empty Cargo Bays: {player.person.emptyBays}</h1>
+
       {player.status.normal && (
         <h1>Player Status: Good Standing {player.status.normal}</h1>
       )}

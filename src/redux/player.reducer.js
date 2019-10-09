@@ -10,7 +10,8 @@ const defaultPlayersState = {
     pilotSkill: 0,
     fighterSkill: 0,
     traderSkill: 0,
-    engineerSkill: 0
+    engineerSkill: 0,
+    emptyBays: 15
   },
 
   status: {
