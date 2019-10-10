@@ -1,7 +1,6 @@
-const shortid = require("shortid");
-const playerId = shortid.generate();
 const defaultPlayersState = {
-  playerId,
+  shipId: "",
+  planetId: "",
 
   person: {
     credits: 1000,

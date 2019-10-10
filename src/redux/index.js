@@ -4,7 +4,7 @@ import selectPlanet from "./selectPlanet.reducer";
 import marketGeneration from "./market.reducer";
 import playerGeneration from "./player.reducer";
 import planetWarp from "./warp.reducer";
-import currentPlanet from "./currentPlanet.reducer";
+import travelCurrentPlanet from "./currentPlanet.reducer";
 
 const allReducers = combineReducers({
   planets: planetGeneration,
@@ -13,7 +13,7 @@ const allReducers = combineReducers({
   markets: marketGeneration,
   player: playerGeneration,
   warp: planetWarp,
-  currentPlanet: currentPlanet
+  currentPlanet: travelCurrentPlanet
 });
 
 export default allReducers;
