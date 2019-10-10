@@ -127,6 +127,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>{player.playerId}</h1>
       <h1>Cash: {player.person.credits}</h1>
       <h1>Rank: {player.person.rank}</h1>
       <h1>Experience: {player.person.experience}</h1>
