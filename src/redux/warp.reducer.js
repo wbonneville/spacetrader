@@ -3,7 +3,7 @@ const planetWarp = (state = null, action) => {
   switch (action.type) {
     case "PLANET_WARP":
       // Select ID'S
-      return action.planetId, action.playerId;
+      return action.playerId;
     default:
       return state;
   }

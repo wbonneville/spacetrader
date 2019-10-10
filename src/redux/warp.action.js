@@ -1,7 +1,6 @@
-export function warpToPlanet(planetId, playerId) {
+export function warpToPlanet(playerId) {
   return {
     type: "PLANET_WARP",
-    planetId,
     playerId
   };
 }

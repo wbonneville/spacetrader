@@ -13,6 +13,7 @@ import { selectPlanet } from "./redux/selectPlanet.action";
 import { createPlanet } from "./redux/planet.action";
 import { createMarket } from "./redux/market.action";
 import { createPlayer } from "./redux/player.action";
+import { warpToPlanet } from "./redux/warp.action";
 
 // import { createTechLevels } from "./redux/techLevels.action";
 import generatePlanet from "./generatePlanet";
@@ -49,12 +50,15 @@ function App() {
 
   // get player data
   const player = useSelector(state => state.player);
-
+  const currentPlanet = useSelector(state => state.currentPlanet);
   const selectedPlanet = useSelector(state => state.selectedPlanet);
 
   // i want the clicked planets DATA to be console logged
   const selectedPlanetData = planets[selectedPlanet];
   const selectedMarketData = markets[selectedPlanet];
+
+  // display current planet
+  const currentPlanetData = planets[currentPlanet];
 
   useEffect(() => {
     // provides context for the canvas to draw things
@@ -116,6 +120,11 @@ function App() {
     });
   };
 
+  const Warp = event => {
+    const playerId = player.playerId;
+    dispatch(warpToPlanet(playerId));
+  };
+
   // if (selectedPlanetData) {
   //   console.log(
   //     selectedPlanetData,
@@ -127,7 +136,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>{player.playerId}</h1>
+      <h1>Player ID: {player.playerId}</h1>
       <h1>Cash: {player.person.credits}</h1>
       <h1>Rank: {player.person.rank}</h1>
       <h1>Experience: {player.person.experience}</h1>
@@ -169,8 +178,9 @@ function App() {
       {/* Move ship state to other planet */}
       {/* Warp to planet */}
       <h1>
-        <button>Go to other planet</button>
+        <button onClick={Warp}>Go to other planet</button>
       </h1>
+      <h1>You are now on planet {currentPlanetData} </h1>
       <GalacticChart
         onClick={handleCanvasClick}
         ref={canvas}
