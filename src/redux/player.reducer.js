@@ -1,6 +1,6 @@
 const defaultPlayersState = {
-  shipId: "",
-  planetId: "",
+  shipId: '',
+  planetId: '',
 
   person: {
     credits: 1000,
@@ -10,18 +10,20 @@ const defaultPlayersState = {
     fighterSkill: 0,
     traderSkill: 0,
     engineerSkill: 0,
-    emptyBays: 15
+    emptyBays: 15,
   },
 
   status: {
     normal: true,
-    pirate: false
-  }
+    pirate: false,
+  },
 };
 
 const playerGeneration = (state = defaultPlayersState, action) => {
   switch (action.type) {
-    case "CREATE_PLAYER":
+    case 'CREATE_PLAYER':
+      return { ...state };
+    case 'WARP_PLAYER':
       return { ...state };
     default:
       return state;

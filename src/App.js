@@ -1,21 +1,22 @@
-import React, { useEffect, useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import styled from "styled-components";
+import React, { useEffect, useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import styled from 'styled-components';
 
 // data
 
-import { TECH_LEVELS } from "./planetData";
-import { RESOURCE_DEFINITIONS } from "./planetData";
-import { POLITICAL_SYSTEMS } from "./planetData";
+import { TECH_LEVELS } from './planetData';
+import { RESOURCE_DEFINITIONS } from './planetData';
+import { POLITICAL_SYSTEMS } from './planetData';
 
 // actions
-import { selectPlanet } from "./redux/selectPlanet.action";
-import { createPlanet } from "./redux/planet.action";
-import { createMarket } from "./redux/market.action";
-import { createPlayer } from "./redux/player.action";
+import { selectPlanet } from './redux/selectPlanet.action';
+import { createPlanet } from './redux/planet.action';
+import { createMarket } from './redux/market.action';
+import { createPlayer } from './redux/player.action';
+import { warpPlayer } from './redux/warp.action';
 
 // import { createTechLevels } from "./redux/techLevels.action";
-import generatePlanet from "./generatePlanet";
+import generatePlanet from './generatePlanet';
 
 const GalacticChart = styled.canvas`
   background-color: #f6f6f6;
@@ -41,7 +42,7 @@ function App() {
       // dispatches action to bring market data into the store
       dispatch(createMarket(planetId, marketData));
     }
-  }, [true]);
+  }, [dispatch]);
 
   // this is the hook that selects planets data from state
   const planets = useSelector(state => state.planets);
@@ -60,7 +61,7 @@ function App() {
 
   useEffect(() => {
     // provides context for the canvas to draw things
-    const ctx = canvas.current.getContext("2d");
+    const ctx = canvas.current.getContext('2d');
 
     // this loop takes planets as an argument and for each unique planet do code
     Object.keys(planets).forEach(planetId => {
@@ -78,9 +79,9 @@ function App() {
       ctx.ellipse(x, y, 4, 4, 0, 0, Math.PI * 2);
       // if selected planet is equal to the current planet ID
       if (selectedPlanet === planetId) {
-        ctx.fillStyle = "blue";
+        ctx.fillStyle = 'blue';
       } else {
-        ctx.fillStyle = "green";
+        ctx.fillStyle = 'green';
       }
 
       ctx.fill();
@@ -118,8 +119,10 @@ function App() {
     });
   };
 
+  // set players planetId = to selected planetId
   const warp = event => {
-    // warp to set players CURRENT planet id to SELECTED planet id
+    const planetId = selectedPlanet.planetId;
+    dispatch(warpPlayer(planetId));
   };
 
   // if (selectedPlanetData) {
@@ -133,7 +136,6 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Player ID: {player.playerId}</h1>
       <h1>Cash: {player.person.credits}</h1>
       <h1>Rank: {player.person.rank}</h1>
       <h1>Experience: {player.person.experience}</h1>
@@ -156,13 +158,13 @@ function App() {
       )}
       {selectedPlanetData && (
         <h1>
-          Political System:{" "}
+          Political System:{' '}
           {POLITICAL_SYSTEMS[selectedPlanetData.politicalSystem]}
         </h1>
       )}
       {selectedMarketData && (
         <h1>
-          Market:{" "}
+          Market:{' '}
           {Object.keys(selectedMarketData).map(key => (
             <div>
               {key}: {selectedMarketData[key]}
