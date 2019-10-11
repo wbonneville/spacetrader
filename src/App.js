@@ -119,9 +119,7 @@ function App() {
   };
 
   const warp = event => {
-    const playerId = player.playerId;
-
-    dispatch(warpToPlanet(playerId));
+    // warp to set players CURRENT planet id to SELECTED planet id
   };
 
   // if (selectedPlanetData) {
