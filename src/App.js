@@ -115,6 +115,7 @@ function App() {
       if (deltaX < 4 && deltaY < 4) {
         // dispatch planet selection action with our planet ID
         dispatch(selectPlanet(planetId));
+        dispatch(createPlayer(planetId));
       }
     });
   };
