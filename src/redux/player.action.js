@@ -1,6 +1,6 @@
-export function createPlayer(playerId) {
+export function createPlayer(shipId) {
   return {
-    type: "CREATE_PLAYER",
-    playerId
+    type: 'CREATE_PLAYER',
+    shipId,
   };
 }

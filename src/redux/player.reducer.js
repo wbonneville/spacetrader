@@ -1,6 +1,6 @@
 const defaultPlayersState = {
   shipId: '',
-  planetId: 'ad',
+  planetId: '',
 
   person: {
     credits: 1000,
