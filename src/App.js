@@ -120,11 +120,11 @@ function App() {
     });
   };
 
-  // set players planetId = to selected planetId
+  // click warp
+  // check selected planets ID set players planet ID to selected planet
   const warp = event => {
-    const planetId = selectedPlanet.planetId;
-    dispatch(warpPlayer(planetId));
-    player.planetId = planetId;
+    const planetId = selectedPlanet;
+    return dispatch(warpPlayer(planetId));
   };
 
   // if (selectedPlanetData) {
@@ -138,7 +138,10 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Current Planet: {player.planetId}</h1>
+      <h1>Selected Planet </h1>
+      {selectedPlanet && <h1>Planet ID: {selectedPlanet}</h1>}
+      <h1>Current Planet</h1>
+      <h1>{player.planetId}</h1>
       <h1>Cash: {player.person.credits}</h1>
       <h1>Rank: {player.person.rank}</h1>
       <h1>Experience: {player.person.experience}</h1>
@@ -152,8 +155,6 @@ function App() {
         <h1>Player Status: Good Standing {player.status.normal}</h1>
       )}
 
-      <h1>Target System</h1>
-      {selectedPlanet && <h1>Planet ID: {selectedPlanet}</h1>}
       {selectedPlanetData && <h1>X-Coordinate: {selectedPlanetData.x}</h1>}
       {selectedPlanetData && <h1>Y-Coordinate: {selectedPlanetData.y}</h1>}
       {selectedPlanetData && (
