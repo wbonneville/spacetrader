@@ -57,9 +57,9 @@ function App() {
 
   // get player data
   const player = useSelector(state => state.player);
-  const selectedPlanet = useSelector(state => state.selectedPlanet);
 
   // i want the clicked planets DATA to be console logged
+  const selectedPlanet = useSelector(state => state.selectedPlanet);
   const selectedPlanetData = planets[selectedPlanet];
   const selectedMarketData = markets[selectedPlanet];
 
@@ -156,7 +156,6 @@ function App() {
     const planetId = selectedPlanet;
     dispatch(warpPlayer(planetId));
   };
-  console.log(player.planetId);
 
   // if (selectedPlanetData) {
   //   console.log(
@@ -166,8 +165,6 @@ function App() {
   //     techLevels[selectedPlanetData.techLevel]
   //   );
   // }
-
-  // const ctxOne = canvas.current.getContext('2d');
 
   return (
     <div className="App">
