@@ -125,7 +125,6 @@ function App() {
   const warp = event => {
     const planetId = selectedPlanet;
     return dispatch(warpPlayer(planetId));
-    player.planetId = planetId;
   };
 
   // if (selectedPlanetData) {
@@ -142,7 +141,7 @@ function App() {
       <h1>Selected Planet </h1>
       {selectedPlanet && <h1>Planet ID: {selectedPlanet}</h1>}
       <h1>Current Planet</h1>
-      <h1>{player.planetId}</h1>
+      {player.planetId && <h1>You warped to {player.planetId}</h1>}
       <h1>Cash: {player.person.credits}</h1>
       <h1>Rank: {player.person.rank}</h1>
       <h1>Experience: {player.person.experience}</h1>
