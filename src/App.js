@@ -125,6 +125,7 @@ function App() {
   const warp = event => {
     const planetId = selectedPlanet;
     return dispatch(warpPlayer(planetId));
+    player.planetId = planetId;
   };
 
   // if (selectedPlanetData) {
