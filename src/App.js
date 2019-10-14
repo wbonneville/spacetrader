@@ -5,7 +5,7 @@ import styled from 'styled-components';
 // data
 
 import { TECH_LEVELS } from './planetData';
-import { RESOURCE_DEFINITIONS } from './planetData';
+// import { RESOURCE_DEFINITIONS } from './planetData';
 import { POLITICAL_SYSTEMS } from './planetData';
 
 // actions
@@ -24,12 +24,19 @@ const GalacticChart = styled.canvas`
   height: 200px;
 `;
 
+// const GalacticChartTwo = styled(GalacticChart)`
+//   background-color: #f7f7f7;
+//   width: 200px;
+//   height: 100px;
+// `;
+
 function App() {
   // dispatch hook
   const dispatch = useDispatch();
 
   // ref for the canvas
   const canvas = useRef();
+  const newCanvas = useRef();
 
   // called when app is rendered
   useEffect(() => {
@@ -61,7 +68,7 @@ function App() {
 
   useEffect(() => {
     // provides context for the canvas to draw things
-    const ctx = canvas.current.getContext('2d');
+    const ctxOne = canvas.current.getContext('2d');
 
     // this loop takes planets as an argument and for each unique planet do code
     Object.keys(planets).forEach(planetId => {
@@ -74,28 +81,53 @@ function App() {
       const y = planet.y * canvas.current.height;
 
       // draw planet
-      ctx.beginPath();
-      ctx.moveTo(x, y);
-      ctx.ellipse(x, y, 4, 4, 0, 0, Math.PI * 2);
+      ctxOne.beginPath();
+      ctxOne.moveTo(x, y);
+      ctxOne.ellipse(x, y, 4, 4, 0, 0, Math.PI * 2);
       // if selected planet is equal to the current planet ID
       if (selectedPlanet === planetId) {
-        ctx.fillStyle = 'blue';
+        ctxOne.fillStyle = 'blue';
       } else {
-        ctx.fillStyle = 'green';
+        ctxOne.fillStyle = 'green';
       }
 
-      ctx.fill();
+      ctxOne.fill();
     });
   });
 
-  /* selectedPlanet: abc
-   *
-   * foo
-   * bar
-   * if (abc)
-   * qef
-   *
-   */
+  // SHORT RANGE GALACTIC CHART //
+
+  // useEffect(() => {
+  //   // provides context for the canvas to draw things
+  //   const ctxTwo = newCanvas.current.getContext('2d');
+
+  //   // this loop takes planets as an argument and for each unique planet do code
+  //   Object.keys(planets).forEach(planetId => {
+  //     // get planet data
+  //     const planet = planets[planetId];
+
+  //     // set variables to random number on canvas
+
+  //     const x = planet.x * newCanvas.current.width;
+  //     const y = planet.y * newCanvas.current.height;
+
+  //     // draw planet
+  //     ctxTwo.beginPath();
+  //     ctxTwo.moveTo(x, y);
+  //     ctxTwo.ellipse(x, y, 4, 4, 0, 0, Math.PI * 2);
+
+  //     // if selected planet is equal to the current planet ID
+  //     if (selectedPlanet === planetId) {
+  //       ctxTwo.fillStyle = 'blue';
+  //     } else {
+  //       ctxTwo.fillStyle = 'green';
+  //     }
+
+  //     ctxTwo.fill();
+  //   });
+  // });
+
+  // CLICK EVENT
 
   const handleCanvasClick = event => {
     const mouseX = event.pageX;
@@ -114,6 +146,7 @@ function App() {
 
       if (deltaX < 4 && deltaY < 4) {
         // dispatch planet selection action with our planet ID
+
         dispatch(selectPlanet(planetId));
         dispatch(createPlayer(planetId));
       }
@@ -136,6 +169,8 @@ function App() {
   //   );
   // }
 
+  // const ctxOne = canvas.current.getContext('2d');
+
   return (
     <div className="App">
       <h1>Selected Planet </h1>
@@ -155,26 +190,27 @@ function App() {
         <h1>Player Status: Good Standing {player.status.normal}</h1>
       )}
 
-      {selectedPlanetData && <h1>X-Coordinate: {selectedPlanetData.x}</h1>}
-      {selectedPlanetData && <h1>Y-Coordinate: {selectedPlanetData.y}</h1>}
+      <p>Selected Planet Data</p>
+      {selectedPlanetData && <p>X-Coordinate: {selectedPlanetData.x}</p>}
+      {selectedPlanetData && <p>Y-Coordinate: {selectedPlanetData.y}</p>}
       {selectedPlanetData && (
-        <h1>Tech Level: {TECH_LEVELS[selectedPlanetData.techLevel]}</h1>
+        <p>Tech Level: {TECH_LEVELS[selectedPlanetData.techLevel]}</p>
       )}
       {selectedPlanetData && (
-        <h1>
+        <p>
           Political System:{' '}
           {POLITICAL_SYSTEMS[selectedPlanetData.politicalSystem]}
-        </h1>
+        </p>
       )}
       {selectedMarketData && (
-        <h1>
+        <p>
           Market:{' '}
           {Object.keys(selectedMarketData).map(key => (
             <div>
               {key}: {selectedMarketData[key]}
             </div>
           ))}
-        </h1>
+        </p>
       )}
       <h1>Galactic Chart</h1>
 
@@ -185,11 +221,19 @@ function App() {
       </h1>
       {/* <h1>You are now on planet {currentPlanetData} </h1> */}
       <GalacticChart
+        id="a"
         onClick={handleCanvasClick}
         ref={canvas}
         width={800}
         height={400}
       />
+      {/* <GalacticChartTwo
+        id="b"
+        onClick={handleCanvasClick}
+        ref={newCanvas}
+        width={800}
+        height={400}
+      /> */}
     </div>
   );
 }
