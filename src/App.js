@@ -63,6 +63,11 @@ function App() {
   const selectedPlanetData = planets[selectedPlanet];
   const selectedMarketData = markets[selectedPlanet];
 
+  const currentPlanetData = planets[player.planetId];
+  const currentMarketData = markets[player.planetId];
+
+  console.log(currentPlanetData);
+  console.log(currentMarketData);
   useEffect(() => {
     // provides context for the canvas to draw things
     const ctxOne = canvas.current.getContext('2d');
