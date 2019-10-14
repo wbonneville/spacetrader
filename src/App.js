@@ -174,7 +174,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Selected Planet </h1>
+      <h1>Selected Planet</h1>
       {selectedPlanet && <h1>Planet ID: {selectedPlanet}</h1>}
       <h1>Current Planet</h1>
       {player.planetId && <h1>You warped to {player.planetId}</h1>}
@@ -192,7 +192,31 @@ function App() {
         <h1>Player Status: Good Standing {player.status.normal}</h1>
       )}
 
-      <p>Selected Planet Data</p>
+      <h1>Current Planet Data</h1>
+
+      {currentPlanetData && <p>X-Coordinate: {currentPlanetData.x}</p>}
+      {currentPlanetData && <p>Y-Coordinate: {currentPlanetData.y}</p>}
+      {currentPlanetData && (
+        <p>Tech Level: {TECH_LEVELS[currentPlanetData.techLevel]}</p>
+      )}
+      {currentPlanetData && (
+        <p>
+          Political System:{' '}
+          {POLITICAL_SYSTEMS[currentPlanetData.politicalSystem]}
+        </p>
+      )}
+      {currentMarketData && (
+        <h2>
+          Market:{' '}
+          {Object.keys(currentMarketData).map(key => (
+            <div>
+              {key}: {currentMarketData[key]}
+            </div>
+          ))}
+        </h2>
+      )}
+
+      <h1>Selected Planet Data</h1>
       {selectedPlanetData && <p>X-Coordinate: {selectedPlanetData.x}</p>}
       {selectedPlanetData && <p>Y-Coordinate: {selectedPlanetData.y}</p>}
       {selectedPlanetData && (
@@ -214,6 +238,7 @@ function App() {
           ))}
         </h2>
       )}
+
       <h1>Galactic Chart</h1>
 
       {/* Move ship state to other planet */}
