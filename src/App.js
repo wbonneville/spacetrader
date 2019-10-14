@@ -36,7 +36,7 @@ function App() {
 
   // ref for the canvas
   const canvas = useRef();
-  const newCanvas = useRef();
+  // const newCanvas = useRef();
 
   // called when app is rendered
   useEffect(() => {
@@ -62,9 +62,6 @@ function App() {
   // i want the clicked planets DATA to be console logged
   const selectedPlanetData = planets[selectedPlanet];
   const selectedMarketData = markets[selectedPlanet];
-
-  // display current planet
-  // const currentPlanetData = planets[currentPlanet];
 
   useEffect(() => {
     // provides context for the canvas to draw things
@@ -177,6 +174,7 @@ function App() {
       {selectedPlanet && <h1>Planet ID: {selectedPlanet}</h1>}
       <h1>Current Planet</h1>
       {player.planetId && <h1>You warped to {player.planetId}</h1>}
+
       <h1>Cash: {player.person.credits}</h1>
       <h1>Rank: {player.person.rank}</h1>
       <h1>Experience: {player.person.experience}</h1>
@@ -203,14 +201,14 @@ function App() {
         </p>
       )}
       {selectedMarketData && (
-        <p>
+        <h2>
           Market:{' '}
           {Object.keys(selectedMarketData).map(key => (
             <div>
               {key}: {selectedMarketData[key]}
             </div>
           ))}
-        </p>
+        </h2>
       )}
       <h1>Galactic Chart</h1>
 

@@ -24,7 +24,10 @@ const playerGeneration = (state = defaultPlayersState, action) => {
     case 'CREATE_PLAYER':
       return { ...state };
     case 'WARP_PLAYER':
-      return { ...state, planetId: action.planetId };
+      return {
+        ...state,
+        planetId: action.planetId,
+      };
     default:
       return state;
   }
