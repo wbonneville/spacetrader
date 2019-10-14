@@ -58,11 +58,12 @@ function App() {
   // get player data
   const player = useSelector(state => state.player);
 
-  // i want the clicked planets DATA to be console logged
+  // selected planets data
   const selectedPlanet = useSelector(state => state.selectedPlanet);
   const selectedPlanetData = planets[selectedPlanet];
   const selectedMarketData = markets[selectedPlanet];
 
+  // current planets data
   const currentPlanetData = planets[player.planetId];
   const currentMarketData = markets[player.planetId];
 
