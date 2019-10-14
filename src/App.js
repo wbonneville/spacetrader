@@ -154,8 +154,9 @@ function App() {
   // check selected planets ID set players planet ID to selected planet
   const warp = event => {
     const planetId = selectedPlanet;
-    return dispatch(warpPlayer(planetId));
+    dispatch(warpPlayer(planetId));
   };
+  console.log(player.planetId);
 
   // if (selectedPlanetData) {
   //   console.log(
