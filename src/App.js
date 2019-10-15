@@ -14,7 +14,7 @@ import { createPlanet } from './redux/planet.action';
 import { createMarket } from './redux/market.action';
 import { createPlayer } from './redux/player.action';
 import { warpPlayer } from './redux/warp.action';
-import { createShip } from './redux/ship.action';
+// import { createShip } from './redux/ship.action';
 
 // import { createTechLevels } from "./redux/techLevels.action";
 import generatePlanet from './generatePlanet';
@@ -56,11 +56,17 @@ function App() {
   const planets = useSelector(state => state.planets);
   const markets = useSelector(state => state.markets);
 
-  // get ship data
-  const ship = useSelector(state => state.ship);
-
   // get player data
   const player = useSelector(state => state.player);
+
+  // get ship data
+  // const ship = useSelector(state => state.ship);
+
+  // ship data
+
+  // const shipData = ship.flea.displayName;
+
+  // console.log(shipData);
 
   // selected planets data
   const selectedPlanet = useSelector(state => state.selectedPlanet);
