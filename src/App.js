@@ -8,6 +8,7 @@ import { TECH_LEVELS } from './planetData';
 import { POLITICAL_SYSTEMS } from './planetData';
 import { NEWS } from './planetData';
 import { SHIPS } from './shipData';
+import { EQUIPMENT } from './planetData';
 
 // actions
 import { selectPlanet } from './redux/selectPlanet.action';
@@ -165,6 +166,12 @@ function App() {
         </p>
       )}
       {currentPlanetData && <p>News: {NEWS[currentPlanetData.news]}</p>}
+
+      {/* {currentPlanetData && (
+        <p>
+          Equipment: {EQUIPMENT[currentPlanetData.equipment.pulseLaser.price]}
+        </p>
+      )} */}
 
       {currentMarketData && (
         <h2>

@@ -1,5 +1,3 @@
-import { SHIPS } from './shipData';
-
 export const TECH_LEVELS = [
   'Pre-agricultural',
   'Agricultural',

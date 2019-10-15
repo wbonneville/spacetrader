@@ -3,6 +3,7 @@ import { randomRange } from './planetData';
 import { RESOURCE_DEFINITIONS } from './planetData';
 import { POLITICAL_SYSTEMS } from './planetData';
 import { NEWS } from './planetData';
+import { EQUIPMENT } from './planetData';
 import { SHIPS } from './shipData';
 
 const shortid = require('shortid');
@@ -12,6 +13,9 @@ function generatePlanet() {
   const techLevel = Math.floor(Math.random() * TECH_LEVELS.length);
   const politicalSystem = Object.keys(POLITICAL_SYSTEMS)[
     Math.floor(Math.random() * Object.keys(POLITICAL_SYSTEMS).length)
+  ];
+  const equipment = Object.keys(EQUIPMENT)[
+    Math.floor(Math.random() * Object.keys(EQUIPMENT).length)
   ];
   const news = Math.floor(Math.random() * NEWS.length);
   const ships = SHIPS.flea.displayName;
@@ -28,6 +32,7 @@ function generatePlanet() {
     politicalSystem,
     news,
     ships,
+    equipment,
   };
 
   const marketData = {};
