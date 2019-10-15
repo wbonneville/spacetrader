@@ -5,7 +5,6 @@ import styled from 'styled-components';
 // data
 
 import { TECH_LEVELS } from './planetData';
-// import { RESOURCE_DEFINITIONS } from './planetData';
 import { POLITICAL_SYSTEMS } from './planetData';
 
 // actions
@@ -14,9 +13,7 @@ import { createPlanet } from './redux/planet.action';
 import { createMarket } from './redux/market.action';
 import { createPlayer } from './redux/player.action';
 import { warpPlayer } from './redux/warp.action';
-// import { createShip } from './redux/ship.action';
 
-// import { createTechLevels } from "./redux/techLevels.action";
 import generatePlanet from './generatePlanet';
 
 const GalacticChart = styled.canvas`
@@ -59,15 +56,6 @@ function App() {
   // get player data
   const player = useSelector(state => state.player);
 
-  // get ship data
-  // const ship = useSelector(state => state.ship);
-
-  // ship data
-
-  // const shipData = ship.flea.displayName;
-
-  // console.log(shipData);
-
   // selected planets data
   const selectedPlanet = useSelector(state => state.selectedPlanet);
   const selectedPlanetData = planets[selectedPlanet];
@@ -108,38 +96,6 @@ function App() {
     });
   });
 
-  // SHORT RANGE GALACTIC CHART //
-
-  // useEffect(() => {
-  //   // provides context for the canvas to draw things
-  //   const ctxTwo = newCanvas.current.getContext('2d');
-
-  //   // this loop takes planets as an argument and for each unique planet do code
-  //   Object.keys(planets).forEach(planetId => {
-  //     // get planet data
-  //     const planet = planets[planetId];
-
-  //     // set variables to random number on canvas
-
-  //     const x = planet.x * newCanvas.current.width;
-  //     const y = planet.y * newCanvas.current.height;
-
-  //     // draw planet
-  //     ctxTwo.beginPath();
-  //     ctxTwo.moveTo(x, y);
-  //     ctxTwo.ellipse(x, y, 4, 4, 0, 0, Math.PI * 2);
-
-  //     // if selected planet is equal to the current planet ID
-  //     if (selectedPlanet === planetId) {
-  //       ctxTwo.fillStyle = 'blue';
-  //     } else {
-  //       ctxTwo.fillStyle = 'green';
-  //     }
-
-  //     ctxTwo.fill();
-  //   });
-  // });
-
   // CLICK EVENT
 
   const handleCanvasClick = event => {
@@ -172,15 +128,6 @@ function App() {
     const planetId = selectedPlanet;
     dispatch(warpPlayer(planetId));
   };
-
-  // if (selectedPlanetData) {
-  //   console.log(
-  //     selectedPlanetData,
-  //     techLevels,
-  //     selectedPlanetData.techLevel,
-  //     techLevels[selectedPlanetData.techLevel]
-  //   );
-  // }
 
   return (
     <div className="App">
