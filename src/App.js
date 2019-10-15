@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { TECH_LEVELS } from './planetData';
 import { POLITICAL_SYSTEMS } from './planetData';
 import { NEWS } from './planetData';
+import { SHIPS } from './shipData';
 
 // actions
 import { selectPlanet } from './redux/selectPlanet.action';
@@ -176,7 +177,9 @@ function App() {
         </h2>
       )}
 
-      <h1>Selected Planet Data</h1>
+      <h1>Shipyard</h1>
+      {selectedPlanetData && <p> {selectedPlanetData.ships} </p>}
+
       {selectedPlanetData && <p>X-Coordinate: {selectedPlanetData.x}</p>}
       {selectedPlanetData && <p>Y-Coordinate: {selectedPlanetData.y}</p>}
       {selectedPlanetData && (

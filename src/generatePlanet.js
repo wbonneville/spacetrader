@@ -3,6 +3,7 @@ import { randomRange } from './planetData';
 import { RESOURCE_DEFINITIONS } from './planetData';
 import { POLITICAL_SYSTEMS } from './planetData';
 import { NEWS } from './planetData';
+import { SHIPS } from './shipData';
 
 const shortid = require('shortid');
 
@@ -13,6 +14,7 @@ function generatePlanet() {
     Math.floor(Math.random() * Object.keys(POLITICAL_SYSTEMS).length)
   ];
   const news = Math.floor(Math.random() * NEWS.length);
+  const ships = SHIPS.flea.displayName;
 
   // The code below doesn't work! But why?
   // const politicalSystem = Math.floor(
@@ -25,6 +27,7 @@ function generatePlanet() {
     techLevel,
     politicalSystem,
     news,
+    ships,
   };
 
   const marketData = {};

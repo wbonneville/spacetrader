@@ -1,3 +1,5 @@
+import { SHIPS } from './shipData';
+
 export const TECH_LEVELS = [
   'Pre-agricultural',
   'Agricultural',
@@ -120,5 +122,18 @@ export const RESOURCE_DEFINITIONS = {
       monarchy: 0.5,
     },
     techLevel: 8,
+  },
+};
+
+export const EQUIPMENT = {
+  pulseLaser: {
+    price: 100,
+    sellPrice: 85,
+    damage: 10,
+  },
+  pulseShield: {
+    price: 1500,
+    sellPrice: 125,
+    defense: 100,
   },
 };
