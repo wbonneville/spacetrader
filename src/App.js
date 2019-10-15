@@ -14,6 +14,7 @@ import { createPlanet } from './redux/planet.action';
 import { createMarket } from './redux/market.action';
 import { createPlayer } from './redux/player.action';
 import { warpPlayer } from './redux/warp.action';
+import { createShip } from './redux/ship.action';
 
 // import { createTechLevels } from "./redux/techLevels.action";
 import generatePlanet from './generatePlanet';
@@ -54,6 +55,9 @@ function App() {
   // this is the hook that selects planets data from state
   const planets = useSelector(state => state.planets);
   const markets = useSelector(state => state.markets);
+
+  // get ship data
+  const ship = useSelector(state => state.ship);
 
   // get player data
   const player = useSelector(state => state.player);
