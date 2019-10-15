@@ -35,7 +35,7 @@ export function randomRange(min, max) {
 
 export const NEWS = [
   'This planet is currently starving',
-  'This planet is currently thriving under a stable economoy',
+  'This planet is currently thriving under a stable economy',
   'This planet is suffering from a global outbreak of influenza',
 ];
 
