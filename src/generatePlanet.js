@@ -1,9 +1,10 @@
-import { TECH_LEVELS } from "./planetData";
-import { randomRange } from "./planetData";
-import { RESOURCE_DEFINITIONS } from "./planetData";
-import { POLITICAL_SYSTEMS } from "./planetData";
+import { TECH_LEVELS } from './planetData';
+import { randomRange } from './planetData';
+import { RESOURCE_DEFINITIONS } from './planetData';
+import { POLITICAL_SYSTEMS } from './planetData';
+import { NEWS } from './planetData';
 
-const shortid = require("shortid");
+const shortid = require('shortid');
 
 function generatePlanet() {
   const planetId = shortid.generate();
@@ -11,6 +12,7 @@ function generatePlanet() {
   const politicalSystem = Object.keys(POLITICAL_SYSTEMS)[
     Math.floor(Math.random() * Object.keys(POLITICAL_SYSTEMS).length)
   ];
+  const news = Math.floor(Math.random() * NEWS.length);
 
   // The code below doesn't work! But why?
   // const politicalSystem = Math.floor(
@@ -21,7 +23,8 @@ function generatePlanet() {
     x: Math.random(),
     y: Math.random(),
     techLevel,
-    politicalSystem
+    politicalSystem,
+    news,
   };
 
   const marketData = {};

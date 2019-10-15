@@ -6,6 +6,7 @@ import styled from 'styled-components';
 
 import { TECH_LEVELS } from './planetData';
 import { POLITICAL_SYSTEMS } from './planetData';
+import { NEWS } from './planetData';
 
 // actions
 import { selectPlanet } from './redux/selectPlanet.action';
@@ -162,6 +163,8 @@ function App() {
           {POLITICAL_SYSTEMS[currentPlanetData.politicalSystem]}
         </p>
       )}
+      {currentPlanetData && <p>News: {NEWS[currentPlanetData.news]}</p>}
+
       {currentMarketData && (
         <h2>
           Market:{' '}
@@ -185,6 +188,8 @@ function App() {
           {POLITICAL_SYSTEMS[selectedPlanetData.politicalSystem]}
         </p>
       )}
+      {selectedPlanetData && <p>News: {NEWS[selectedPlanetData.news]}</p>}
+
       {selectedMarketData && (
         <h2>
           Market:{' '}
