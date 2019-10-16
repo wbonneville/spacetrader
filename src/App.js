@@ -67,7 +67,9 @@ function App() {
   // current planets data
   const currentPlanetData = planets[player.planetId];
   const currentMarketData = markets[player.planetId];
+  const currentShipData = planets[player.shipId];
 
+  console.log(currentShipData);
   console.log(currentPlanetData);
   console.log(currentMarketData);
   useEffect(() => {
@@ -168,24 +170,10 @@ function App() {
       {currentPlanetData && <p>News: {NEWS[currentPlanetData.news]}</p>}
 
       {/* {currentPlanetData && (
-        <p>
-          Equipment: {EQUIPMENT[currentPlanetData.equipment.pulseLaser.price]}
-        </p>
+        <p>News: {EQUIPMENT[currentPlanetData.equipment]}</p>
       )} */}
 
-      {currentMarketData && (
-        <h2>
-          Market:{' '}
-          {Object.keys(currentMarketData).map(key => (
-            <div>
-              {key}: {currentMarketData[key]}
-            </div>
-          ))}
-        </h2>
-      )}
-
       <h1>Shipyard</h1>
-      {selectedPlanetData && <p> {selectedPlanetData.ships} </p>}
 
       {selectedPlanetData && <p>X-Coordinate: {selectedPlanetData.x}</p>}
       {selectedPlanetData && <p>Y-Coordinate: {selectedPlanetData.y}</p>}

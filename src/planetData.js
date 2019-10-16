@@ -15,7 +15,7 @@ export const POLITICAL_SYSTEMS = {
   communistState: 'Communist State',
   confederacy: 'Confederacy',
   corporateState: 'Corporate State',
-  cyberneticState: 'Cybenetic State',
+  cyberneticState: 'Cybernetic State',
   democracy: 'Democracy',
   dictatorship: 'Dictatorship',
   fascistState: 'Fascist State',
