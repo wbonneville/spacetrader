@@ -14,25 +14,20 @@ function generatePlanet() {
   const politicalSystem = Object.keys(POLITICAL_SYSTEMS)[
     Math.floor(Math.random() * Object.keys(POLITICAL_SYSTEMS).length)
   ];
-  const equipment = Object.keys(EQUIPMENT)[
-    Math.floor(Math.random() * Object.keys(EQUIPMENT).length)
-  ];
   const news = Math.floor(Math.random() * NEWS.length);
+
+  const ships = SHIPS;
+
+  // for (var key in ships) {
+  //   for (var key2 in ships[key]) {
+  //     console.log(key2, ships[key][key2]);
+  //   }
+  // }
 
   // The code below doesn't work! But why?
   // const politicalSystem = Math.floor(
   //   Math.random() * Object.keys(POLITICAL_SYSTEMS).length
   // );
-
-  // for (var key in SHIPS) {
-  //   for (var key2 in SHIPS[key]) {
-  //     console.log(key, key2, SHIPS[key][key2]);
-  //   }
-  // }
-
-  const ships = Object.keys(SHIPS)[
-    Math.floor(Math.random() * Object.keys(SHIPS).length)
-  ];
 
   const planetData = {
     x: Math.random(),
@@ -40,7 +35,6 @@ function generatePlanet() {
     techLevel,
     politicalSystem,
     news,
-    equipment,
     ships,
   };
 

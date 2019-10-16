@@ -1,5 +1,5 @@
-export const SHIPS = {
-  flea: {
+export const SHIPS = [
+  {
     displayName: 'Flea',
     shipId: 1,
     hullStrength: 10,
@@ -8,7 +8,7 @@ export const SHIPS = {
     cargoContainers: 10,
   },
 
-  gnat: {
+  {
     displayName: 'Gnat',
     shipId: 2,
     hullStrength: 10,
@@ -16,7 +16,7 @@ export const SHIPS = {
     fuel: 150,
     cargoContainers: 10,
   },
-  firefly: {
+  {
     displayName: 'Firefly',
     shipId: 3,
     hullStrength: 50,
@@ -24,7 +24,7 @@ export const SHIPS = {
     fuel: 160,
     cargoContainers: 10,
   },
-  mosquito: {
+  {
     displayName: 'Mosquito',
     shipId: 4,
     hullStrength: 10,
@@ -32,7 +32,7 @@ export const SHIPS = {
     fuel: 100,
     cargoContainers: 10,
   },
-  bumblebee: {
+  {
     displayName: 'Bumblebee',
     shipId: 5,
     hullStrength: 10,
@@ -40,7 +40,7 @@ export const SHIPS = {
     fuel: 100,
     cargoContainers: 10,
   },
-  beetle: {
+  {
     displayName: 'Beetle',
     shipId: 6,
     hullStrength: 10,
@@ -48,7 +48,7 @@ export const SHIPS = {
     fuel: 100,
     cargoContainers: 10,
   },
-  hornet: {
+  {
     displayName: 'Hornet',
     shipId: 7,
     hullStrength: 10,
@@ -56,7 +56,7 @@ export const SHIPS = {
     fuel: 100,
     cargoContainers: 10,
   },
-  grasshopper: {
+  {
     displayName: 'Grasshopper',
     shipId: 8,
     hullStrength: 10,
@@ -64,7 +64,7 @@ export const SHIPS = {
     fuel: 100,
     cargoContainers: 10,
   },
-  termite: {
+  {
     displayName: 'Termite',
     shipId: 9,
     hullStrength: 10,
@@ -72,7 +72,7 @@ export const SHIPS = {
     fuel: 100,
     cargoContainers: 10,
   },
-  wasp: {
+  {
     displayName: 'Wasp',
     shipId: 10,
     hullStrength: 10,
@@ -80,4 +80,4 @@ export const SHIPS = {
     fuel: 100,
     cargoContainers: 10,
   },
-};
+];

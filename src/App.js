@@ -134,13 +134,32 @@ function App() {
     dispatch(warpPlayer(planetId));
   };
 
+  // for (var key in ships) {
+  //   for (var key2 in ships[key]) {
+  //     console.log(key, key2, ships[key][key2]);
+  //   }
+  // }
+
+  // ship data
+
+  // ships
+  // key / property
+
+  // <h1>Ship Name </h1>
+  // <p> ship key: property </p>
+  // <p> ship key: property </p>
+  // <p> ship key: property </p>
+  // <p> ship key: property </p>
+  // <p> ship key: property </p>
+
+  if (selectedPlanetData) {
+    console.log();
+  }
+
   return (
     <div className="App">
-      <h1>Selected Planet</h1>
-      {selectedPlanet && <h1>Planet ID: {selectedPlanet}</h1>}
       <h1>Current Planet</h1>
       {player.planetId && <h1>You warped to {player.planetId}</h1>}
-
       <h1>Cash: {player.person.credits}</h1>
       <h1>Rank: {player.person.rank}</h1>
       <h1>Experience: {player.person.experience}</h1>
@@ -149,13 +168,10 @@ function App() {
       <h1>Trader Skill: {player.person.traderSkill}</h1>
       <h1>Engineer Skill: {player.person.engineerSkill}</h1>
       <h1>Empty Cargo Bays: {player.person.emptyBays}</h1>
-
       {player.status.normal && (
         <h1>Player Status: Good Standing {player.status.normal}</h1>
       )}
-
       <h1>Current Planet Data</h1>
-
       {currentPlanetData && <p>X-Coordinate: {currentPlanetData.x}</p>}
       {currentPlanetData && <p>Y-Coordinate: {currentPlanetData.y}</p>}
       {currentPlanetData && (
@@ -168,12 +184,27 @@ function App() {
         </p>
       )}
       {currentPlanetData && <p>News: {NEWS[currentPlanetData.news]}</p>}
-
       {/* {currentPlanetData && (
         <p>News: {EQUIPMENT[currentPlanetData.equipment]}</p>
       )} */}
-
       <h1>Shipyard</h1>
+
+      <h1>Selected Planet Data</h1>
+
+      {selectedPlanet && <h1>Planet ID: {selectedPlanet}</h1>}
+
+      {selectedPlanetData && (
+        <div>
+          {selectedPlanetData.ships.map(ship => (
+            <p key={ship.shipId}>
+              {ship.displayName}
+              <br></br>
+              <br></br>
+              Hull Strength: {ship.hullStrength}
+            </p>
+          ))}
+        </div>
+      )}
 
       {selectedPlanetData && <p>X-Coordinate: {selectedPlanetData.x}</p>}
       {selectedPlanetData && <p>Y-Coordinate: {selectedPlanetData.y}</p>}
@@ -187,7 +218,6 @@ function App() {
         </p>
       )}
       {selectedPlanetData && <p>News: {NEWS[selectedPlanetData.news]}</p>}
-
       {selectedMarketData && (
         <h2>
           Market:{' '}
@@ -198,9 +228,7 @@ function App() {
           ))}
         </h2>
       )}
-
       <h1>Galactic Chart</h1>
-
       {/* Move ship state to other planet */}
       {/* Warp to planet */}
       <h1>
