@@ -7,8 +7,7 @@ import styled from 'styled-components';
 import { TECH_LEVELS } from './planetData';
 import { POLITICAL_SYSTEMS } from './planetData';
 import { NEWS } from './planetData';
-import { SHIPS } from './shipData';
-import { EQUIPMENT } from './planetData';
+// import { EQUIPMENT } from './planetData';
 
 // actions
 import { selectPlanet } from './redux/selectPlanet.action';
@@ -158,97 +157,99 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Current Planet</h1>
-      {player.planetId && <h1>You warped to {player.planetId}</h1>}
-      <h1>Cash: {player.person.credits}</h1>
-      <h1>Rank: {player.person.rank}</h1>
-      <h1>Experience: {player.person.experience}</h1>
-      <h1>Piloting Skill: {player.person.pilotSkill}</h1>
-      <h1>Fighter Skill: {player.person.fighterSkill}</h1>
-      <h1>Trader Skill: {player.person.traderSkill}</h1>
-      <h1>Engineer Skill: {player.person.engineerSkill}</h1>
-      <h1>Empty Cargo Bays: {player.person.emptyBays}</h1>
-      {player.status.normal && (
-        <h1>Player Status: Good Standing {player.status.normal}</h1>
-      )}
-      <h1>Current Planet Data</h1>
-      {currentPlanetData && <p>X-Coordinate: {currentPlanetData.x}</p>}
-      {currentPlanetData && <p>Y-Coordinate: {currentPlanetData.y}</p>}
-      {currentPlanetData && (
-        <p>Tech Level: {TECH_LEVELS[currentPlanetData.techLevel]}</p>
-      )}
-      {currentPlanetData && (
-        <p>
-          Political System:{' '}
-          {POLITICAL_SYSTEMS[currentPlanetData.politicalSystem]}
-        </p>
-      )}
-      {currentPlanetData && <p>News: {NEWS[currentPlanetData.news]}</p>}
-      {/* {currentPlanetData && (
+      <div className="row center-xs">
+        <div className="col-xs-4">
+          {player.planetId && <h1>You warped to {player.planetId}</h1>}
+
+          <h1>Current Planet Data</h1>
+          {currentPlanetData && <p>X-Coordinate: {currentPlanetData.x}</p>}
+          {currentPlanetData && <p>Y-Coordinate: {currentPlanetData.y}</p>}
+          {currentPlanetData && (
+            <p>Tech Level: {TECH_LEVELS[currentPlanetData.techLevel]}</p>
+          )}
+          {currentPlanetData && (
+            <p>
+              Political System:{' '}
+              {POLITICAL_SYSTEMS[currentPlanetData.politicalSystem]}
+            </p>
+          )}
+          {currentPlanetData && <p>News: {NEWS[currentPlanetData.news]}</p>}
+          {/* {currentPlanetData && (
         <p>News: {EQUIPMENT[currentPlanetData.equipment]}</p>
       )} */}
-      <h1>Shipyard</h1>
-
-      <h1>Selected Planet Data</h1>
-
-      {selectedPlanet && <h1>Planet ID: {selectedPlanet}</h1>}
-
-      {selectedPlanetData && (
-        <div>
-          {selectedPlanetData.ships.map(ship => (
-            <p key={ship.shipId}>
-              {ship.displayName}
-              <br></br>
-              <br></br>
-              Hull Strength: {ship.hullStrength}
-            </p>
-          ))}
+          {/* <p>Cash: {player.person.credits}</p>
+          <p>Rank: {player.person.rank}</p>
+          <p>Experience: {player.person.experience}</p>
+          <p>Piloting Skill: {player.person.pilotSkill}</p>
+          <p>Fighter Skill: {player.person.fighterSkill}</p>
+          <p>Trader Skill: {player.person.traderSkill}</p>
+          <p>Engineer Skill: {player.person.engineerSkill}</p>
+          <p>Empty Cargo Bays: {player.person.emptyBays}</p>
+          {player.status.normal && (
+            <p>Player Status: Good Standing {player.status.normal}</p>
+          )} */}
         </div>
-      )}
 
-      {selectedPlanetData && <p>X-Coordinate: {selectedPlanetData.x}</p>}
-      {selectedPlanetData && <p>Y-Coordinate: {selectedPlanetData.y}</p>}
-      {selectedPlanetData && (
-        <p>Tech Level: {TECH_LEVELS[selectedPlanetData.techLevel]}</p>
-      )}
-      {selectedPlanetData && (
-        <p>
-          Political System:{' '}
-          {POLITICAL_SYSTEMS[selectedPlanetData.politicalSystem]}
-        </p>
-      )}
-      {selectedPlanetData && <p>News: {NEWS[selectedPlanetData.news]}</p>}
-      {selectedMarketData && (
-        <h2>
-          Market:{' '}
-          {Object.keys(selectedMarketData).map(key => (
+        <div className="col-xs-4">
+          <h1>Selected Planet Data</h1>
+
+          {selectedPlanet && <h1>Planet ID: {selectedPlanet}</h1>}
+
+          {selectedPlanetData && (
             <div>
-              {key}: {selectedMarketData[key]}
+              {selectedPlanetData.ships.map(ship => (
+                <p key={ship.shipId}>
+                  {ship.displayName}
+                  <br></br>
+                  <br></br>
+                  Hull Strength: {ship.hullStrength}
+                </p>
+              ))}
             </div>
-          ))}
-        </h2>
-      )}
-      <h1>Galactic Chart</h1>
-      {/* Move ship state to other planet */}
-      {/* Warp to planet */}
-      <h1>
-        <button onClick={warp}>Warp</button>
-      </h1>
-      {/* <h1>You are now on planet {currentPlanetData} </h1> */}
-      <GalacticChart
-        id="a"
-        onClick={handleCanvasClick}
-        ref={canvas}
-        width={800}
-        height={400}
-      />
-      {/* <GalacticChartTwo
-        id="b"
-        onClick={handleCanvasClick}
-        ref={newCanvas}
-        width={800}
-        height={400}
-      /> */}
+          )}
+
+          {selectedPlanetData && <p>X-Coordinate: {selectedPlanetData.x}</p>}
+          {selectedPlanetData && <p>Y-Coordinate: {selectedPlanetData.y}</p>}
+          {selectedPlanetData && (
+            <p>Tech Level: {TECH_LEVELS[selectedPlanetData.techLevel]}</p>
+          )}
+          {selectedPlanetData && (
+            <p>
+              Political System:{' '}
+              {POLITICAL_SYSTEMS[selectedPlanetData.politicalSystem]}
+            </p>
+          )}
+          {selectedPlanetData && <p>News: {NEWS[selectedPlanetData.news]}</p>}
+          {selectedMarketData && (
+            <h2>
+              Market:{' '}
+              {Object.keys(selectedMarketData).map(key => (
+                <div>
+                  {key}: {selectedMarketData[key]}
+                </div>
+              ))}
+            </h2>
+          )}
+        </div>
+      </div>
+      <div className="row center-xs">
+        <div className="col-xs-12">
+          <h1>Galactic Chart</h1>
+          {/* Move ship state to other planet */}
+          {/* Warp to planet */}
+          <h1>
+            <button onClick={warp}>Warp</button>
+          </h1>
+          {/* <h1>You are now on planet {currentPlanetData} </h1> */}
+          <GalacticChart
+            id="a"
+            onClick={handleCanvasClick}
+            ref={canvas}
+            width={800}
+            height={400}
+          />
+        </div>
+      </div>
     </div>
   );
 }
