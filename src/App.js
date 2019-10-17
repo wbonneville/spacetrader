@@ -24,12 +24,6 @@ const GalacticChart = styled.canvas`
   height: 200px;
 `;
 
-// const GalacticChartTwo = styled(GalacticChart)`
-//   background-color: #f7f7f7;
-//   width: 200px;
-//   height: 100px;
-// `;
-
 function App() {
   // dispatch hook
   const dispatch = useDispatch();
@@ -66,11 +60,7 @@ function App() {
   // current planets data
   const currentPlanetData = planets[player.planetId];
   const currentMarketData = markets[player.planetId];
-  const currentShipData = planets[player.shipId];
 
-  console.log(currentShipData);
-  console.log(currentPlanetData);
-  console.log(currentMarketData);
   useEffect(() => {
     // provides context for the canvas to draw things
     const ctxOne = canvas.current.getContext('2d');
@@ -132,28 +122,6 @@ function App() {
     const planetId = selectedPlanet;
     dispatch(warpPlayer(planetId));
   };
-
-  // for (var key in ships) {
-  //   for (var key2 in ships[key]) {
-  //     console.log(key, key2, ships[key][key2]);
-  //   }
-  // }
-
-  // ship data
-
-  // ships
-  // key / property
-
-  // <h1>Ship Name </h1>
-  // <p> ship key: property </p>
-  // <p> ship key: property </p>
-  // <p> ship key: property </p>
-  // <p> ship key: property </p>
-  // <p> ship key: property </p>
-
-  if (selectedPlanetData) {
-    console.log();
-  }
 
   return (
     <div className="App">
