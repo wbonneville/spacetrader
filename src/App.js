@@ -159,25 +159,25 @@ function App() {
     <div className="App">
       <div className="row center-xs">
         <div className="col-xs-4">
-          {player.planetId && <h1>You warped to {player.planetId}</h1>}
+          <h4>Current Planet Data</h4>
+          {player.planetId && <p>You warped to {player.planetId}</p>}
+          {currentPlanetData && (
+            <React.Fragment>
+              <p> X-Coordinate: {currentPlanetData.x}</p>
+              <p>Y-Coordinate: {currentPlanetData.y}</p>
+              <p>Tech Level: {TECH_LEVELS[currentPlanetData.techLevel]}</p>
+              <p>
+                Political System:
+                {POLITICAL_SYSTEMS[currentPlanetData.politicalSystem]}
+              </p>
+              <p> News: {NEWS[currentPlanetData.news]}</p>
+            </React.Fragment>
+          )}
+        </div>
 
-          <h1>Current Planet Data</h1>
-          {currentPlanetData && <p>X-Coordinate: {currentPlanetData.x}</p>}
-          {currentPlanetData && <p>Y-Coordinate: {currentPlanetData.y}</p>}
-          {currentPlanetData && (
-            <p>Tech Level: {TECH_LEVELS[currentPlanetData.techLevel]}</p>
-          )}
-          {currentPlanetData && (
-            <p>
-              Political System:{' '}
-              {POLITICAL_SYSTEMS[currentPlanetData.politicalSystem]}
-            </p>
-          )}
-          {currentPlanetData && <p>News: {NEWS[currentPlanetData.news]}</p>}
-          {/* {currentPlanetData && (
-        <p>News: {EQUIPMENT[currentPlanetData.equipment]}</p>
-      )} */}
-          {/* <p>Cash: {player.person.credits}</p>
+        <div className="col-xs-4">
+          <h4>Player Stats</h4>
+          <p>Cash: {player.person.credits}</p>
           <p>Rank: {player.person.rank}</p>
           <p>Experience: {player.person.experience}</p>
           <p>Piloting Skill: {player.person.pilotSkill}</p>
@@ -187,53 +187,39 @@ function App() {
           <p>Empty Cargo Bays: {player.person.emptyBays}</p>
           {player.status.normal && (
             <p>Player Status: Good Standing {player.status.normal}</p>
-          )} */}
+          )}
         </div>
 
         <div className="col-xs-4">
-          <h1>Selected Planet Data</h1>
+          <h4>Selected Planet Data</h4>
 
-          {selectedPlanet && <h1>Planet ID: {selectedPlanet}</h1>}
+          {selectedPlanet && <p>Planet ID: {selectedPlanet}</p>}
 
           {selectedPlanetData && (
-            <div>
-              {selectedPlanetData.ships.map(ship => (
-                <p key={ship.shipId}>
-                  {ship.displayName}
-                  <br></br>
-                  <br></br>
-                  Hull Strength: {ship.hullStrength}
-                </p>
-              ))}
-            </div>
-          )}
-
-          {selectedPlanetData && <p>X-Coordinate: {selectedPlanetData.x}</p>}
-          {selectedPlanetData && <p>Y-Coordinate: {selectedPlanetData.y}</p>}
-          {selectedPlanetData && (
-            <p>Tech Level: {TECH_LEVELS[selectedPlanetData.techLevel]}</p>
-          )}
-          {selectedPlanetData && (
-            <p>
-              Political System:{' '}
-              {POLITICAL_SYSTEMS[selectedPlanetData.politicalSystem]}
-            </p>
-          )}
-          {selectedPlanetData && <p>News: {NEWS[selectedPlanetData.news]}</p>}
-          {selectedMarketData && (
-            <h2>
-              Market:{' '}
-              {Object.keys(selectedMarketData).map(key => (
-                <div>
-                  {key}: {selectedMarketData[key]}
-                </div>
-              ))}
-            </h2>
+            <React.Fragment>
+              <p>X-Coordinate: {selectedPlanetData.x}</p>
+              <p>Y-Coordinate: {selectedPlanetData.y}</p>
+              <p>Tech Level: {TECH_LEVELS[selectedPlanetData.techLevel]}</p>
+              <p>
+                Political System:{' '}
+                {POLITICAL_SYSTEMS[selectedPlanetData.politicalSystem]}
+              </p>
+              <p>News: {NEWS[selectedPlanetData.news]}</p>
+              <p>
+                Market:{' '}
+                {Object.keys(selectedMarketData).map(key => (
+                  <div>
+                    {key}: {selectedMarketData[key]}
+                  </div>
+                ))}
+              </p>
+            </React.Fragment>
           )}
         </div>
       </div>
+
       <div className="row center-xs">
-        <div className="col-xs-12">
+        <div className="col-xs-6">
           <h1>Galactic Chart</h1>
           {/* Move ship state to other planet */}
           {/* Warp to planet */}
@@ -248,6 +234,23 @@ function App() {
             width={800}
             height={400}
           />
+        </div>
+      </div>
+      <div className="row center-xs">
+        <div className="col-xs-6">
+          <h4>Ships</h4>
+          {selectedPlanetData && (
+            <div>
+              {selectedPlanetData.ships.map(ship => (
+                <p key={ship.shipId}>
+                  {ship.displayName}
+                  <br></br>
+                  <br></br>
+                  Hull Strength: {ship.hullStrength}
+                </p>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
