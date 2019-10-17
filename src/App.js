@@ -171,6 +171,21 @@ function App() {
                 {POLITICAL_SYSTEMS[currentPlanetData.politicalSystem]}
               </p>
               <p> News: {NEWS[currentPlanetData.news]}</p>
+              <p>
+                Market:{' '}
+                {Object.keys(currentMarketData).map(key => (
+                  <div>
+                    {key}: {currentMarketData[key]}
+                  </div>
+                ))}
+              </p>
+              <div>
+                {currentPlanetData.ships.map(ship => (
+                  <p key={ship.shipId}>
+                    {ship.displayName}: Hull Strength: {ship.hullStrength}
+                  </p>
+                ))}
+              </div>
             </React.Fragment>
           )}
         </div>
@@ -213,6 +228,13 @@ function App() {
                   </div>
                 ))}
               </p>
+              <div>
+                {selectedPlanetData.ships.map(ship => (
+                  <p key={ship.shipId}>
+                    {ship.displayName}: Hull Strength: {ship.hullStrength}
+                  </p>
+                ))}
+              </div>
             </React.Fragment>
           )}
         </div>
@@ -234,23 +256,6 @@ function App() {
             width={800}
             height={400}
           />
-        </div>
-      </div>
-      <div className="row center-xs">
-        <div className="col-xs-6">
-          <h4>Ships</h4>
-          {selectedPlanetData && (
-            <div>
-              {selectedPlanetData.ships.map(ship => (
-                <p key={ship.shipId}>
-                  {ship.displayName}
-                  <br></br>
-                  <br></br>
-                  Hull Strength: {ship.hullStrength}
-                </p>
-              ))}
-            </div>
-          )}
         </div>
       </div>
     </div>
