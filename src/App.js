@@ -19,9 +19,9 @@ import { warpPlayer } from './redux/warp.action';
 import generatePlanet from './generatePlanet';
 
 const GalacticChart = styled.canvas`
-  background-color: #f6f6f6;
-  width: 400px;
-  height: 200px;
+  background-color: black;
+  width: 1000px;
+  height: 500px;
 `;
 
 function App() {
@@ -83,7 +83,7 @@ function App() {
       if (selectedPlanet === planetId) {
         ctxOne.fillStyle = 'blue';
       } else {
-        ctxOne.fillStyle = 'green';
+        ctxOne.fillStyle = 'white';
       }
 
       ctxOne.fill();
@@ -209,7 +209,7 @@ function App() {
       </div>
 
       <div className="row center-xs">
-        <div className="col-xs-6">
+        <div className="col-xs-12">
           <h1>Galactic Chart</h1>
           {/* Move ship state to other planet */}
           {/* Warp to planet */}
@@ -221,8 +221,8 @@ function App() {
             id="a"
             onClick={handleCanvasClick}
             ref={canvas}
-            width={800}
-            height={400}
+            width={2000}
+            height={1000}
           />
         </div>
       </div>
