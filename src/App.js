@@ -22,6 +22,7 @@ const GalacticChart = styled.canvas`
   background-color: black;
   width: 1000px;
   height: 500px;
+  margin: 0px;
 `;
 
 function App() {
@@ -78,7 +79,7 @@ function App() {
       // draw planet
       ctxOne.beginPath();
       ctxOne.moveTo(x, y);
-      ctxOne.ellipse(x, y, 4, 4, 0, 0, Math.PI * 2);
+      ctxOne.ellipse(x, y, 2, 2, 0, 0, Math.PI * 2);
       // if selected planet is equal to the current planet ID
       if (selectedPlanet === planetId) {
         ctxOne.fillStyle = 'blue';
