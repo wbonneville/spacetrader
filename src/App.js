@@ -25,6 +25,12 @@ const GalacticChart = styled.canvas`
   margin: 0px;
 `;
 
+const CurrentStyle = styled.div`
+  & p {
+    display: inline-block;
+  }
+`;
+
 function App() {
   // dispatch hook
   const dispatch = useDispatch();
@@ -36,7 +42,7 @@ function App() {
   // called when app is rendered
   useEffect(() => {
     // loop creates x instances of planets
-    for (var i = 0; i < 200; i++) {
+    for (var i = 0; i < 400; i++) {
       const { planetId, planetData, marketData } = generatePlanet();
       // dispatches action to bring data into the store
       dispatch(createPlanet(planetId, planetData));
@@ -130,16 +136,34 @@ function App() {
         <div className="col-xs-4">
           <h4>Current Planet Data</h4>
           {player.planetId && <p>You warped to {player.planetId}</p>}
-          {currentPlanetData && (
-            <React.Fragment>
-              <p> X-Coordinate: {currentPlanetData.x}</p>
-              <p>Y-Coordinate: {currentPlanetData.y}</p>
-              <p>Tech Level: {TECH_LEVELS[currentPlanetData.techLevel]}</p>
-              <p>
-                Political System:
-                {POLITICAL_SYSTEMS[currentPlanetData.politicalSystem]}
-              </p>
-              <p> News: {NEWS[currentPlanetData.news]}</p>
+
+          <CurrentStyle>
+            <p>X-Coordinate:</p>{' '}
+            {currentPlanetData && <p> {currentPlanetData.x}</p>}
+          </CurrentStyle>
+          <div>
+            <p>Y-Coordinate:</p>
+            {currentPlanetData && <p> {currentPlanetData.y}</p>}
+          </div>
+          <div>
+            <p>Tech Level: </p>
+            {currentPlanetData && (
+              <p> {TECH_LEVELS[currentPlanetData.techLevel]}</p>
+            )}
+          </div>
+          <div>
+            <p>Political System: </p>
+            {currentPlanetData && (
+              <p> {POLITICAL_SYSTEMS[currentPlanetData.politicalSystem]}</p>
+            )}
+          </div>
+          <div>
+            <p>News: </p>
+            {currentPlanetData && <p> {NEWS[currentPlanetData.news]}</p>}
+          </div>
+          <div>
+            <p>Market: </p>
+            {currentPlanetData && (
               <p>
                 Market:{' '}
                 {Object.keys(currentMarketData).map(key => (
@@ -148,14 +172,17 @@ function App() {
                   </div>
                 ))}
               </p>
-              <div>
-                {currentPlanetData.ships.map(ship => (
-                  <p key={ship.shipId}>
-                    {ship.displayName}: Hull Strength: {ship.hullStrength}
-                  </p>
-                ))}
-              </div>
-            </React.Fragment>
+            )}{' '}
+          </div>
+
+          {currentPlanetData && (
+            <div>
+              {currentPlanetData.ships.map(ship => (
+                <p key={ship.shipId}>
+                  {ship.displayName}: Hull Strength: {ship.hullStrength}
+                </p>
+              ))}
+            </div>
           )}
         </div>
 
