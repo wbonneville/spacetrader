@@ -18,16 +18,55 @@ import { warpPlayer } from './redux/warp.action';
 
 import generatePlanet from './generatePlanet';
 
+const Wrapper = styled.div`
+  margin-top: 4%;
+  margin-right: 4%;
+  margin-left: 4%;
+  margin-bottom: 4%;
+  font-family: 'Playfair';
+`;
+
+const Header = styled.div`
+  & h1 {
+    font-size: 46px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+  }
+`;
+
+const CurrentStyleRow = styled.div`
+  color: white;
+`;
+
 const GalacticChart = styled.canvas`
   background-color: black;
-  width: 1000px;
-  height: 500px;
+  width: 500px;
+  height: 250px;
   margin: 0px;
+  border: 1px solid white;
 `;
+
+const CurrentStyleCol = styled.div``;
 
 const CurrentStyle = styled.div`
   & p {
     display: inline-block;
+    font-size: 12px;
+  }
+`;
+
+const Button = styled.button`
+  font-size: 20px;
+  width: 150px;
+  background-color: black;
+  color: white;
+  border: none;
+`;
+
+const PlayerStyle = styled.div`
+  & p {
+    font-size: 12px;
   }
 `;
 
@@ -131,37 +170,63 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <Wrapper className="App">
+      <Header className="row center-xs">
+        <div className="col-xs-12">
+          <h1>Space Trader</h1>
+        </div>
+      </Header>
       <div className="row center-xs">
-        <div className="col-xs-4">
-          <h4>Current Planet Data</h4>
+        <div className="col-xs-6">
+          <h1>Galactic Chart</h1>
+          {/* Move ship state to other planet */}
+          {/* Warp to planet */}
+
+          {/* <h1>You are now on planet {currentPlanetData} </h1> */}
+          <GalacticChart
+            id="a"
+            onClick={handleCanvasClick}
+            ref={canvas}
+            width={1000}
+            height={500}
+          />
+          <h1>
+            <Button onClick={warp}>Warp</Button>
+          </h1>
+        </div>
+      </div>
+      <CurrentStyleRow className="row center-xs">
+        <CurrentStyleCol className="col-xs-4">
+          <h3>Current Planet Info</h3>
           {player.planetId && <p>You warped to {player.planetId}</p>}
 
           <CurrentStyle>
-            <p>X-Coordinate:</p>{' '}
+            <p>
+              <strong>X-Coordinate:</strong>
+            </p>{' '}
             {currentPlanetData && <p> {currentPlanetData.x}</p>}
           </CurrentStyle>
-          <div>
+          <CurrentStyle>
             <p>Y-Coordinate:</p>
             {currentPlanetData && <p> {currentPlanetData.y}</p>}
-          </div>
-          <div>
+          </CurrentStyle>
+          <CurrentStyle>
             <p>Tech Level: </p>
             {currentPlanetData && (
               <p> {TECH_LEVELS[currentPlanetData.techLevel]}</p>
             )}
-          </div>
-          <div>
+          </CurrentStyle>
+          <CurrentStyle>
             <p>Political System: </p>
             {currentPlanetData && (
               <p> {POLITICAL_SYSTEMS[currentPlanetData.politicalSystem]}</p>
             )}
-          </div>
-          <div>
+          </CurrentStyle>
+          <CurrentStyle>
             <p>News: </p>
             {currentPlanetData && <p> {NEWS[currentPlanetData.news]}</p>}
-          </div>
-          <div>
+          </CurrentStyle>
+          <CurrentStyle>
             <p>Market: </p>
             {currentPlanetData && (
               <p>
@@ -173,7 +238,7 @@ function App() {
                 ))}
               </p>
             )}{' '}
-          </div>
+          </CurrentStyle>
 
           {currentPlanetData && (
             <div>
@@ -184,23 +249,7 @@ function App() {
               ))}
             </div>
           )}
-        </div>
-
-        <div className="col-xs-4">
-          <h4>Player Stats</h4>
-          <p>Cash: {player.person.credits}</p>
-          <p>Rank: {player.person.rank}</p>
-          <p>Experience: {player.person.experience}</p>
-          <p>Piloting Skill: {player.person.pilotSkill}</p>
-          <p>Fighter Skill: {player.person.fighterSkill}</p>
-          <p>Trader Skill: {player.person.traderSkill}</p>
-          <p>Engineer Skill: {player.person.engineerSkill}</p>
-          <p>Empty Cargo Bays: {player.person.emptyBays}</p>
-          {player.status.normal && (
-            <p>Player Status: Good Standing {player.status.normal}</p>
-          )}
-        </div>
-
+        </CurrentStyleCol>
         <div className="col-xs-4">
           <h4>Selected Planet Data</h4>
 
@@ -234,27 +283,22 @@ function App() {
             </React.Fragment>
           )}
         </div>
-      </div>
-
-      <div className="row center-xs">
-        <div className="col-xs-12">
-          <h1>Galactic Chart</h1>
-          {/* Move ship state to other planet */}
-          {/* Warp to planet */}
-          <h1>
-            <button onClick={warp}>Warp</button>
-          </h1>
-          {/* <h1>You are now on planet {currentPlanetData} </h1> */}
-          <GalacticChart
-            id="a"
-            onClick={handleCanvasClick}
-            ref={canvas}
-            width={2000}
-            height={1000}
-          />
-        </div>
-      </div>
-    </div>
+        <PlayerStyle className="col-xs-4">
+          <h4>Player Stats</h4>
+          <p>Cash: {player.person.credits}</p>
+          <p>Rank: {player.person.rank}</p>
+          <p>Experience: {player.person.experience}</p>
+          <p>Piloting Skill: {player.person.pilotSkill}</p>
+          <p>Fighter Skill: {player.person.fighterSkill}</p>
+          <p>Trader Skill: {player.person.traderSkill}</p>
+          <p>Engineer Skill: {player.person.engineerSkill}</p>
+          <p>Empty Cargo Bays: {player.person.emptyBays}</p>
+          {player.status.normal && (
+            <p>Player Status: Good Standing {player.status.normal}</p>
+          )}
+        </PlayerStyle>
+      </CurrentStyleRow>
+    </Wrapper>
   );
 }
 
