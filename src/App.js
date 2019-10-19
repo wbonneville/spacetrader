@@ -246,10 +246,9 @@ function App() {
         </CurrentStyleCol>
         <div className="col-xs-4">
           <h1>Galactic Chart</h1>
-          {/* Move ship state to other planet */}
-          {/* Warp to planet */}
-
-          {/* <h1>You are now on planet {currentPlanetData} </h1> */}
+          <h1>
+            <Button onClick={warp}>Warp</Button>
+          </h1>
           <GalacticChart
             id="a"
             onClick={handleCanvasClick}
@@ -257,9 +256,7 @@ function App() {
             width={1000}
             height={500}
           />
-          <h1>
-            <Button onClick={warp}>Warp</Button>
-          </h1>
+
           <PlayerStyle className="col-xs-4">
             <h4>Player Stats</h4>
             <p>Cash: {player.person.credits}</p>
