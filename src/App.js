@@ -57,7 +57,8 @@ const GalacticChartStyles = styled.div`
 
 const CurrentStyleCol = styled.div`
   text-align: left;
-  padding: 5%;
+  padding-top: 2%;
+  padding-left: 5%;
   background-color: #0c0c0c;
   border: 1px solid white;
   color: white;
@@ -81,6 +82,8 @@ const SelectedStyle = styled.div`
 `;
 
 const Button = styled.button`
+  margin-top: 2%;
+  margin-bottom: 1%;
   padding: 10px;
   font-size: 10px;
   width: 100px;
@@ -91,10 +94,16 @@ const Button = styled.button`
 `;
 
 const PlayerStyle = styled.div`
-  margin: 0 auto;
+  text-align: left;
+  background-color: #0c0c0c;
+  padding-top: 2%;
+  padding-left: 5%;
+  border: 1px solid white;
+  margin-top: 4%;
+  margin-left: 11.9%;
   color: white;
   & p {
-    font-size: 12px;
+    font-size: 14px;
   }
 `;
 
@@ -241,11 +250,13 @@ function App() {
           <h1>Space Walker</h1>
         </div>
       </Header>
+
       <div className="row center-xs">
         <CurrentStyleCol className="col-xs-4">
           <SystemInfoTitle>System Info</SystemInfoTitle>
-          <Button onClick={warp}>Warp</Button>
           <p>{selectedPlanet && <p>Warp to {selectedPlanet}?</p>}</p>
+
+          <Button onClick={warp}>Warp</Button>
           <p>{player.planetId && <p>Current Planet: {player.planetId}</p>}</p>
 
           <CurrentStyle>
@@ -296,14 +307,16 @@ function App() {
               {currentPlanetData.ships.map(ship => (
                 <p key={ship.shipId}>
                   {ship.displayName}: Hull Strength: {ship.hullStrength}
+                  {ship.displayName}: Shield: {ship.shield}
+                  {ship.displayName}: Fuel: {ship.fuel}
+                  {ship.displayName}: Cargo Holds: {ship.cargoContainers}
                 </p>
               ))}
             </div>
           )}
         </CurrentStyleCol>
-        <GalacticChartStyles className="col-xs-8">
-          <h1>Galactic Chart</h1>
 
+        <GalacticChartStyles className="col-xs-8">
           <GalacticChart
             id="a"
             onClick={handleCanvasClick}
@@ -311,22 +324,24 @@ function App() {
             width={1200}
             height={600}
           />
-
-          <PlayerStyle className="col-xs-4">
-            <h4>Player Stats</h4>
-            <p>Cash: {player.person.credits}</p>
-            <p>Rank: {player.person.rank}</p>
-            <p>Experience: {player.person.experience}</p>
-            <p>Piloting Skill: {player.person.pilotSkill}</p>
-            <p>Fighter Skill: {player.person.fighterSkill}</p>
-            <p>Trader Skill: {player.person.traderSkill}</p>
-            <p>Engineer Skill: {player.person.engineerSkill}</p>
-            <p>Empty Cargo Bays: {player.person.emptyBays}</p>
-            {player.status.normal && (
-              <p>Player Status: Good Standing {player.status.normal}</p>
-            )}
-          </PlayerStyle>
+          <div className="row">
+            <PlayerStyle className="col-xs-4">
+              <h4>Player Stats</h4>
+              <p>Cash: {player.person.credits}</p>
+              <p>Rank: {player.person.rank}</p>
+              <p>Experience: {player.person.experience}</p>
+              <p>Piloting Skill: {player.person.pilotSkill}</p>
+              <p>Fighter Skill: {player.person.fighterSkill}</p>
+              <p>Trader Skill: {player.person.traderSkill}</p>
+              <p>Engineer Skill: {player.person.engineerSkill}</p>
+              <p>Empty Cargo Bays: {player.person.emptyBays}</p>
+              {player.status.normal && (
+                <p>Player Status: Good Standing {player.status.normal}</p>
+              )}
+            </PlayerStyle>
+          </div>
         </GalacticChartStyles>
+
         {/* <SelectedStyle className="col-xs-4">
           <h4>Selected Planet Data</h4>
 
