@@ -28,7 +28,7 @@ const Wrapper = styled.div`
 
 const Header = styled.div`
   & h1 {
-    font-size: 75px;
+    font-size: 55px;
     color: white;
     text-transform: uppercase;
     letter-spacing: 8px;
@@ -97,9 +97,12 @@ const PlayerStyle = styled.div`
   text-align: left;
   background-color: #0c0c0c;
   padding-top: 2%;
+  padding-bottom: 2%;
+
   padding-left: 5%;
   border: 1px solid white;
   margin-top: 4%;
+
   margin-left: 11.9%;
   color: white;
   & p {
@@ -123,7 +126,7 @@ const CurrentMarketBtns = styled.div`
     background-color: white;
   }
   & .number {
-    background-color: #acdaf0;
+    background-color: #ee8f8a;
   }
   & .buy {
     background-color: white;
@@ -198,10 +201,10 @@ function App() {
       // draw planet
       ctxOne.beginPath();
       ctxOne.moveTo(x, y);
-      ctxOne.ellipse(x, y, 2, 2, 0, 0, Math.PI * 2);
+      ctxOne.ellipse(x, y, 3, 3, 0, 0, Math.PI * 2);
       // if selected planet is equal to the current planet ID
       if (selectedPlanet === planetId) {
-        ctxOne.fillStyle = 'blue';
+        ctxOne.fillStyle = '#F31B10';
       } else {
         ctxOne.fillStyle = 'white';
       }
@@ -247,7 +250,7 @@ function App() {
     <Wrapper className="App">
       <Header className="row">
         <div className="col-xs-12">
-          <h1>Space Walker</h1>
+          <h1> Space Walker </h1>
         </div>
       </Header>
 
@@ -266,23 +269,31 @@ function App() {
             {currentPlanetData && <p> {currentPlanetData.x}</p>}
           </CurrentStyle>
           <CurrentStyle>
-            <p>Y-Coordinate:</p>
+            <strong>
+              <p>Y-Coordinate:</p>
+            </strong>{' '}
             {currentPlanetData && <p> {currentPlanetData.y}</p>}
           </CurrentStyle>
           <CurrentStyle>
-            <p>Tech Level: </p>
+            <strong>
+              <p>Tech Level: </p>
+            </strong>{' '}
             {currentPlanetData && (
               <p> {TECH_LEVELS[currentPlanetData.techLevel]}</p>
             )}
           </CurrentStyle>
           <CurrentStyle>
-            <p>Political System: </p>
+            <strong>
+              <p>Political System: </p>
+            </strong>{' '}
             {currentPlanetData && (
               <p> {POLITICAL_SYSTEMS[currentPlanetData.politicalSystem]}</p>
             )}
           </CurrentStyle>
           <CurrentStyle>
-            <p>News: </p>
+            <strong>
+              <p>News: </p>
+            </strong>{' '}
             {currentPlanetData && <p> {NEWS[currentPlanetData.news]}</p>}
           </CurrentStyle>
           <MarketTitle>Market</MarketTitle>
@@ -306,10 +317,17 @@ function App() {
             <div>
               {currentPlanetData.ships.map(ship => (
                 <p key={ship.shipId}>
-                  {ship.displayName}: Hull Strength: {ship.hullStrength}
-                  {ship.displayName}: Shield: {ship.shield}
-                  {ship.displayName}: Fuel: {ship.fuel}
-                  {ship.displayName}: Cargo Holds: {ship.cargoContainers}
+                  <strong>{ship.displayName}</strong>
+                  <br></br>
+                  <br></br>
+                  Hull Strength: {ship.hullStrength}
+                  <br></br>
+                  Shield: {ship.shield}
+                  <br></br>
+                  Fuel: {ship.fuel}
+                  <br></br>
+                  Cargo Holds: {ship.cargoContainers}
+                  <br></br>
                 </p>
               ))}
             </div>
@@ -327,16 +345,35 @@ function App() {
           <div className="row">
             <PlayerStyle className="col-xs-4">
               <h4>Player Stats</h4>
-              <p>Cash: {player.person.credits}</p>
-              <p>Rank: {player.person.rank}</p>
-              <p>Experience: {player.person.experience}</p>
-              <p>Piloting Skill: {player.person.pilotSkill}</p>
-              <p>Fighter Skill: {player.person.fighterSkill}</p>
-              <p>Trader Skill: {player.person.traderSkill}</p>
-              <p>Engineer Skill: {player.person.engineerSkill}</p>
-              <p>Empty Cargo Bays: {player.person.emptyBays}</p>
+              <p>
+                <strong>Cash:</strong> {player.person.credits}
+              </p>
+              <p>
+                <strong>Rank:</strong> {player.person.rank}
+              </p>
+              <p>
+                <strong>Experience:</strong> {player.person.experience}
+              </p>
+              <p>
+                <strong>Piloting Skill:</strong> {player.person.pilotSkill}
+              </p>
+              <p>
+                <strong>Fighter Skill:</strong> {player.person.fighterSkill}
+              </p>
+              <p>
+                <strong>Trader Skill:</strong> {player.person.traderSkill}
+              </p>
+              <p>
+                <strong>Engineer Skill:</strong> {player.person.engineerSkill}
+              </p>
+              <p>
+                <strong>Empty Cargo Bays:</strong> {player.person.emptyBays}
+              </p>
               {player.status.normal && (
-                <p>Player Status: Good Standing {player.status.normal}</p>
+                <p>
+                  <strong>Player Status:</strong> Good Standing{' '}
+                  {player.status.normal}
+                </p>
               )}
             </PlayerStyle>
           </div>
