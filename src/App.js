@@ -36,9 +36,9 @@ const Header = styled.div`
   }
 `;
 
-const CurrentStyleRow = styled.div`
-  color: white;
-`;
+// const CurrentStyleRow = styled.div`
+//   color: white;
+// `;
 
 const GalacticChart = styled.canvas`
   background-color: black;
@@ -49,10 +49,16 @@ const GalacticChart = styled.canvas`
 `;
 
 const CurrentStyleCol = styled.div`
+  text-align: left;
+  padding: 5%;
+  background-color: #0c0c0c;
+  border: 1px solid white;
   color: white;
 `;
 
 const CurrentStyle = styled.div`
+  justify-content: left;
+
   & p {
     display: inline-block;
     font-size: 12px;
@@ -68,11 +74,13 @@ const SelectedStyle = styled.div`
 `;
 
 const Button = styled.button`
-  font-size: 20px;
-  width: 150px;
+  padding: 10px;
+  font-size: 10px;
+  width: 100px;
   background-color: black;
   color: white;
-  border: none;
+  border: 1px solid white;
+  text-transform: uppercase;
 `;
 
 const PlayerStyle = styled.div`
@@ -83,6 +91,39 @@ const PlayerStyle = styled.div`
   }
 `;
 
+const CurrentMarketBtns = styled.div`
+  text-align: left;
+  justify-content: left;
+  margin: 0 auto;
+
+  & button {
+    background-color: white;
+    border: 1px solid black;
+    font-size: 16px;
+    padding: 8px;
+  }
+
+  & .item {
+    background-color: white;
+  }
+  & .number {
+    background-color: #acdaf0;
+  }
+  & .buy {
+    background-color: white;
+  }
+  & .sell {
+    background-color: white;
+  }
+`;
+
+const MarketTitle = styled.h2`
+  font-weight: 100;
+`;
+
+const ShipsTitle = styled.h2`
+  font-weight: 100;
+`;
 function App() {
   // dispatch hook
   const dispatch = useDispatch();
@@ -94,7 +135,7 @@ function App() {
   // called when app is rendered
   useEffect(() => {
     // loop creates x instances of planets
-    for (var i = 0; i < 400; i++) {
+    for (var i = 0; i < 1000; i++) {
       const { planetId, planetData, marketData } = generatePlanet();
       // dispatches action to bring data into the store
       dispatch(createPlanet(planetId, planetData));
@@ -184,14 +225,14 @@ function App() {
 
   return (
     <Wrapper className="App">
-      <Header className="row center-xs">
+      <Header className="row">
         <div className="col-xs-6">
           <h1>Space Walker</h1>
         </div>
       </Header>
       <div className="row center-xs">
         <CurrentStyleCol className="col-xs-4">
-          <h3>Current Planet Info</h3>
+          <h2>Current Planet Info</h2>
           {player.planetId && <p>You warped to {player.planetId}</p>}
 
           <CurrentStyle>
@@ -220,19 +261,22 @@ function App() {
             <p>News: </p>
             {currentPlanetData && <p> {NEWS[currentPlanetData.news]}</p>}
           </CurrentStyle>
+          <MarketTitle>Market</MarketTitle>
           <CurrentStyle>
-            <p>Market: </p>
             {currentPlanetData && (
               <p>
-                Market:{' '}
                 {Object.keys(currentMarketData).map(key => (
-                  <div>
-                    {key}: {currentMarketData[key]}
-                  </div>
+                  <CurrentMarketBtns>
+                    <button className="item">{key}</button>
+                    <button className="number">{currentMarketData[key]}</button>
+                    <button className="buy">Buy</button>
+                    <button className="sell">Sell</button>
+                  </CurrentMarketBtns>
                 ))}
               </p>
             )}{' '}
           </CurrentStyle>
+          <ShipsTitle>Available Ships</ShipsTitle>
 
           {currentPlanetData && (
             <div>

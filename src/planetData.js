@@ -40,7 +40,7 @@ export const NEWS = [
 ];
 
 export const RESOURCE_DEFINITIONS = {
-  water: {
+  Water: {
     min: 10,
     max: 20,
     politicalSystem: {
@@ -49,7 +49,7 @@ export const RESOURCE_DEFINITIONS = {
     },
     techLevel: 1,
   },
-  furs: {
+  Furs: {
     min: 10,
     max: 20,
     politicalSystem: {
@@ -58,7 +58,7 @@ export const RESOURCE_DEFINITIONS = {
     },
     techLevel: 1,
   },
-  food: {
+  Food: {
     min: 10,
     max: 20,
     politicalSystem: {
@@ -67,7 +67,7 @@ export const RESOURCE_DEFINITIONS = {
     },
     techLevel: 1,
   },
-  ore: {
+  Ore: {
     min: 10,
     max: 20,
     politicalSystem: {
@@ -76,7 +76,7 @@ export const RESOURCE_DEFINITIONS = {
     },
     techLevel: 1,
   },
-  games: {
+  Games: {
     min: 10,
     max: 20,
     politicalSystem: {
@@ -85,7 +85,7 @@ export const RESOURCE_DEFINITIONS = {
     },
     techLevel: 1,
   },
-  firearms: {
+  Firearms: {
     min: 10,
     max: 20,
     politicalSystem: {
@@ -94,7 +94,7 @@ export const RESOURCE_DEFINITIONS = {
     },
     techLevel: 1,
   },
-  machines: {
+  Machines: {
     min: 10,
     max: 20,
     politicalSystem: {
@@ -103,7 +103,7 @@ export const RESOURCE_DEFINITIONS = {
     },
     techLevel: 1,
   },
-  narcotics: {
+  Narcotics: {
     min: 1,
     max: 5,
     politicalSystem: {
@@ -112,7 +112,7 @@ export const RESOURCE_DEFINITIONS = {
     },
     techLevel: 8,
   },
-  robots: {
+  Robots: {
     min: 1,
     max: 5,
     politicalSystem: {
