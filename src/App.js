@@ -28,11 +28,12 @@ const Wrapper = styled.div`
 
 const Header = styled.div`
   & h1 {
-    font-size: 50px;
+    font-size: 75px;
     color: white;
     text-transform: uppercase;
     letter-spacing: 8px;
     font-weight: 100;
+    margin-bottom: 10%;
   }
 `;
 
@@ -42,10 +43,16 @@ const Header = styled.div`
 
 const GalacticChart = styled.canvas`
   background-color: black;
-  width: 500px;
-  height: 250px;
-  margin: 0px;
+  width: 600px;
+  height: 300px;
+
   border: 1px solid white;
+`;
+
+const GalacticChartStyles = styled.div`
+  & h1 {
+    color: white;
+  }
 `;
 
 const CurrentStyleCol = styled.div`
@@ -61,7 +68,7 @@ const CurrentStyle = styled.div`
 
   & p {
     display: inline-block;
-    font-size: 12px;
+    font-size: 14px;
   }
 `;
 
@@ -77,7 +84,7 @@ const Button = styled.button`
   padding: 10px;
   font-size: 10px;
   width: 100px;
-  background-color: black;
+  background-color: #0c0c0c;
   color: white;
   border: 1px solid white;
   text-transform: uppercase;
@@ -122,6 +129,10 @@ const MarketTitle = styled.h2`
 `;
 
 const ShipsTitle = styled.h2`
+  font-weight: 100;
+`;
+
+const SystemInfoTitle = styled.h1`
   font-weight: 100;
 `;
 function App() {
@@ -226,14 +237,16 @@ function App() {
   return (
     <Wrapper className="App">
       <Header className="row">
-        <div className="col-xs-6">
+        <div className="col-xs-12">
           <h1>Space Walker</h1>
         </div>
       </Header>
       <div className="row center-xs">
         <CurrentStyleCol className="col-xs-4">
-          <h2>Current Planet Info</h2>
-          {player.planetId && <p>You warped to {player.planetId}</p>}
+          <SystemInfoTitle>System Info</SystemInfoTitle>
+          <Button onClick={warp}>Warp</Button>
+          <p>{selectedPlanet && <p>Warp to {selectedPlanet}?</p>}</p>
+          <p>{player.planetId && <p>Current Planet: {player.planetId}</p>}</p>
 
           <CurrentStyle>
             <p>
@@ -288,17 +301,15 @@ function App() {
             </div>
           )}
         </CurrentStyleCol>
-        <div className="col-xs-4">
+        <GalacticChartStyles className="col-xs-8">
           <h1>Galactic Chart</h1>
-          <h1>
-            <Button onClick={warp}>Warp</Button>
-          </h1>
+
           <GalacticChart
             id="a"
             onClick={handleCanvasClick}
             ref={canvas}
-            width={1000}
-            height={500}
+            width={1200}
+            height={600}
           />
 
           <PlayerStyle className="col-xs-4">
@@ -315,8 +326,8 @@ function App() {
               <p>Player Status: Good Standing {player.status.normal}</p>
             )}
           </PlayerStyle>
-        </div>
-        <SelectedStyle className="col-xs-4">
+        </GalacticChartStyles>
+        {/* <SelectedStyle className="col-xs-4">
           <h4>Selected Planet Data</h4>
 
           {selectedPlanet && <p>Planet ID: {selectedPlanet}</p>}
@@ -348,7 +359,7 @@ function App() {
               </div>
             </React.Fragment>
           )}
-        </SelectedStyle>
+        </SelectedStyle> */}
       </div>
     </Wrapper>
   );
