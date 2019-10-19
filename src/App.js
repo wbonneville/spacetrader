@@ -23,15 +23,16 @@ const Wrapper = styled.div`
   margin-right: 4%;
   margin-left: 4%;
   margin-bottom: 4%;
-  font-family: 'Playfair';
+  font-family: 'Heebo';
 `;
 
 const Header = styled.div`
   & h1 {
-    font-size: 46px;
+    font-size: 50px;
     color: white;
     text-transform: uppercase;
     letter-spacing: 8px;
+    font-weight: 100;
   }
 `;
 
@@ -47,9 +48,19 @@ const GalacticChart = styled.canvas`
   border: 1px solid white;
 `;
 
-const CurrentStyleCol = styled.div``;
+const CurrentStyleCol = styled.div`
+  color: white;
+`;
 
 const CurrentStyle = styled.div`
+  & p {
+    display: inline-block;
+    font-size: 12px;
+  }
+`;
+
+const SelectedStyle = styled.div`
+  color: white;
   & p {
     display: inline-block;
     font-size: 12px;
@@ -65,6 +76,8 @@ const Button = styled.button`
 `;
 
 const PlayerStyle = styled.div`
+  margin: 0 auto;
+  color: white;
   & p {
     font-size: 12px;
   }
@@ -172,30 +185,11 @@ function App() {
   return (
     <Wrapper className="App">
       <Header className="row center-xs">
-        <div className="col-xs-12">
-          <h1>Space Trader</h1>
+        <div className="col-xs-6">
+          <h1>Space Walker</h1>
         </div>
       </Header>
       <div className="row center-xs">
-        <div className="col-xs-6">
-          <h1>Galactic Chart</h1>
-          {/* Move ship state to other planet */}
-          {/* Warp to planet */}
-
-          {/* <h1>You are now on planet {currentPlanetData} </h1> */}
-          <GalacticChart
-            id="a"
-            onClick={handleCanvasClick}
-            ref={canvas}
-            width={1000}
-            height={500}
-          />
-          <h1>
-            <Button onClick={warp}>Warp</Button>
-          </h1>
-        </div>
-      </div>
-      <CurrentStyleRow className="row center-xs">
         <CurrentStyleCol className="col-xs-4">
           <h3>Current Planet Info</h3>
           {player.planetId && <p>You warped to {player.planetId}</p>}
@@ -251,6 +245,37 @@ function App() {
           )}
         </CurrentStyleCol>
         <div className="col-xs-4">
+          <h1>Galactic Chart</h1>
+          {/* Move ship state to other planet */}
+          {/* Warp to planet */}
+
+          {/* <h1>You are now on planet {currentPlanetData} </h1> */}
+          <GalacticChart
+            id="a"
+            onClick={handleCanvasClick}
+            ref={canvas}
+            width={1000}
+            height={500}
+          />
+          <h1>
+            <Button onClick={warp}>Warp</Button>
+          </h1>
+          <PlayerStyle className="col-xs-4">
+            <h4>Player Stats</h4>
+            <p>Cash: {player.person.credits}</p>
+            <p>Rank: {player.person.rank}</p>
+            <p>Experience: {player.person.experience}</p>
+            <p>Piloting Skill: {player.person.pilotSkill}</p>
+            <p>Fighter Skill: {player.person.fighterSkill}</p>
+            <p>Trader Skill: {player.person.traderSkill}</p>
+            <p>Engineer Skill: {player.person.engineerSkill}</p>
+            <p>Empty Cargo Bays: {player.person.emptyBays}</p>
+            {player.status.normal && (
+              <p>Player Status: Good Standing {player.status.normal}</p>
+            )}
+          </PlayerStyle>
+        </div>
+        <SelectedStyle className="col-xs-4">
           <h4>Selected Planet Data</h4>
 
           {selectedPlanet && <p>Planet ID: {selectedPlanet}</p>}
@@ -282,22 +307,8 @@ function App() {
               </div>
             </React.Fragment>
           )}
-        </div>
-        <PlayerStyle className="col-xs-4">
-          <h4>Player Stats</h4>
-          <p>Cash: {player.person.credits}</p>
-          <p>Rank: {player.person.rank}</p>
-          <p>Experience: {player.person.experience}</p>
-          <p>Piloting Skill: {player.person.pilotSkill}</p>
-          <p>Fighter Skill: {player.person.fighterSkill}</p>
-          <p>Trader Skill: {player.person.traderSkill}</p>
-          <p>Engineer Skill: {player.person.engineerSkill}</p>
-          <p>Empty Cargo Bays: {player.person.emptyBays}</p>
-          {player.status.normal && (
-            <p>Player Status: Good Standing {player.status.normal}</p>
-          )}
-        </PlayerStyle>
-      </CurrentStyleRow>
+        </SelectedStyle>
+      </div>
     </Wrapper>
   );
 }
