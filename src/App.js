@@ -19,19 +19,30 @@ import { warpPlayer } from './redux/warp.action';
 import generatePlanet from './generatePlanet';
 
 const Wrapper = styled.div`
-  font-family: 'Heebo';
+  font-family: 'Helvetica Neue';
   margin-left: 3.5%;
   margin-right: 3.5%;
 `;
 
 const Header = styled.div`
+  margin-bottom: 4%;
   & h1 {
     font-family: 'Helvetica Neue';
     font-size: 65px;
-    color: rgb(131, 175, 229);
+    color: white;
     letter-spacing: 2px;
     font-weight: 100;
-    margin-bottom: 12%;
+  }
+  & a {
+    color: white;
+    font-weight: 100;
+    text-decoration: underline;
+    opacity: 0.7;
+  }
+  & h4 {
+    color: white;
+    font-weight: 100;
+    opacity: 0.7;
   }
 `;
 
@@ -40,10 +51,10 @@ const Header = styled.div`
 // `;
 
 const GalacticChart = styled.canvas`
-  background-color: whitesmoke;
+  background-color: black;
   width: 600px;
   height: 300px;
-  border: 1px solid #83afe5;
+  border: 1px solid white;
 `;
 
 const GalacticChartStyles = styled.div`
@@ -56,8 +67,8 @@ const CurrentStyleCol = styled.div`
   text-align: left;
   padding-top: 2%;
   padding-left: 5%;
-  background-color: #2d393f;
-  border: 1px solid #83afe5;
+  background-color: rgb(22, 22, 22);
+  border: 1px solid white;
   color: white;
 `;
 
@@ -84,19 +95,19 @@ const Button = styled.button`
   padding: 10px;
   font-size: 10px;
   width: 100px;
-  background-color: #2d393f;
+  background-color: rgb(22, 22, 22);
   color: white;
-  border: 1px solid #83afe5;
+  border: 1px solid white;
   text-transform: uppercase;
 `;
 
 const PlayerStyle = styled.div`
   text-align: left;
-  background-color: #2d393f;
+  background-color: rgb(22, 22, 22);
   padding-top: 2%;
   padding-bottom: 2%;
   padding-left: 5%;
-  border: 1px solid #83afe5;
+  border: 1px solid white;
   margin-top: 4%;
   margin-left: 12.5%;
   color: white;
@@ -196,12 +207,12 @@ function App() {
       // draw planet
       ctxOne.beginPath();
       ctxOne.moveTo(x, y);
-      ctxOne.ellipse(x, y, 3, 3, 0, 0, Math.PI * 2);
+      ctxOne.ellipse(x, y, 2, 2, 0, 0, Math.PI * 2);
       // if selected planet is equal to the current planet ID
       if (selectedPlanet === planetId) {
         ctxOne.fillStyle = '#F31B10';
       } else {
-        ctxOne.fillStyle = 'black';
+        ctxOne.fillStyle = 'white';
       }
 
       ctxOne.fill();
@@ -246,6 +257,12 @@ function App() {
       <Header className="row">
         <div className="col-xs-12">
           <h1> space walker </h1>
+          <h4>
+            {' '}
+            created by{' '}
+            <a href="https://twitter.com/wesbonneville"> @wesbonneville</a>
+          </h4>
+          <h4>inspired by Pieter Spronck</h4>
         </div>
       </Header>
 
