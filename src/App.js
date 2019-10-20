@@ -67,7 +67,7 @@ const CurrentStyleCol = styled.div`
   text-align: left;
   padding-top: 2%;
   padding-left: 5%;
-  background-color: rgb(22, 22, 22);
+  background-color: rgb(16, 16, 16);
   border: 1px solid white;
   color: white;
 `;
@@ -95,7 +95,7 @@ const Button = styled.button`
   padding: 10px;
   font-size: 10px;
   width: 100px;
-  background-color: rgb(22, 22, 22);
+  background-color: rgb(16, 16, 16);
   color: white;
   border: 1px solid white;
   text-transform: uppercase;
@@ -103,7 +103,7 @@ const Button = styled.button`
 
 const PlayerStyle = styled.div`
   text-align: left;
-  background-color: rgb(22, 22, 22);
+  background-color: rgb(16, 16, 16);
   padding-top: 2%;
   padding-bottom: 2%;
   padding-left: 5%;
