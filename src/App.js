@@ -19,20 +19,17 @@ import { warpPlayer } from './redux/warp.action';
 import generatePlanet from './generatePlanet';
 
 const Wrapper = styled.div`
-  margin-top: 4%;
-  margin-right: 4%;
-  margin-left: 4%;
-  margin-bottom: 4%;
   font-family: 'Heebo';
+  margin-left: 3.5%;
+  margin-right: 3.5%;
 `;
 
 const Header = styled.div`
   & h1 {
     font-size: 55px;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 8px;
-    font-weight: 100;
+    color: rgb(131, 175, 229);
+    letter-spacing: 2px;
+    font-weight: 800;
     margin-bottom: 10%;
   }
 `;
@@ -42,11 +39,10 @@ const Header = styled.div`
 // `;
 
 const GalacticChart = styled.canvas`
-  background-color: black;
+  background-color: whitesmoke;
   width: 600px;
   height: 300px;
-
-  border: 1px solid white;
+  border: 1px solid #83afe5;
 `;
 
 const GalacticChartStyles = styled.div`
@@ -59,8 +55,8 @@ const CurrentStyleCol = styled.div`
   text-align: left;
   padding-top: 2%;
   padding-left: 5%;
-  background-color: #0c0c0c;
-  border: 1px solid white;
+  background-color: #2d393f;
+  border: 1px solid #83afe5;
   color: white;
 `;
 
@@ -87,23 +83,21 @@ const Button = styled.button`
   padding: 10px;
   font-size: 10px;
   width: 100px;
-  background-color: #0c0c0c;
+  background-color: #2d393f;
   color: white;
-  border: 1px solid white;
+  border: 1px solid #83afe5;
   text-transform: uppercase;
 `;
 
 const PlayerStyle = styled.div`
   text-align: left;
-  background-color: #0c0c0c;
+  background-color: #2d393f;
   padding-top: 2%;
   padding-bottom: 2%;
-
   padding-left: 5%;
-  border: 1px solid white;
+  border: 1px solid #83afe5;
   margin-top: 4%;
-
-  margin-left: 11.9%;
+  margin-left: 12.5%;
   color: white;
   & p {
     font-size: 14px;
@@ -206,7 +200,7 @@ function App() {
       if (selectedPlanet === planetId) {
         ctxOne.fillStyle = '#F31B10';
       } else {
-        ctxOne.fillStyle = 'white';
+        ctxOne.fillStyle = 'black';
       }
 
       ctxOne.fill();
@@ -250,7 +244,7 @@ function App() {
     <Wrapper className="App">
       <Header className="row">
         <div className="col-xs-12">
-          <h1> Space Walker </h1>
+          <h1> space walker </h1>
         </div>
       </Header>
 
