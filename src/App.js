@@ -26,11 +26,12 @@ const Wrapper = styled.div`
 
 const Header = styled.div`
   & h1 {
-    font-size: 55px;
+    font-family: 'Helvetica Neue';
+    font-size: 65px;
     color: rgb(131, 175, 229);
     letter-spacing: 2px;
-    font-weight: 800;
-    margin-bottom: 10%;
+    font-weight: 100;
+    margin-bottom: 12%;
   }
 `;
 
