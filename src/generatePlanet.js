@@ -5,10 +5,30 @@ import { POLITICAL_SYSTEMS } from './planetData';
 import { NEWS } from './planetData';
 import { EQUIPMENT } from './planetData';
 import { SHIPS } from './shipData';
+import { PLANET_NAMES_ONE } from './planetData';
+// import { PLANET_NAMES_TWO } from './planetData';
 
 const shortid = require('shortid');
 
 function generatePlanet() {
+  let planetName =
+    PLANET_NAMES_ONE[Math.floor(Math.random() * PLANET_NAMES_ONE.length)];
+  let twoNumbers = Math.floor(Math.random() * (99 - 10 + 1) + 10);
+
+  let threeNumbers = Math.floor(Math.random() * (999 - 100 + 1) + 100);
+
+  if (planetName === 'Kepler') {
+    planetName = 'Kepler ' + threeNumbers;
+  }
+
+  if (planetName === 'HD') {
+    planetName = 'HD ' + twoNumbers;
+  }
+
+  if (planetName === 'OGLE-') {
+    planetName = 'OGLE- ' + twoNumbers;
+  }
+
   const planetId = shortid.generate();
   const techLevel = Math.floor(Math.random() * TECH_LEVELS.length);
   const politicalSystem = Object.keys(POLITICAL_SYSTEMS)[
@@ -30,6 +50,7 @@ function generatePlanet() {
   // );
 
   const planetData = {
+    planetName,
     x: Math.random(),
     y: Math.random(),
     techLevel,

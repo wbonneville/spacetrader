@@ -34,15 +34,14 @@ const Header = styled.div`
     font-weight: 100;
   }
   & a {
-    color: white;
+    color: salmon;
     font-weight: 100;
     text-decoration: underline;
-    opacity: 0.7;
   }
   & h4 {
     color: white;
     font-weight: 100;
-    opacity: 0.7;
+    opacity: 0.6;
   }
 `;
 
@@ -164,7 +163,7 @@ function App() {
   // called when app is rendered
   useEffect(() => {
     // loop creates x instances of planets
-    for (var i = 0; i < 1000; i++) {
+    for (var i = 0; i < 100; i++) {
       const { planetId, planetData, marketData } = generatePlanet();
       // dispatches action to bring data into the store
       dispatch(createPlanet(planetId, planetData));
@@ -268,8 +267,25 @@ function App() {
 
       <div className="row center-xs">
         <CurrentStyleCol className="col-xs-4">
-          <SystemInfoTitle>System Info</SystemInfoTitle>
-          <p>{selectedPlanet && <p>Warp to {selectedPlanet}?</p>}</p>
+          <SystemInfoTitle>
+            System Info:
+            <p>
+              {currentPlanetData && (
+                <p className="planetNameStyle">
+                  {' '}
+                  {currentPlanetData.planetName}
+                </p>
+              )}
+            </p>
+          </SystemInfoTitle>
+          {/* <p>
+            {selectedPlanet && <p>Warp to {selectedPlanetData.planetName}?</p>}
+          </p> */}
+
+          <p>
+            {' '}
+            {selectedPlanet ? `Warp to ${selectedPlanetData.planetName}?` : ''}
+          </p>
 
           <Button onClick={warp}>Warp</Button>
           <p>{player.planetId && <p>Current Planet: {player.planetId}</p>}</p>
