@@ -15,6 +15,7 @@ import { createPlanet } from './redux/planet.action';
 import { createMarket } from './redux/market.action';
 import { createPlayer } from './redux/player.action';
 import { warpPlayer } from './redux/warp.action';
+import { addPlayerXP } from './redux/increaseXP.action';
 
 import generatePlanet from './generatePlanet';
 
@@ -249,6 +250,7 @@ function App() {
   const warp = event => {
     const planetId = selectedPlanet;
     dispatch(warpPlayer(planetId));
+    dispatch(addPlayerXP(1));
   };
 
   return (
@@ -278,17 +280,12 @@ function App() {
               )}
             </p>
           </SystemInfoTitle>
-          {/* <p>
-            {selectedPlanet && <p>Warp to {selectedPlanetData.planetName}?</p>}
-          </p> */}
-
           <p>
-            {' '}
-            {selectedPlanet ? `Warp to ${selectedPlanetData.planetName}?` : ''}
+            {selectedPlanet && <p>Warp to {selectedPlanetData.planetName}?</p>}
           </p>
 
           <Button onClick={warp}>Warp</Button>
-          <p>{player.planetId && <p>Current Planet: {player.planetId}</p>}</p>
+          <p>{player.planetId && <p>Identification: {player.planetId}</p>}</p>
 
           <CurrentStyle>
             <p>

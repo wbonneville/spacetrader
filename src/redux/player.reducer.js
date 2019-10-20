@@ -28,6 +28,11 @@ const playerGeneration = (state = defaultPlayersState, action) => {
         ...state,
         planetId: action.planetId,
       };
+    case 'ADD_XP':
+      return {
+        ...state,
+        amount: defaultPlayersState.person.experience + 1,
+      };
     default:
       return state;
   }
