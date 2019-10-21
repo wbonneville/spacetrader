@@ -74,6 +74,7 @@ const CurrentStyleCol = styled.div`
   background-color: rgb(16, 16, 16);
   border: 1px solid white;
   color: white;
+  margin-bottom: 5%;
 `;
 
 const CurrentStyle = styled.div`
@@ -105,6 +106,8 @@ const Button = styled.button`
   text-transform: uppercase;
 `;
 
+const PlayerStyleWrapper = styled.div``;
+
 const PlayerStyle = styled.div`
   text-align: left;
   background-color: rgb(16, 16, 16);
@@ -112,8 +115,24 @@ const PlayerStyle = styled.div`
   padding-bottom: 2%;
   padding-left: 5%;
   border: 1px solid white;
-  margin-top: 4%;
-  margin-left: 12.5%;
+  margin-right: 1%;
+  margin-top: 5%;
+  color: white;
+  & p {
+    font-size: 14px;
+  }
+`;
+
+const PlayerShipsStyle = styled.div`
+  text-align: left;
+  background-color: rgb(16, 16, 16);
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 5%;
+  border: 1px solid white;
+  margin-left: 1%;
+
+  margin-top: 5%;
   color: white;
   & p {
     font-size: 14px;
@@ -286,7 +305,7 @@ function App() {
       </Header>
 
       <div className="row center-xs">
-        <CurrentStyleCol className="col-xs-4">
+        <CurrentStyleCol className="col-xs-8 col-sm-4">
           <SystemInfoTitle>
             System Info:
             <p>
@@ -377,7 +396,7 @@ function App() {
           )}
         </CurrentStyleCol>
 
-        <GalacticChartStyles className="col-xs-8">
+        <GalacticChartStyles className="col-xs-12 col-sm-8">
           <GalacticChart
             id="a"
             onClick={handleCanvasClick}
@@ -385,7 +404,7 @@ function App() {
             width={1200}
             height={600}
           />
-          <div className="row">
+          <PlayerStyleWrapper className="row center-xs">
             <PlayerStyle className="col-xs-4">
               <h4>Player Stats</h4>
               <p>
@@ -419,7 +438,10 @@ function App() {
                 </p>
               )}
             </PlayerStyle>
-          </div>
+            <PlayerShipsStyle className="col-xs-4">
+              <p>Player Ship Added Soon</p>
+            </PlayerShipsStyle>
+          </PlayerStyleWrapper>
         </GalacticChartStyles>
 
         {/* <SelectedStyle className="col-xs-4">
