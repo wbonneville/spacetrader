@@ -19,6 +19,10 @@ import { addPlayerXP } from './redux/increaseXP.action';
 
 import generatePlanet from './generatePlanet';
 
+// components
+
+import Rarity from './rarity';
+
 const Wrapper = styled.div`
   font-family: 'Helvetica Neue';
   margin-left: 3.5%;
@@ -153,6 +157,7 @@ const ShipsTitle = styled.h2`
 const SystemInfoTitle = styled.h1`
   font-weight: 100;
 `;
+
 function App() {
   // dispatch hook
   const dispatch = useDispatch();
@@ -253,6 +258,10 @@ function App() {
     dispatch(addPlayerXP(1));
   };
 
+  function PlanetName(props) {
+    return <p>{currentPlanetData.planetName}</p>;
+  }
+
   return (
     <Wrapper className="App">
       <Header className="row">
@@ -275,7 +284,7 @@ function App() {
               {currentPlanetData && (
                 <p className="planetNameStyle">
                   {' '}
-                  {currentPlanetData.planetName}
+                  <PlanetName />
                 </p>
               )}
             </p>
