@@ -48,6 +48,11 @@ const Header = styled.div`
     font-weight: 100;
     opacity: 0.6;
   }
+  & h3 {
+    margin-top: -2rem;
+    color: white;
+    font-weight: 300;
+  }
 `;
 
 // const CurrentStyleRow = styled.div`
@@ -56,8 +61,8 @@ const Header = styled.div`
 
 const GalacticChart = styled.canvas`
   background-color: black;
-  width: 600px;
-  height: 300px;
+  width: 700px;
+  height: 350px;
   border: 1px solid white;
 `;
 
@@ -115,7 +120,7 @@ const PlayerStyle = styled.div`
   padding-bottom: 2%;
   padding-left: 5%;
   border: 1px solid white;
-  margin-right: 1%;
+  margin-right: 1.5%;
   margin-top: 5%;
   color: white;
   & p {
@@ -130,8 +135,7 @@ const PlayerShipsStyle = styled.div`
   padding-bottom: 2%;
   padding-left: 5%;
   border: 1px solid white;
-  margin-left: 1%;
-
+  margin-left: 1.5%
   margin-top: 5%;
   color: white;
   & p {
@@ -192,7 +196,7 @@ function App() {
   // called when app is rendered
   useEffect(() => {
     // loop creates x instances of planets
-    for (var i = 0; i < 100; i++) {
+    for (var i = 0; i < 800; i++) {
       const { planetId, planetData, marketData } = generatePlanet();
       // dispatches action to bring data into the store
       dispatch(createPlanet(planetId, planetData));
@@ -294,7 +298,8 @@ function App() {
     <Wrapper className="App">
       <Header className="row">
         <div className="col-xs-12">
-          <h1> space walker </h1>
+          <h1> space walker (WIP) </h1>
+          <h3>click a planet</h3>
           <h4>
             {' '}
             created by{' '}
@@ -401,11 +406,11 @@ function App() {
             id="a"
             onClick={handleCanvasClick}
             ref={canvas}
-            width={1200}
-            height={600}
+            width={1400}
+            height={700}
           />
           <PlayerStyleWrapper className="row center-xs">
-            <PlayerStyle className="col-xs-4">
+            <PlayerStyle className="col-xs-5">
               <h4>Player Stats</h4>
               <p>
                 <strong>Cash:</strong> {player.credits}
@@ -438,7 +443,7 @@ function App() {
                 </p>
               )}
             </PlayerStyle>
-            <PlayerShipsStyle className="col-xs-4">
+            <PlayerShipsStyle className="col-xs-5">
               <p>Player Ship Added Soon</p>
             </PlayerShipsStyle>
           </PlayerStyleWrapper>
