@@ -1,6 +1,6 @@
-export function addPlayerXP(amount) {
+export function addPlayerXP(experience) {
   return {
     type: 'ADD_XP',
-    amount,
+    experience,
   };
 }

@@ -156,6 +156,10 @@ const ShipsTitle = styled.h2`
 
 const SystemInfoTitle = styled.h1`
   font-weight: 100;
+
+  & p {
+    font-size: 46px;
+  }
 `;
 
 function App() {
@@ -255,11 +259,16 @@ function App() {
   const warp = event => {
     const planetId = selectedPlanet;
     dispatch(warpPlayer(planetId));
-    dispatch(addPlayerXP(1));
+    dispatch(addPlayerXP(5));
   };
 
   function PlanetName(props) {
-    return <p>{currentPlanetData.planetName}</p>;
+    return (
+      <p>
+        {props.color}
+        {currentPlanetData.planetName}
+      </p>
+    );
   }
 
   return (
@@ -380,28 +389,28 @@ function App() {
             <PlayerStyle className="col-xs-4">
               <h4>Player Stats</h4>
               <p>
-                <strong>Cash:</strong> {player.person.credits}
+                <strong>Cash:</strong> {player.credits}
               </p>
               <p>
-                <strong>Rank:</strong> {player.person.rank}
+                <strong>Rank:</strong> {player.rank}
               </p>
               <p>
-                <strong>Experience:</strong> {player.person.experience}
+                <strong>Experience:</strong> {player.experience}
               </p>
               <p>
-                <strong>Piloting Skill:</strong> {player.person.pilotSkill}
+                <strong>Piloting Skill:</strong> {player.pilotSkill}
               </p>
               <p>
-                <strong>Fighter Skill:</strong> {player.person.fighterSkill}
+                <strong>Fighter Skill:</strong> {player.fighterSkill}
               </p>
               <p>
-                <strong>Trader Skill:</strong> {player.person.traderSkill}
+                <strong>Trader Skill:</strong> {player.traderSkill}
               </p>
               <p>
-                <strong>Engineer Skill:</strong> {player.person.engineerSkill}
+                <strong>Engineer Skill:</strong> {player.engineerSkill}
               </p>
               <p>
-                <strong>Empty Cargo Bays:</strong> {player.person.emptyBays}
+                <strong>Empty Cargo Bays:</strong> {player.emptyBays}
               </p>
               {player.status.normal && (
                 <p>

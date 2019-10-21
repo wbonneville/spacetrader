@@ -2,16 +2,18 @@ const defaultPlayersState = {
   shipId: '1',
   planetId: '',
 
-  person: {
-    credits: 1000,
-    rank: 0,
-    experience: 0,
-    pilotSkill: 0,
-    fighterSkill: 0,
-    traderSkill: 0,
-    engineerSkill: 0,
-    emptyBays: 15,
-  },
+  // code did not work when this was wrapped in person {}
+
+  credits: 1000,
+  rank: 0,
+  experience: 0,
+  pilotSkill: 0,
+  fighterSkill: 0,
+  traderSkill: 0,
+  engineerSkill: 0,
+  emptyBays: 15,
+
+  //
 
   status: {
     normal: true,
@@ -29,10 +31,7 @@ const playerGeneration = (state = defaultPlayersState, action) => {
         planetId: action.planetId,
       };
     case 'ADD_XP':
-      return {
-        ...state,
-        amount: defaultPlayersState.person.experience + 1,
-      };
+      return { ...state, experience: state.experience + 2 };
     default:
       return state;
   }
