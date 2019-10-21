@@ -310,7 +310,7 @@ function App() {
       </Header>
 
       <div className="row center-xs">
-        <CurrentStyleCol className="col-xs-8 col-sm-4">
+        <CurrentStyleCol className="col-xs-12 col-sm-4">
           <SystemInfoTitle>
             System Info:
             <p>
