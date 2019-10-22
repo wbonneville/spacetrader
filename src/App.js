@@ -30,7 +30,7 @@ const Wrapper = styled.div`
 `;
 
 const Header = styled.div`
-  margin-bottom: 4%;
+  margin-bottom: 8%;
   & h1 {
     font-family: 'Helvetica Neue';
     font-size: 65px;
@@ -61,8 +61,8 @@ const Header = styled.div`
 
 const GalacticChart = styled.canvas`
   background-color: black;
-  width: 700px;
-  height: 350px;
+  width: 400px;
+  height: 400px;
   border: 1px solid white;
 `;
 
@@ -74,8 +74,8 @@ const GalacticChartStyles = styled.div`
 
 const CurrentStyleCol = styled.div`
   text-align: left;
-  padding-top: 2%;
-  padding-left: 5%;
+  padding-top: 1%;
+  padding-left: 3%;
   background-color: rgb(16, 16, 16);
   border: 1px solid white;
   color: white;
@@ -116,12 +116,11 @@ const PlayerStyleWrapper = styled.div``;
 const PlayerStyle = styled.div`
   text-align: left;
   background-color: rgb(16, 16, 16);
-  padding-top: 2%;
+  padding-top: 1%;
   padding-bottom: 2%;
-  padding-left: 5%;
+  padding-left: 3%;
   border: 1px solid white;
-  margin-right: 1.5%;
-  margin-top: 5%;
+
   color: white;
   & p {
     font-size: 14px;
@@ -135,7 +134,7 @@ const PlayerShipsStyle = styled.div`
   padding-bottom: 2%;
   padding-left: 5%;
   border: 1px solid white;
-  margin-left: 1.5%
+
   margin-top: 5%;
   color: white;
   & p {
@@ -308,9 +307,41 @@ function App() {
           <h4>inspired by Pieter Spronck</h4>
         </div>
       </Header>
-
-      <div className="row center-xs">
-        <CurrentStyleCol className="col-xs-12 col-sm-4">
+      <PlayerStyleWrapper className="row center-xs">
+        <PlayerStyle className="col-xs-3">
+          <h4>Player Stats</h4>
+          <p>
+            <strong>Cash:</strong> {player.credits}
+          </p>
+          <p>
+            <strong>Rank:</strong> {player.rank}
+          </p>
+          <p>
+            <strong>Experience:</strong> {player.experience}
+          </p>
+          <p>
+            <strong>Piloting Skill:</strong> {player.pilotSkill}
+          </p>
+          <p>
+            <strong>Fighter Skill:</strong> {player.fighterSkill}
+          </p>
+          <p>
+            <strong>Trader Skill:</strong> {player.traderSkill}
+          </p>
+          <p>
+            <strong>Engineer Skill:</strong> {player.engineerSkill}
+          </p>
+          <p>
+            <strong>Empty Cargo Bays:</strong> {player.emptyBays}
+          </p>
+          {player.status.normal && (
+            <p>
+              <strong>Player Status:</strong> Good Standing{' '}
+              {player.status.normal}
+            </p>
+          )}
+        </PlayerStyle>
+        <CurrentStyleCol className="col-xs-12 col-sm-3">
           <SystemInfoTitle>
             System Info:
             <p>
@@ -400,55 +431,21 @@ function App() {
             </div>
           )}
         </CurrentStyleCol>
-
-        <GalacticChartStyles className="col-xs-12 col-sm-8">
+        <GalacticChartStyles className="col-xs-4">
           <GalacticChart
             id="a"
             onClick={handleCanvasClick}
             ref={canvas}
-            width={1400}
-            height={700}
+            width={800}
+            height={800}
           />
-          <PlayerStyleWrapper className="row center-xs">
-            <PlayerStyle className="col-xs-5">
-              <h4>Player Stats</h4>
-              <p>
-                <strong>Cash:</strong> {player.credits}
-              </p>
-              <p>
-                <strong>Rank:</strong> {player.rank}
-              </p>
-              <p>
-                <strong>Experience:</strong> {player.experience}
-              </p>
-              <p>
-                <strong>Piloting Skill:</strong> {player.pilotSkill}
-              </p>
-              <p>
-                <strong>Fighter Skill:</strong> {player.fighterSkill}
-              </p>
-              <p>
-                <strong>Trader Skill:</strong> {player.traderSkill}
-              </p>
-              <p>
-                <strong>Engineer Skill:</strong> {player.engineerSkill}
-              </p>
-              <p>
-                <strong>Empty Cargo Bays:</strong> {player.emptyBays}
-              </p>
-              {player.status.normal && (
-                <p>
-                  <strong>Player Status:</strong> Good Standing{' '}
-                  {player.status.normal}
-                </p>
-              )}
-            </PlayerStyle>
-            <PlayerShipsStyle className="col-xs-5">
-              <p>Player Ship Added Soon</p>
-            </PlayerShipsStyle>
-          </PlayerStyleWrapper>
         </GalacticChartStyles>
+        {/* <PlayerShipsStyle className="col-xs-3">
+          <p>Player Ship Added Soon</p>
+        </PlayerShipsStyle> */}
+      </PlayerStyleWrapper>
 
+      <div className="row start-xs">
         {/* <SelectedStyle className="col-xs-4">
           <h4>Selected Planet Data</h4>
 
