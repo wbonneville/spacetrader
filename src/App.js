@@ -223,7 +223,7 @@ const TargetCargo = styled.div`
   background-color: #171a21;
   text-align: center;
   color: white;
-  font-size: 14ßpx;
+  font-size: 14px;
 `;
 
 const Chart = styled.div`
