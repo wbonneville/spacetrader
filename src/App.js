@@ -297,8 +297,8 @@ const AllBtn = styled.button`
 
 const CargoRowStyle = styled.div`
   margin-top: -2%;
-  margin-bottom: 2%;
-  padding-bottom: 2%;
+
+  padding-bottom: 4%;
   & p {
     font-size: 16px;
     margin-bottom: -1%;
@@ -523,6 +523,7 @@ function App() {
                 )}
               </div>
               <Price className="col-xs-2">
+                <p>%</p>
                 <p>%</p>
                 <p>%</p>
                 <p>%</p>
