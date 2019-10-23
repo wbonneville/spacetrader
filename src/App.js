@@ -22,6 +22,7 @@ import generatePlanet from './generatePlanet';
 // components
 
 import Rarity from './rarity';
+import { realpath } from 'fs';
 
 const Wrapper = styled.div`
   font-family: 'Helvetica Neue';
@@ -60,10 +61,10 @@ const Header = styled.div`
 // `;
 
 const GalacticChart = styled.canvas`
-  background-color: black;
-  width: 400px;
-  height: 400px;
-  border: 1px solid white;
+  background-color: white;
+  width: 800px;
+  height: 370px;
+  margin-left: -5%;
 `;
 
 const GalacticChartStyles = styled.div`
@@ -184,6 +185,131 @@ const SystemInfoTitle = styled.h1`
   }
 `;
 
+const Container = styled.div``;
+
+const Top = styled.div`
+  box-shadow: 0px 2px 5px #000000;
+  position: relative;
+  z-index: 10;
+  color: #423e37;
+  font-family: 'HelveticaNeue-CondensedBold';
+`;
+
+const Box = styled.div`
+  align-items: flex-start;
+`;
+
+const BoxTwo = styled.div``;
+
+const CurrentSystem = styled.div`
+  padding-left: 3%;
+  font-size: 20px;
+  background-color: #617073;
+  z-index: 1;
+  color: white;
+  font-family: 'Helvetica Neue';
+
+  /* padding-bottom: 10%; */
+
+  & p {
+    font-weight: 300;
+    margin-bottom: 30px;
+  }
+`;
+
+const TargetCargo = styled.div`
+  background-color: #171a21;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+`;
+
+const Chart = styled.div`
+  border: 3px solid black;
+  background-color: white;
+  color: white;
+  margin-top: -200px;
+  color: #423e37;
+  font-family: 'HelveticaNeue-CondensedBold';
+`;
+
+const Shipyard = styled.div`
+  background-color: #171a21;
+  margin-top: -160px;
+  color: white;
+  font-family: 'HelveticaNeue-CondensedBold';
+`;
+
+const Ex = styled.div`
+  background-color: #b79300;
+  box-shadow: 0px 1px 4px #000000;
+  position: relative;
+  z-index: 1;
+  color: #423e37;
+  font-family: 'HelveticaNeue-CondensedBold';
+`;
+
+const ExTwo = styled.div`
+  background-color: #b79300;
+  box-shadow: 0px 1px 4px #000000;
+  position: relative;
+  z-index: 1;
+  color: #423e37;
+  font-family: 'HelveticaNeue-CondensedBold';
+`;
+
+const Stats = styled.div`
+  background-color: #e8c223;
+  color: #423e37;
+  font-family: 'HelveticaNeue-CondensedBold';
+`;
+
+const White = styled.div`
+  background-color: white;
+  box-shadow: 0px 2px 4px #000000;
+  position: relative;
+  z-index: 2;
+  color: #423e37;
+  font-family: 'HelveticaNeue-CondensedBold';
+  text-align: center;
+`;
+
+const AmtBtn = styled.button`
+  background-color: #171a21;
+  color: white;
+  border: 1px solid #ffa3a3;
+  font-size: 14px;
+  padding: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+`;
+const AllBtn = styled.button`
+  background-color: #171a21;
+  color: white;
+  border: 1px solid white;
+  font-size: 14px;
+  padding: 3px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-right: 4%;
+`;
+
+const CargoRowStyle = styled.div`
+  margin-top: -2%;
+  margin-bottom: 2%;
+  & p {
+    font-size: 16px;
+    margin-bottom: -1%;
+  }
+`;
+
+const Price = styled.div`
+  & p {
+    font-size: 16px;
+    margin-bottom: -1%;
+  }
+`;
+
 function App() {
   // dispatch hook
   const dispatch = useDispatch();
@@ -243,7 +369,7 @@ function App() {
       if (selectedPlanet === planetId) {
         ctxOne.fillStyle = '#F31B10';
       } else {
-        ctxOne.fillStyle = 'white';
+        ctxOne.fillStyle = 'black';
       }
 
       ctxOne.fill();
@@ -294,159 +420,334 @@ function App() {
   }
 
   return (
-    <Wrapper className="App">
-      <Header className="row">
-        <div className="col-xs-12">
-          <h1> space walker (WIP) </h1>
-          <h3>click a planet</h3>
-          <h4>
+    <React.Fragment>
+      <Container>
+        <Top className="row center-xs space-between">
+          <div className="col-xs-3">
+            <h1>System Info</h1>
+          </div>
+          <div className="col-xs-3">
+            <h1>Cargo</h1>
+          </div>
+          <div className="col-xs-3">
+            <h1>Target Price</h1>
+          </div>
+          <div className="col-xs-3">
+            <h1>Target System</h1>
+          </div>
+        </Top>
+        <Box className="row">
+          <CurrentSystem className="col-xs-3">
+            <p>Name</p>
+            <p>Size</p>
+            <p>Resource:</p>
+            <p>X:</p>
+            <p>Y: </p>
+            <p>Tech Level:</p>
+            <p>Political System:</p>
+            <p>News:</p>
+            <p>Pirates:</p>
+            <p>Police:</p>
+          </CurrentSystem>
+
+          <TargetCargo className="col-xs-6">
+            <div className="row center-xs">
+              <div className="col-xs-5">
+                <h4>Sell</h4>
+              </div>
+              <div className="col-xs-5">
+                <h4>Buy</h4>
+              </div>
+              <div className="col-xs-2">
+                <h4>Price</h4>
+              </div>
+            </div>
+            <CargoRowStyle className="row center-xs">
+              <div className="col-xs-5">
+                {currentPlanetData && (
+                  <p>
+                    {Object.keys(currentMarketData).map(key => (
+                      <p className="item">
+                        {key}
+                        &nbsp; &nbsp;
+                        <AmtBtn>{currentMarketData[key]}</AmtBtn>
+                        &nbsp;
+                        <AllBtn>All</AllBtn>{' '}
+                      </p>
+                    ))}
+                  </p>
+                )}
+
+                {/* <div>
+                  <p>Food</p>
+                  {currentPlanetData && (
+                    <p>
+                      {Object.keys(currentMarketData).map(key => (
+                        <p className="item">
+                          &nbsp; &nbsp;
+                          <AmtBtn>{currentMarketData[key]}</AmtBtn>
+                          &nbsp;
+                          <AllBtn>All</AllBtn>{' '}
+                        </p>
+                      ))}
+                    </p>
+                  )}
+                </div> */}
+              </div>
+              <div className="col-xs-5">
+                {selectedPlanetData && (
+                  <p>
+                    {Object.keys(selectedMarketData).map(key => (
+                      <p className="item">
+                        {key}
+                        &nbsp; &nbsp;
+                        <AmtBtn>{selectedMarketData[key]}</AmtBtn>
+                        &nbsp;
+                        <AllBtn>All</AllBtn>{' '}
+                      </p>
+                    ))}
+                  </p>
+                )}
+              </div>
+              <Price className="col-xs-2">
+                <p>%</p>
+                <p>%</p>
+                <p>%</p>
+                <p>%</p>
+                <p>%</p>
+                <p>%</p>
+                <p>%</p>
+                <p>%</p>
+                <p>%</p>
+                <p>%</p>
+                <p>%</p>
+              </Price>
+            </CargoRowStyle>
+          </TargetCargo>
+          <CurrentSystem className="col-xs-3">
+            <p>Name</p>
+            <p>Size</p>
+            <p>Resource:</p>
+            <p>X:</p>
+            <p>Y: </p>
+            <p>Tech Level:</p>
+            <p>Political System:</p>
+            <p>News:</p>
+            <p>Pirates:</p>
+            <p>Police:</p>
+          </CurrentSystem>
+        </Box>
+        <div className="row between-xs">
+          <White className="col-xs-3">
             {' '}
-            created by{' '}
-            <a href="https://twitter.com/wesbonneville"> @wesbonneville</a>
-          </h4>
-          <h4>inspired by Pieter Spronck</h4>
+            <h2>hi</h2>
+          </White>
+          <White className="col-xs-3">
+            {' '}
+            <h2>hi</h2>
+          </White>
         </div>
-      </Header>
-      <PlayerStyleWrapper className="row center-xs">
-        <PlayerStyle className="col-xs-3">
-          <h4>Player Stats</h4>
-          <p>
-            <strong>Cash:</strong> {player.credits}
-          </p>
-          <p>
-            <strong>Rank:</strong> {player.rank}
-          </p>
-          <p>
-            <strong>Experience:</strong> {player.experience}
-          </p>
-          <p>
-            <strong>Piloting Skill:</strong> {player.pilotSkill}
-          </p>
-          <p>
-            <strong>Fighter Skill:</strong> {player.fighterSkill}
-          </p>
-          <p>
-            <strong>Trader Skill:</strong> {player.traderSkill}
-          </p>
-          <p>
-            <strong>Engineer Skill:</strong> {player.engineerSkill}
-          </p>
-          <p>
-            <strong>Empty Cargo Bays:</strong> {player.emptyBays}
-          </p>
-          {player.status.normal && (
+        <BoxTwo className="row center-xs">
+          <Ex className="col-xs-3">
+            <h1>hi</h1>
+            <h1>hi</h1>
+            <h1>hi</h1>
+            <h1>hi</h1>
+            <h1>hi</h1>
+          </Ex>
+          <Chart className="col-xs-6">
+            <GalacticChart
+              id="a"
+              onClick={handleCanvasClick}
+              ref={canvas}
+              width={1600}
+              height={740}
+            />
+          </Chart>
+
+          <ExTwo className="col-xs-3">
+            <h1>hi</h1>
+            <h1>hi</h1>
+            <h1>hi</h1>
+            <h1>hi</h1>
+            <h1>hi</h1>
+          </ExTwo>
+        </BoxTwo>
+
+        <BoxTwo className="row center-xs">
+          <Shipyard className="col-xs-8">
+            <h1>Shipyard</h1>
+            <p>Ships</p>
+            <p>Ships</p>
+          </Shipyard>
+        </BoxTwo>
+        <Stats className="row center-xs">
+          <div className="col-xs-2">
+            <h4>good</h4>
+          </div>
+          <div className="col-xs-2">
+            <h4>good</h4>
+          </div>
+          <div className="col-xs-2">
+            <h4>good</h4>
+          </div>
+          <div className="col-xs-2">
+            <h4>good</h4>
+          </div>
+          <div className="col-xs-2">
+            <h4>good</h4>
+          </div>
+        </Stats>
+      </Container>
+      <Wrapper className="App">
+        <Header className="row">
+          <div className="col-xs-12">
+            <h1> space walker (WIP) </h1>
+            <h3>click a planet</h3>
+            <h4>
+              {' '}
+              created by{' '}
+              <a href="https://twitter.com/wesbonneville"> @wesbonneville</a>
+            </h4>
+            <h4>inspired by Pieter Spronck</h4>
+          </div>
+        </Header>
+        <PlayerStyleWrapper className="row center-xs">
+          <PlayerStyle className="col-xs-3">
+            <h4>Player Stats</h4>
             <p>
-              <strong>Player Status:</strong> Good Standing{' '}
-              {player.status.normal}
+              <strong>Cash:</strong> {player.credits}
             </p>
-          )}
-        </PlayerStyle>
-        <CurrentStyleCol className="col-xs-12 col-sm-3">
-          <SystemInfoTitle>
-            System Info:
             <p>
-              {currentPlanetData && (
-                <p className="planetNameStyle">
-                  {' '}
-                  <PlanetName />
-                </p>
+              <strong>Rank:</strong> {player.rank}
+            </p>
+            <p>
+              <strong>Experience:</strong> {player.experience}
+            </p>
+            <p>
+              <strong>Piloting Skill:</strong> {player.pilotSkill}
+            </p>
+            <p>
+              <strong>Fighter Skill:</strong> {player.fighterSkill}
+            </p>
+            <p>
+              <strong>Trader Skill:</strong> {player.traderSkill}
+            </p>
+            <p>
+              <strong>Engineer Skill:</strong> {player.engineerSkill}
+            </p>
+            <p>
+              <strong>Empty Cargo Bays:</strong> {player.emptyBays}
+            </p>
+            {player.status.normal && (
+              <p>
+                <strong>Player Status:</strong> Good Standing{' '}
+                {player.status.normal}
+              </p>
+            )}
+          </PlayerStyle>
+          <CurrentStyleCol className="col-xs-12 col-sm-3">
+            <SystemInfoTitle>
+              System Info:
+              <p>
+                {currentPlanetData && (
+                  <p className="planetNameStyle">
+                    {' '}
+                    <PlanetName />
+                  </p>
+                )}
+              </p>
+            </SystemInfoTitle>
+            <p>
+              {selectedPlanet && (
+                <p>Warp to {selectedPlanetData.planetName}?</p>
               )}
             </p>
-          </SystemInfoTitle>
-          <p>
-            {selectedPlanet && <p>Warp to {selectedPlanetData.planetName}?</p>}
-          </p>
 
-          <Button onClick={warp}>Warp</Button>
-          <p>{player.planetId && <p>Identification: {player.planetId}</p>}</p>
+            <Button onClick={warp}>Warp</Button>
+            <p>{player.planetId && <p>Identification: {player.planetId}</p>}</p>
 
-          <CurrentStyle>
-            <p>
-              <strong>X-Coordinate:</strong>
-            </p>{' '}
-            {currentPlanetData && <p> {currentPlanetData.x}</p>}
-          </CurrentStyle>
-          <CurrentStyle>
-            <strong>
-              <p>Y-Coordinate:</p>
-            </strong>{' '}
-            {currentPlanetData && <p> {currentPlanetData.y}</p>}
-          </CurrentStyle>
-          <CurrentStyle>
-            <strong>
-              <p>Tech Level: </p>
-            </strong>{' '}
-            {currentPlanetData && (
-              <p> {TECH_LEVELS[currentPlanetData.techLevel]}</p>
-            )}
-          </CurrentStyle>
-          <CurrentStyle>
-            <strong>
-              <p>Political System: </p>
-            </strong>{' '}
-            {currentPlanetData && (
-              <p> {POLITICAL_SYSTEMS[currentPlanetData.politicalSystem]}</p>
-            )}
-          </CurrentStyle>
-          <CurrentStyle>
-            <strong>
-              <p>News: </p>
-            </strong>{' '}
-            {currentPlanetData && <p> {NEWS[currentPlanetData.news]}</p>}
-          </CurrentStyle>
-          <MarketTitle>Market</MarketTitle>
-          <CurrentStyle>
-            {currentPlanetData && (
+            <CurrentStyle>
               <p>
-                {Object.keys(currentMarketData).map(key => (
-                  <CurrentMarketBtns>
-                    <button className="item">{key}</button>
-                    <button className="number">{currentMarketData[key]}</button>
-                    <button className="buy">Buy</button>
-                    <button className="sell">Sell</button>
-                  </CurrentMarketBtns>
-                ))}
-              </p>
-            )}{' '}
-          </CurrentStyle>
-          <ShipsTitle>Available Ships</ShipsTitle>
-
-          {currentPlanetData && (
-            <div>
-              {currentPlanetData.ships.map(ship => (
-                <p key={ship.shipId}>
-                  <strong>{ship.displayName}</strong>
-                  <br></br>
-                  <br></br>
-                  Hull Strength: {ship.hullStrength}
-                  <br></br>
-                  Shield: {ship.shield}
-                  <br></br>
-                  Fuel: {ship.fuel}
-                  <br></br>
-                  Cargo Holds: {ship.cargoContainers}
-                  <br></br>
+                <strong>X-Coordinate:</strong>
+              </p>{' '}
+              {currentPlanetData && <p> {currentPlanetData.x}</p>}
+            </CurrentStyle>
+            <CurrentStyle>
+              <strong>
+                <p>Y-Coordinate:</p>
+              </strong>{' '}
+              {currentPlanetData && <p> {currentPlanetData.y}</p>}
+            </CurrentStyle>
+            <CurrentStyle>
+              <strong>
+                <p>Tech Level: </p>
+              </strong>{' '}
+              {currentPlanetData && (
+                <p> {TECH_LEVELS[currentPlanetData.techLevel]}</p>
+              )}
+            </CurrentStyle>
+            <CurrentStyle>
+              <strong>
+                <p>Political System: </p>
+              </strong>{' '}
+              {currentPlanetData && (
+                <p> {POLITICAL_SYSTEMS[currentPlanetData.politicalSystem]}</p>
+              )}
+            </CurrentStyle>
+            <CurrentStyle>
+              <strong>
+                <p>News: </p>
+              </strong>{' '}
+              {currentPlanetData && <p> {NEWS[currentPlanetData.news]}</p>}
+            </CurrentStyle>
+            <MarketTitle>Market</MarketTitle>
+            <CurrentStyle>
+              {currentPlanetData && (
+                <p>
+                  {Object.keys(currentMarketData).map(key => (
+                    <CurrentMarketBtns>
+                      <button className="item">{key}</button>
+                      <button className="number">
+                        {currentMarketData[key]}
+                      </button>
+                      <button className="buy">Buy</button>
+                      <button className="sell">Sell</button>
+                    </CurrentMarketBtns>
+                  ))}
                 </p>
-              ))}
-            </div>
-          )}
-        </CurrentStyleCol>
-        <GalacticChartStyles className="col-xs-4">
-          <GalacticChart
-            id="a"
-            onClick={handleCanvasClick}
-            ref={canvas}
-            width={800}
-            height={800}
-          />
-        </GalacticChartStyles>
-        {/* <PlayerShipsStyle className="col-xs-3">
+              )}{' '}
+            </CurrentStyle>
+            <ShipsTitle>Available Ships</ShipsTitle>
+
+            {currentPlanetData && (
+              <div>
+                {currentPlanetData.ships.map(ship => (
+                  <p key={ship.shipId}>
+                    <strong>{ship.displayName}</strong>
+                    <br></br>
+                    <br></br>
+                    Hull Strength: {ship.hullStrength}
+                    <br></br>
+                    Shield: {ship.shield}
+                    <br></br>
+                    Fuel: {ship.fuel}
+                    <br></br>
+                    Cargo Holds: {ship.cargoContainers}
+                    <br></br>
+                  </p>
+                ))}
+              </div>
+            )}
+          </CurrentStyleCol>
+          <GalacticChartStyles className="col-xs-4"></GalacticChartStyles>
+          {/* <PlayerShipsStyle className="col-xs-3">
           <p>Player Ship Added Soon</p>
         </PlayerShipsStyle> */}
-      </PlayerStyleWrapper>
+        </PlayerStyleWrapper>
 
-      <div className="row start-xs">
-        {/* <SelectedStyle className="col-xs-4">
+        <div className="row start-xs">
+          {/* <SelectedStyle className="col-xs-4">
           <h4>Selected Planet Data</h4>
 
           {selectedPlanet && <p>Planet ID: {selectedPlanet}</p>}
@@ -479,8 +780,9 @@ function App() {
             </React.Fragment>
           )}
         </SelectedStyle> */}
-      </div>
-    </Wrapper>
+        </div>
+      </Wrapper>
+    </React.Fragment>
   );
 }
 
