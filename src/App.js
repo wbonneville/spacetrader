@@ -151,7 +151,7 @@ const CurrentMarketBtns = styled.div`
   & button {
     background-color: white;
     border: 1px solid black;
-    font-size: 16px;
+    font-size: 14px;
     padding: 8px;
   }
 
@@ -202,18 +202,20 @@ const Box = styled.div`
 const BoxTwo = styled.div``;
 
 const CurrentSystem = styled.div`
+  padding-top: 2%;
   padding-left: 3%;
   font-size: 20px;
   background-color: #617073;
   z-index: 1;
   color: white;
   font-family: 'Helvetica Neue';
-
+  padding-bottom: 3%;
   /* padding-bottom: 10%; */
 
   & p {
     font-weight: 300;
-    margin-bottom: 30px;
+    margin-bottom: -1px;
+    display: inline-block;
   }
 `;
 
@@ -221,14 +223,13 @@ const TargetCargo = styled.div`
   background-color: #171a21;
   text-align: center;
   color: white;
-  font-size: 18px;
+  font-size: 14ßpx;
 `;
 
 const Chart = styled.div`
-  border: 3px solid black;
   background-color: white;
   color: white;
-  margin-top: -200px;
+  margin-top: -150px;
   color: #423e37;
   font-family: 'HelveticaNeue-CondensedBold';
 `;
@@ -297,6 +298,7 @@ const AllBtn = styled.button`
 const CargoRowStyle = styled.div`
   margin-top: -2%;
   margin-bottom: 2%;
+  padding-bottom: 2%;
   & p {
     font-size: 16px;
     margin-bottom: -1%;
@@ -306,7 +308,6 @@ const CargoRowStyle = styled.div`
 const Price = styled.div`
   & p {
     font-size: 16px;
-    margin-bottom: -1%;
   }
 `;
 
@@ -438,16 +439,28 @@ function App() {
         </Top>
         <Box className="row">
           <CurrentSystem className="col-xs-3">
-            <p>Name</p>
+            <p>
+              Name: {selectedPlanet && <p> {selectedPlanetData.planetName}</p>}
+            </p>
+            <br></br>
             <p>Size</p>
+            <br></br>
             <p>Resource:</p>
+            <br></br>
             <p>X:</p>
+            <br></br>
             <p>Y: </p>
+            <br></br>
             <p>Tech Level:</p>
+            <br></br>
             <p>Political System:</p>
+            <br></br>
             <p>News:</p>
+            <br></br>
             <p>Pirates:</p>
+            <br></br>
             <p>Police:</p>
+            <br></br>
           </CurrentSystem>
 
           <TargetCargo className="col-xs-6">
@@ -525,16 +538,28 @@ function App() {
             </CargoRowStyle>
           </TargetCargo>
           <CurrentSystem className="col-xs-3">
-            <p>Name</p>
+            <p>
+              Name: {selectedPlanet && <p> {selectedPlanetData.planetName}</p>}
+            </p>
+            <br></br>
             <p>Size</p>
+            <br></br>
             <p>Resource:</p>
+            <br></br>
             <p>X:</p>
+            <br></br>
             <p>Y: </p>
+            <br></br>
             <p>Tech Level:</p>
+            <br></br>
             <p>Political System:</p>
+            <br></br>
             <p>News:</p>
+            <br></br>
             <p>Pirates:</p>
+            <br></br>
             <p>Police:</p>
+            <br></br>
           </CurrentSystem>
         </Box>
         <div className="row between-xs">

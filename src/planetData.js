@@ -171,6 +171,15 @@ export const RESOURCE_DEFINITIONS = {
     },
     techLevel: 1,
   },
+  Medicine: {
+    min: 10,
+    max: 20,
+    politicalSystem: {
+      communismState: 1,
+      monarchy: 3,
+    },
+    techLevel: 1,
+  },
   Machines: {
     min: 10,
     max: 20,
