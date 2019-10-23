@@ -601,11 +601,7 @@ function App() {
         </BoxTwo>
 
         <BoxTwo className="row center-xs">
-          <Shipyard className="col-xs-8">
-            <h1>Shipyard</h1>
-            <p>Ships</p>
-            <p>Ships</p>
-          </Shipyard>
+          <Shipyard className="col-xs-8"></Shipyard>
         </BoxTwo>
         <Stats className="row center-xs">
           <div className="col-xs-2">
