@@ -21,83 +21,11 @@ import generatePlanet from './generatePlanet';
 
 // components
 
-import Rarity from './rarity';
-import { realpath } from 'fs';
-
-const Wrapper = styled.div`
-  font-family: 'Helvetica Neue';
-  margin-left: 3.5%;
-  margin-right: 3.5%;
-`;
-
-const Header = styled.div`
-  margin-bottom: 8%;
-  & h1 {
-    font-family: 'Helvetica Neue';
-    font-size: 65px;
-    color: white;
-    letter-spacing: 2px;
-    font-weight: 100;
-  }
-  & a {
-    color: salmon;
-    font-weight: 100;
-    text-decoration: underline;
-  }
-  & h4 {
-    color: white;
-    font-weight: 100;
-    opacity: 0.6;
-  }
-  & h3 {
-    margin-top: -2rem;
-    color: white;
-    font-weight: 300;
-  }
-`;
-
-// const CurrentStyleRow = styled.div`
-//   color: white;
-// `;
-
 const GalacticChart = styled.canvas`
   background-color: white;
   width: 800px;
   height: 370px;
   margin-left: -5%;
-`;
-
-const GalacticChartStyles = styled.div`
-  & h1 {
-    color: white;
-  }
-`;
-
-const CurrentStyleCol = styled.div`
-  text-align: left;
-  padding-top: 1%;
-  padding-left: 3%;
-  background-color: rgb(16, 16, 16);
-  border: 1px solid white;
-  color: white;
-  margin-bottom: 5%;
-`;
-
-const CurrentStyle = styled.div`
-  justify-content: left;
-
-  & p {
-    display: inline-block;
-    font-size: 14px;
-  }
-`;
-
-const SelectedStyle = styled.div`
-  color: white;
-  & p {
-    display: inline-block;
-    font-size: 12px;
-  }
 `;
 
 const Button = styled.button`
@@ -109,79 +37,6 @@ const Button = styled.button`
   color: white;
   border: 1px solid white;
   text-transform: uppercase;
-`;
-
-const PlayerStyleWrapper = styled.div``;
-
-const PlayerStyle = styled.div`
-  text-align: left;
-  background-color: rgb(16, 16, 16);
-  padding-top: 1%;
-  padding-bottom: 2%;
-  padding-left: 3%;
-  border: 1px solid white;
-
-  color: white;
-  & p {
-    font-size: 14px;
-  }
-`;
-
-const PlayerShipsStyle = styled.div`
-  text-align: left;
-  background-color: rgb(16, 16, 16);
-  padding-top: 2%;
-  padding-bottom: 2%;
-  padding-left: 5%;
-  border: 1px solid white;
-
-  margin-top: 5%;
-  color: white;
-  & p {
-    font-size: 14px;
-  }
-`;
-
-const CurrentMarketBtns = styled.div`
-  text-align: left;
-  justify-content: left;
-  margin: 0 auto;
-
-  & button {
-    background-color: white;
-    border: 1px solid black;
-    font-size: 14px;
-    padding: 8px;
-  }
-
-  & .item {
-    background-color: white;
-  }
-  & .number {
-    background-color: #ee8f8a;
-  }
-  & .buy {
-    background-color: white;
-  }
-  & .sell {
-    background-color: white;
-  }
-`;
-
-const MarketTitle = styled.h2`
-  font-weight: 100;
-`;
-
-const ShipsTitle = styled.h2`
-  font-weight: 100;
-`;
-
-const SystemInfoTitle = styled.h1`
-  font-weight: 100;
-
-  & p {
-    font-size: 46px;
-  }
 `;
 
 const Container = styled.div``;
@@ -220,7 +75,7 @@ const CurrentSystem = styled.div`
 
 const TargetCargo = styled.div`
   background-color: #171a21;
-  text-align: center;
+  text-align: left;
   color: white;
   font-size: 14px;
 `;
@@ -295,19 +150,15 @@ const AllBtn = styled.button`
 `;
 
 const CargoRowStyle = styled.div`
-  margin-top: -2%;
   font-size: 12px;
-  padding-bottom: 4%;
-
-  & p {
-    margin-bottom: -1%;
-  }
 `;
 
 const Price = styled.div`
   & p {
     font-size: 12px;
+    padding-bottom: 1.9%;
   }
+  padding-bottom: 12%;
 `;
 
 function App() {
@@ -464,18 +315,18 @@ function App() {
 
           <TargetCargo className="col-xs-6">
             <div className="row center-xs">
-              <div className="col-xs-5">
+              <div className="col-xs-4">
                 <h4>Sell</h4>
               </div>
-              <div className="col-xs-5">
+              <div className="col-xs-4">
                 <h4>Buy</h4>
               </div>
-              <div className="col-xs-2">
+              <div className="col-xs-4">
                 <h4>Price</h4>
               </div>
             </div>
             <CargoRowStyle className="row center-xs">
-              <div className="col-xs-5">
+              <div className="col-xs-4">
                 {currentPlanetData && (
                   <p>
                     {Object.keys(currentMarketData).map(key => (
@@ -489,24 +340,8 @@ function App() {
                     ))}
                   </p>
                 )}
-
-                {/* <div>
-                  <p>Food</p>
-                  {currentPlanetData && (
-                    <p>
-                      {Object.keys(currentMarketData).map(key => (
-                        <p className="item">
-                          &nbsp; &nbsp;
-                          <AmtBtn>{currentMarketData[key]}</AmtBtn>
-                          &nbsp;
-                          <AllBtn>All</AllBtn>{' '}
-                        </p>
-                      ))}
-                    </p>
-                  )}
-                </div> */}
               </div>
-              <div className="col-xs-5">
+              <div className="col-xs-4">
                 {selectedPlanetData && (
                   <p>
                     {Object.keys(selectedMarketData).map(key => (
@@ -521,7 +356,7 @@ function App() {
                   </p>
                 )}
               </div>
-              <Price className="col-xs-2">
+              <Price className="col-xs-4">
                 <p>%</p>
                 <p>%</p>
                 <p>%</p>
