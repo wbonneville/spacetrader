@@ -83,7 +83,7 @@ const TargetCargo = styled.div`
 const Chart = styled.div`
   background-color: white;
   color: white;
-  margin-top: -190px;
+  margin-top: -170px;
   color: #423e37;
   font-family: 'HelveticaNeue-CondensedBold';
 `;
@@ -357,7 +357,6 @@ function App() {
                 )}
               </div>
               <Price className="col-xs-4">
-                <p>%</p>
                 <p>%</p>
                 <p>%</p>
                 <p>%</p>
