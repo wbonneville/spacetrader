@@ -565,20 +565,31 @@ function App() {
         <div className="row between-xs">
           <White className="col-xs-3">
             {' '}
-            <h2>hi</h2>
+            <h2>Dock</h2>
           </White>
           <White className="col-xs-3">
             {' '}
-            <h2>hi</h2>
+            <h2>Cargo Bays</h2>
           </White>
         </div>
         <BoxTwo className="row center-xs">
           <Ex className="col-xs-3">
-            <h1>hi</h1>
-            <h1>hi</h1>
-            <h1>hi</h1>
-            <h1>hi</h1>
-            <h1>hi</h1>
+            <h1>0 / 15 </h1>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
           </Ex>
           <Chart className="col-xs-6">
             <GalacticChart
@@ -591,11 +602,22 @@ function App() {
           </Chart>
 
           <ExTwo className="col-xs-3">
-            <h1>hi</h1>
-            <h1>hi</h1>
-            <h1>hi</h1>
-            <h1>hi</h1>
-            <h1>hi</h1>
+            <h1>0 / 15 </h1>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
           </ExTwo>
         </BoxTwo>
 
@@ -606,23 +628,35 @@ function App() {
         </BoxTwo>
         <Stats className="row center-xs">
           <div className="col-xs-2">
-            <h4>good</h4>
+            <h4>
+              {' '}
+              <strong>XP:</strong> {player.experience}
+            </h4>
           </div>
           <div className="col-xs-2">
-            <h4>good</h4>
+            <h4>
+              <strong>Cash:</strong> {player.credits}
+            </h4>
           </div>
           <div className="col-xs-2">
-            <h4>good</h4>
+            <h4>Current Costs: 0</h4>
           </div>
           <div className="col-xs-2">
-            <h4>good</h4>
+            <h4>
+              <strong>Rank:</strong> {player.rank}
+            </h4>
           </div>
+
           <div className="col-xs-2">
-            <h4>good</h4>
+            {player.status.normal && (
+              <h4>
+                <strong>Status:</strong> Good Standing {player.status.normal}
+              </h4>
+            )}
           </div>
         </Stats>
       </Container>
-      <Wrapper className="App">
+      {/* <Wrapper className="App">
         <Header className="row">
           <div className="col-xs-12">
             <h1> space walker (WIP) </h1>
@@ -638,15 +672,9 @@ function App() {
         <PlayerStyleWrapper className="row center-xs">
           <PlayerStyle className="col-xs-3">
             <h4>Player Stats</h4>
-            <p>
-              <strong>Cash:</strong> {player.credits}
-            </p>
-            <p>
-              <strong>Rank:</strong> {player.rank}
-            </p>
-            <p>
-              <strong>Experience:</strong> {player.experience}
-            </p>
+
+            <p></p>
+            <p></p>
             <p>
               <strong>Piloting Skill:</strong> {player.pilotSkill}
             </p>
@@ -662,12 +690,6 @@ function App() {
             <p>
               <strong>Empty Cargo Bays:</strong> {player.emptyBays}
             </p>
-            {player.status.normal && (
-              <p>
-                <strong>Player Status:</strong> Good Standing{' '}
-                {player.status.normal}
-              </p>
-            )}
           </PlayerStyle>
           <CurrentStyleCol className="col-xs-12 col-sm-3">
             <SystemInfoTitle>
@@ -763,13 +785,13 @@ function App() {
             )}
           </CurrentStyleCol>
           <GalacticChartStyles className="col-xs-4"></GalacticChartStyles>
-          {/* <PlayerShipsStyle className="col-xs-3">
+          <PlayerShipsStyle className="col-xs-3">
           <p>Player Ship Added Soon</p>
-        </PlayerShipsStyle> */}
+        </PlayerShipsStyle>
         </PlayerStyleWrapper>
 
         <div className="row start-xs">
-          {/* <SelectedStyle className="col-xs-4">
+          <SelectedStyle className="col-xs-4">
           <h4>Selected Planet Data</h4>
 
           {selectedPlanet && <p>Planet ID: {selectedPlanet}</p>}
@@ -801,9 +823,9 @@ function App() {
               </div>
             </React.Fragment>
           )}
-        </SelectedStyle> */}
+        </SelectedStyle>
         </div>
-      </Wrapper>
+      </Wrapper> */}
     </React.Fragment>
   );
 }
