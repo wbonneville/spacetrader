@@ -101,12 +101,11 @@ const SelectedStyle = styled.div`
 `;
 
 const Button = styled.button`
-  margin-top: 2%;
-  margin-bottom: 1%;
+  margin-top: 7%;
   padding: 10px;
-  font-size: 10px;
+  font-size: 14px;
   width: 100px;
-  background-color: rgb(16, 16, 16);
+  background-color: #171a21;
   color: white;
   border: 1px solid white;
   text-transform: uppercase;
@@ -229,7 +228,7 @@ const TargetCargo = styled.div`
 const Chart = styled.div`
   background-color: white;
   color: white;
-  margin-top: -150px;
+  margin-top: -190px;
   color: #423e37;
   font-family: 'HelveticaNeue-CondensedBold';
 `;
@@ -279,7 +278,7 @@ const AmtBtn = styled.button`
   background-color: #171a21;
   color: white;
   border: 1px solid #ffa3a3;
-  font-size: 14px;
+  font-size: 12px;
   padding: 3px;
   padding-left: 10px;
   padding-right: 10px;
@@ -288,7 +287,7 @@ const AllBtn = styled.button`
   background-color: #171a21;
   color: white;
   border: 1px solid white;
-  font-size: 14px;
+  font-size: 12px;
   padding: 3px;
   padding-left: 16px;
   padding-right: 16px;
@@ -297,17 +296,17 @@ const AllBtn = styled.button`
 
 const CargoRowStyle = styled.div`
   margin-top: -2%;
-
+  font-size: 12px;
   padding-bottom: 4%;
+  text-align: left;
   & p {
-    font-size: 16px;
     margin-bottom: -1%;
   }
 `;
 
 const Price = styled.div`
   & p {
-    font-size: 16px;
+    font-size: 12px;
   }
 `;
 
@@ -601,7 +600,9 @@ function App() {
         </BoxTwo>
 
         <BoxTwo className="row center-xs">
-          <Shipyard className="col-xs-8"></Shipyard>
+          <Shipyard className="col-xs-8">
+            <Button onClick={warp}>Warp</Button>
+          </Shipyard>
         </BoxTwo>
         <Stats className="row center-xs">
           <div className="col-xs-2">
@@ -686,7 +687,6 @@ function App() {
               )}
             </p>
 
-            <Button onClick={warp}>Warp</Button>
             <p>{player.planetId && <p>Identification: {player.planetId}</p>}</p>
 
             <CurrentStyle>
