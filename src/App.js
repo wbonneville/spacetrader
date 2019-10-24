@@ -298,7 +298,7 @@ const CargoRowStyle = styled.div`
   margin-top: -2%;
   font-size: 12px;
   padding-bottom: 4%;
-  text-align: left;
+
   & p {
     margin-bottom: -1%;
   }
