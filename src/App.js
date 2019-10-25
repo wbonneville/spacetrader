@@ -274,24 +274,23 @@ function App() {
     background-color: #e8c223;
 
     & h1 {
-      font-size: 100px;
-      color: black;
+      font-size: 120px;
+      color: #423e37;
       font-weight: 100;
       font-family: 'Helvetica Neue';
     }
 
     & h2 {
-      color: black;
+      color: #423e37;
       font-weight: 100;
       font-size: 30px;
       margin-bottom: 8%;
     }
 
     & h4 {
-      color: black;
+      color: #423e37;
       font-weight: 100;
       font-size: 18px;
-      color: black;
     }
 
     & .header {
