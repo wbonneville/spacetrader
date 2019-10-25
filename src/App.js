@@ -309,7 +309,7 @@ function App() {
       }
     }
     .margin {
-      margin-bottom: 20%;
+      margin-bottom: 10%;
     }
 
     @media (min-width: 150px) and (max-width: 600px) {
@@ -330,6 +330,7 @@ function App() {
             Project currently in development by{' '}
             <a href="https://twitter.com/wesbonneville"> @wesbonneville</a>{' '}
           </p>
+          <p>inspired by Pieter Spronck</p>
           <p className="margin">
             Made with Flexbox, Styled Components, React, Redux
           </p>
