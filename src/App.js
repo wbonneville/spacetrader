@@ -23,9 +23,8 @@ import generatePlanet from './generatePlanet';
 
 const GalacticChart = styled.canvas`
   background-color: white;
-  width: 800px;
+  width: 700px;
   height: 370px;
-  margin-left: -5%;
 `;
 
 const Button = styled.button`
@@ -41,6 +40,7 @@ const Button = styled.button`
 
 const Container = styled.div`
   font-family: 'Helvetica Neue';
+  overflow-x: hidden;
 `;
 
 const Top = styled.div`
@@ -315,23 +315,21 @@ function App() {
 
   return (
     <React.Fragment>
-      <Container>
-        <Info className="row center-xs">
-          <div className="col-xs-8">
-            <h1>Spacewalker</h1>
+      <Info className="row center-xs">
+        <div className="col-xs-12">
+          <h1>Spacewalker</h1>
 
-            <h2 className="header">
-              Click a planet. Warp. Explore the galaxy!
-            </h2>
-            <p>
-              Project currently in development by{' '}
-              <a href="https://twitter.com/wesbonneville"> @wesbonneville</a>{' '}
-            </p>
-            <p className="margin">
-              Made with Flexbox, Styled Components, React, Redux
-            </p>
-          </div>
-        </Info>
+          <h2 className="header">Click a planet. Warp. Explore the galaxy!</h2>
+          <p>
+            Project currently in development by{' '}
+            <a href="https://twitter.com/wesbonneville"> @wesbonneville</a>{' '}
+          </p>
+          <p className="margin">
+            Made with Flexbox, Styled Components, React, Redux
+          </p>
+        </div>
+      </Info>
+      <Container>
         <Top className="row center-xs space-between">
           <div className="col-xs-3">
             <h1>System Info</h1>
