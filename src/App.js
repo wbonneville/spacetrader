@@ -59,7 +59,7 @@ const CurrentSystem = styled.div`
   padding-top: 2%;
   padding-left: 3%;
   font-size: 20px;
-  background-color: #617073;
+  background-color: #6a7173;
   z-index: 1;
   color: white;
   font-family: 'Helvetica Neue';
@@ -151,6 +151,7 @@ const AllBtn = styled.button`
 
 const CargoRowStyle = styled.div`
   font-size: 12px;
+  height: 460px;
 `;
 
 const Price = styled.div`
@@ -158,7 +159,6 @@ const Price = styled.div`
     font-size: 12px;
     padding-bottom: 1.9%;
   }
-  padding-bottom: 12%;
 `;
 
 function App() {
@@ -290,7 +290,10 @@ function App() {
         <Box className="row">
           <CurrentSystem className="col-xs-3">
             <p>
-              Name: {selectedPlanet && <p> {selectedPlanetData.planetName}</p>}
+              Name:{' '}
+              {currentPlanetData && (
+                <span> {currentPlanetData.planetName}</span>
+              )}
             </p>
             <br></br>
             <p>Size</p>
@@ -311,6 +314,7 @@ function App() {
             <br></br>
             <p>Police:</p>
             <br></br>
+            <p></p>
           </CurrentSystem>
 
           <TargetCargo className="col-xs-6">
@@ -373,7 +377,8 @@ function App() {
           </TargetCargo>
           <CurrentSystem className="col-xs-3">
             <p>
-              Name: {selectedPlanet && <p> {selectedPlanetData.planetName}</p>}
+              Name:{' '}
+              {selectedPlanet && <span> {selectedPlanetData.planetName}</span>}
             </p>
             <br></br>
             <p>Size</p>
@@ -394,6 +399,7 @@ function App() {
             <br></br>
             <p>Police:</p>
             <br></br>
+            <p></p>
           </CurrentSystem>
         </Box>
         <div className="row between-xs">
@@ -408,7 +414,7 @@ function App() {
         </div>
         <BoxTwo className="row center-xs">
           <Ex className="col-xs-3">
-            <h1>0 / 15 </h1>
+            <h1>Fuel </h1>
             <br></br>
             <br></br>
             <br></br>
