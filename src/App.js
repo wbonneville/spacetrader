@@ -279,13 +279,17 @@ function App() {
       font-size: 120px;
       color: #423e37;
       font-weight: 100;
+     
     }
 
+    
     & h2 {
       color: #423e37;
       font-weight: 100;
       font-size: 30px;
       margin-bottom: 8%;
+
+ 
     }
 
     & h4 {
@@ -311,6 +315,11 @@ function App() {
     .margin {
       margin-bottom: 20%;
     }
+    @media (min-width: 150px) and (max-width: 600px) {
+    h1 {
+      font-size: 70px;
+    }
+
   `;
 
   return (
