@@ -296,17 +296,36 @@ function App() {
               )}
             </p>
             <br></br>
-            <p>Size</p>
+            <p>Size:</p>
             <br></br>
             <p>Resource:</p>
             <br></br>
-            <p>X:</p>
+            <p>
+              x:
+              {currentPlanetData && <span> {currentPlanetData.x}</span>}
+            </p>
             <br></br>
-            <p>Y: </p>
+            <p>
+              y:
+              {currentPlanetData && <span> {currentPlanetData.y}</span>}
+            </p>
             <br></br>
-            <p>Tech Level:</p>
+            <p>
+              Tech Level:{' '}
+              {currentPlanetData && (
+                <span> {TECH_LEVELS[currentPlanetData.techLevel]}</span>
+              )}
+            </p>
             <br></br>
-            <p>Political System:</p>
+            <p>
+              Political System:{' '}
+              {currentPlanetData && (
+                <span>
+                  {' '}
+                  {POLITICAL_SYSTEMS[currentPlanetData.politicalSystem]}
+                </span>
+              )}
+            </p>
             <br></br>
             <p>News:</p>
             <br></br>
@@ -385,7 +404,7 @@ function App() {
             <br></br>
             <p>Resource:</p>
             <br></br>
-            <p>X:</p>
+            <p>x:</p>
             <br></br>
             <p>Y: </p>
             <br></br>
