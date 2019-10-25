@@ -270,9 +270,68 @@ function App() {
     );
   }
 
+  const Info = styled.div`
+    background-color: #e8c223;
+
+    & h1 {
+      font-size: 100px;
+      color: black;
+      font-weight: 100;
+      font-family: 'Helvetica Neue';
+    }
+
+    & h2 {
+      color: black;
+      font-weight: 100;
+      font-size: 30px;
+      margin-bottom: 8%;
+    }
+
+    & h4 {
+      color: black;
+      font-weight: 100;
+      font-size: 18px;
+      color: black;
+    }
+
+    & .header {
+      font-weight: 200;
+      font-size: 30px;
+    }
+
+    & p {
+      font-size: 14px;
+
+      font-weight: 100;
+      opacity: 0.5;
+      & a {
+        color: inherit;
+      }
+    }
+    .margin {
+      margin-bottom: 20%;
+    }
+  `;
+
   return (
     <React.Fragment>
       <Container>
+        <Info className="row center-xs">
+          <div className="col-xs-8">
+            <h1>Spacewalker</h1>
+
+            <h2 className="header">
+              Click a planet. Warp. Explore the galaxy!
+            </h2>
+            <p>
+              Project currently in development by{' '}
+              <a href="https://twitter.com/wesbonneville"> @wesbonneville</a>{' '}
+            </p>
+            <p className="margin">
+              Made with Flexbox, Styled Components, React, Redux
+            </p>
+          </div>
+        </Info>
         <Top className="row center-xs space-between">
           <div className="col-xs-3">
             <h1>System Info</h1>
@@ -404,13 +463,32 @@ function App() {
             <br></br>
             <p>Resource:</p>
             <br></br>
-            <p>x:</p>
+            <p>
+              x:
+              {selectedPlanetData && <span> {selectedPlanetData.x}</span>}
+            </p>
             <br></br>
-            <p>Y: </p>
+            <p>
+              y:
+              {selectedPlanetData && <span> {selectedPlanetData.y}</span>}
+            </p>
             <br></br>
-            <p>Tech Level:</p>
+            <p>
+              Tech Level:{' '}
+              {selectedPlanetData && (
+                <span> {TECH_LEVELS[selectedPlanetData.techLevel]}</span>
+              )}
+            </p>
             <br></br>
-            <p>Political System:</p>
+            <p>
+              Political System:{' '}
+              {selectedPlanetData && (
+                <span>
+                  {' '}
+                  {POLITICAL_SYSTEMS[selectedPlanetData.politicalSystem]}
+                </span>
+              )}
+            </p>
             <br></br>
             <p>News:</p>
             <br></br>
