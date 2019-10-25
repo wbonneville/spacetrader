@@ -23,7 +23,7 @@ import generatePlanet from './generatePlanet';
 
 const GalacticChart = styled.canvas`
   background-color: white;
-  width: 700px;
+  width: 1000px;
   height: 370px;
 `;
 
@@ -279,17 +279,13 @@ function App() {
       font-size: 120px;
       color: #423e37;
       font-weight: 100;
-     
     }
 
-    
     & h2 {
       color: #423e37;
       font-weight: 100;
       font-size: 30px;
       margin-bottom: 8%;
-
- 
     }
 
     & h4 {
@@ -315,11 +311,12 @@ function App() {
     .margin {
       margin-bottom: 20%;
     }
-    @media (min-width: 150px) and (max-width: 600px) {
-    h1 {
-      font-size: 70px;
-    }
 
+    @media (min-width: 150px) and (max-width: 600px) {
+      h1 {
+        font-size: 70px;
+      }
+    }
   `;
 
   return (
@@ -540,7 +537,7 @@ function App() {
               id="a"
               onClick={handleCanvasClick}
               ref={canvas}
-              width={1600}
+              width={2000}
               height={740}
             />
           </Chart>
