@@ -39,7 +39,9 @@ const Button = styled.button`
   text-transform: uppercase;
 `;
 
-const Container = styled.div``;
+const Container = styled.div`
+  font-family: 'Helvetica Neue';
+`;
 
 const Top = styled.div`
   box-shadow: 0px 2px 5px #000000;
@@ -272,12 +274,11 @@ function App() {
 
   const Info = styled.div`
     background-color: #e8c223;
-
+    font-family: 'Helvetica Neue';
     & h1 {
       font-size: 120px;
       color: #423e37;
       font-weight: 100;
-      font-family: 'Helvetica Neue';
     }
 
     & h2 {
