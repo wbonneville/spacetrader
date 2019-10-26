@@ -314,7 +314,7 @@ function App() {
 
     @media (min-width: 150px) and (max-width: 600px) {
       h1 {
-        font-size: 70px;
+        font-size: 60px;
       }
     }
   `;
