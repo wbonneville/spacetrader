@@ -45,6 +45,7 @@ const Container = styled.div`
 
 const Top = styled.div`
   box-shadow: 0px 2px 5px #000000;
+  background-color: #f6f6f6;
   position: relative;
   z-index: 10;
   color: #423e37;
