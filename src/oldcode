@@ -1,0 +1,170 @@
+{/* <Wrapper className="App">
+        <Header className="row">
+          <div className="col-xs-12">
+            <h1> space walker (WIP) </h1>
+            <h3>click a planet</h3>
+            <h4>
+              {' '}
+              created by{' '}
+              <a href="https://twitter.com/wesbonneville"> @wesbonneville</a>
+            </h4>
+            <h4>inspired by Pieter Spronck</h4>
+          </div>
+        </Header>
+        <PlayerStyleWrapper className="row center-xs">
+          <PlayerStyle className="col-xs-3">
+            <h4>Player Stats</h4>
+
+            <p></p>
+            <p></p>
+            <p>
+              <strong>Piloting Skill:</strong> {player.pilotSkill}
+            </p>
+            <p>
+              <strong>Fighter Skill:</strong> {player.fighterSkill}
+            </p>
+            <p>
+              <strong>Trader Skill:</strong> {player.traderSkill}
+            </p>
+            <p>
+              <strong>Engineer Skill:</strong> {player.engineerSkill}
+            </p>
+            <p>
+              <strong>Empty Cargo Bays:</strong> {player.emptyBays}
+            </p>
+          </PlayerStyle>
+          <CurrentStyleCol className="col-xs-12 col-sm-3">
+            <SystemInfoTitle>
+              System Info:
+              <p>
+                {currentPlanetData && (
+                  <p className="planetNameStyle">
+                    {' '}
+                    <PlanetName />
+                  </p>
+                )}
+              </p>
+            </SystemInfoTitle>
+            <p>
+              {selectedPlanet && (
+                <p>Warp to {selectedPlanetData.planetName}?</p>
+              )}
+            </p>
+
+            <p>{player.planetId && <p>Identification: {player.planetId}</p>}</p>
+
+            <CurrentStyle>
+              <p>
+                <strong>X-Coordinate:</strong>
+              </p>{' '}
+              {currentPlanetData && <p> {currentPlanetData.x}</p>}
+            </CurrentStyle>
+            <CurrentStyle>
+              <strong>
+                <p>Y-Coordinate:</p>
+              </strong>{' '}
+              {currentPlanetData && <p> {currentPlanetData.y}</p>}
+            </CurrentStyle>
+            <CurrentStyle>
+              <strong>
+                <p>Tech Level: </p>
+              </strong>{' '}
+              {currentPlanetData && (
+                <p> {TECH_LEVELS[currentPlanetData.techLevel]}</p>
+              )}
+            </CurrentStyle>
+            <CurrentStyle>
+              <strong>
+                <p>Political System: </p>
+              </strong>{' '}
+              {currentPlanetData && (
+                <p> {POLITICAL_SYSTEMS[currentPlanetData.politicalSystem]}</p>
+              )}
+            </CurrentStyle>
+            <CurrentStyle>
+              <strong>
+                <p>News: </p>
+              </strong>{' '}
+              {currentPlanetData && <p> {NEWS[currentPlanetData.news]}</p>}
+            </CurrentStyle>
+            <MarketTitle>Market</MarketTitle>
+            <CurrentStyle>
+              {currentPlanetData && (
+                <p>
+                  {Object.keys(currentMarketData).map(key => (
+                    <CurrentMarketBtns>
+                      <button className="item">{key}</button>
+                      <button className="number">
+                        {currentMarketData[key]}
+                      </button>
+                      <button className="buy">Buy</button>
+                      <button className="sell">Sell</button>
+                    </CurrentMarketBtns>
+                  ))}
+                </p>
+              )}{' '}
+            </CurrentStyle>
+            <ShipsTitle>Available Ships</ShipsTitle>
+
+            {currentPlanetData && (
+              <div>
+                {currentPlanetData.ships.map(ship => (
+                  <p key={ship.shipId}>
+                    <strong>{ship.displayName}</strong>
+                    <br></br>
+                    <br></br>
+                    Hull Strength: {ship.hullStrength}
+                    <br></br>
+                    Shield: {ship.shield}
+                    <br></br>
+                    Fuel: {ship.fuel}
+                    <br></br>
+                    Cargo Holds: {ship.cargoContainers}
+                    <br></br>
+                  </p>
+                ))}
+              </div>
+            )}
+          </CurrentStyleCol>
+          <GalacticChartStyles className="col-xs-4"></GalacticChartStyles>
+          <PlayerShipsStyle className="col-xs-3">
+          <p>Player Ship Added Soon</p>
+        </PlayerShipsStyle>
+        </PlayerStyleWrapper>
+
+        <div className="row start-xs">
+          <SelectedStyle className="col-xs-4">
+          <h4>Selected Planet Data</h4>
+
+          {selectedPlanet && <p>Planet ID: {selectedPlanet}</p>}
+
+          {selectedPlanetData && (
+            <React.Fragment>
+              <p>X-Coordinate: {selectedPlanetData.x}</p>
+              <p>Y-Coordinate: {selectedPlanetData.y}</p>
+              <p>Tech Level: {TECH_LEVELS[selectedPlanetData.techLevel]}</p>
+              <p>
+                Political System:{' '}
+                {POLITICAL_SYSTEMS[selectedPlanetData.politicalSystem]}
+              </p>
+              <p>News: {NEWS[selectedPlanetData.news]}</p>
+              <p>
+                Market:{' '}
+                {Object.keys(selectedMarketData).map(key => (
+                  <div>
+                    {key}: {selectedMarketData[key]}
+                  </div>
+                ))}
+              </p>
+              <div>
+                {selectedPlanetData.ships.map(ship => (
+                  <p key={ship.shipId}>
+                    {ship.displayName}: Hull Strength: {ship.hullStrength}
+                  </p>
+                ))}
+              </div>
+            </React.Fragment>
+          )}
+        </SelectedStyle>
+        </div>
+      </Wrapper> */}

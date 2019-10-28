@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { TECH_LEVELS } from './planetData';
 import { POLITICAL_SYSTEMS } from './planetData';
 import { NEWS } from './planetData';
+
 // import { EQUIPMENT } from './planetData';
 
 // actions
@@ -19,11 +20,12 @@ import { addPlayerXP } from './redux/increaseXP.action';
 
 import generatePlanet from './generatePlanet';
 
-// other
+// import render components
 
 import PageTop from './PageTop';
+import PageInfo from './PageInfo';
 
-// components
+// styled components
 
 const GalacticChart = styled.canvas`
   background-color: white;
@@ -159,7 +161,7 @@ const Price = styled.div`
   }
 `;
 
-function App() {
+export function App() {
   // dispatch hook
   const dispatch = useDispatch();
 
@@ -268,70 +270,9 @@ function App() {
     );
   }
 
-  const Info = styled.div`
-    background-color: #e8c223;
-    font-family: 'Helvetica Neue';
-    & h1 {
-      font-size: 120px;
-      color: #423e37;
-      font-weight: 100;
-    }
-
-    & h2 {
-      color: #423e37;
-      font-weight: 100;
-      font-size: 30px;
-      margin-bottom: 8%;
-    }
-
-    & h4 {
-      color: #423e37;
-      font-weight: 100;
-      font-size: 18px;
-    }
-
-    & .header {
-      font-weight: 200;
-      font-size: 30px;
-    }
-
-    & p {
-      font-size: 14px;
-
-      font-weight: 100;
-      opacity: 0.5;
-      & a {
-        color: inherit;
-      }
-    }
-    .margin {
-      margin-bottom: 10%;
-    }
-
-    @media (min-width: 150px) and (max-width: 600px) {
-      h1 {
-        font-size: 60px;
-      }
-    }
-  `;
-
   return (
     <React.Fragment>
-      <Info className="row center-xs">
-        <div className="col-xs-12">
-          <h1>Spacewalker</h1>
-
-          <h2 className="header">Click a planet. Warp. Explore the galaxy!</h2>
-          <p>
-            Project currently in development by{' '}
-            <a href="https://twitter.com/wesbonneville"> @wesbonneville</a>{' '}
-          </p>
-          <p>inspired by Pieter Spronck</p>
-          <p className="margin">
-            Made with Flexbox, Styled Components, React, Redux
-          </p>
-        </div>
-      </Info>
+      <PageInfo></PageInfo>
       <Container>
         <PageTop></PageTop>
         <Box className="row">
@@ -581,176 +522,6 @@ function App() {
           </div>
         </Stats>
       </Container>
-      {/* <Wrapper className="App">
-        <Header className="row">
-          <div className="col-xs-12">
-            <h1> space walker (WIP) </h1>
-            <h3>click a planet</h3>
-            <h4>
-              {' '}
-              created by{' '}
-              <a href="https://twitter.com/wesbonneville"> @wesbonneville</a>
-            </h4>
-            <h4>inspired by Pieter Spronck</h4>
-          </div>
-        </Header>
-        <PlayerStyleWrapper className="row center-xs">
-          <PlayerStyle className="col-xs-3">
-            <h4>Player Stats</h4>
-
-            <p></p>
-            <p></p>
-            <p>
-              <strong>Piloting Skill:</strong> {player.pilotSkill}
-            </p>
-            <p>
-              <strong>Fighter Skill:</strong> {player.fighterSkill}
-            </p>
-            <p>
-              <strong>Trader Skill:</strong> {player.traderSkill}
-            </p>
-            <p>
-              <strong>Engineer Skill:</strong> {player.engineerSkill}
-            </p>
-            <p>
-              <strong>Empty Cargo Bays:</strong> {player.emptyBays}
-            </p>
-          </PlayerStyle>
-          <CurrentStyleCol className="col-xs-12 col-sm-3">
-            <SystemInfoTitle>
-              System Info:
-              <p>
-                {currentPlanetData && (
-                  <p className="planetNameStyle">
-                    {' '}
-                    <PlanetName />
-                  </p>
-                )}
-              </p>
-            </SystemInfoTitle>
-            <p>
-              {selectedPlanet && (
-                <p>Warp to {selectedPlanetData.planetName}?</p>
-              )}
-            </p>
-
-            <p>{player.planetId && <p>Identification: {player.planetId}</p>}</p>
-
-            <CurrentStyle>
-              <p>
-                <strong>X-Coordinate:</strong>
-              </p>{' '}
-              {currentPlanetData && <p> {currentPlanetData.x}</p>}
-            </CurrentStyle>
-            <CurrentStyle>
-              <strong>
-                <p>Y-Coordinate:</p>
-              </strong>{' '}
-              {currentPlanetData && <p> {currentPlanetData.y}</p>}
-            </CurrentStyle>
-            <CurrentStyle>
-              <strong>
-                <p>Tech Level: </p>
-              </strong>{' '}
-              {currentPlanetData && (
-                <p> {TECH_LEVELS[currentPlanetData.techLevel]}</p>
-              )}
-            </CurrentStyle>
-            <CurrentStyle>
-              <strong>
-                <p>Political System: </p>
-              </strong>{' '}
-              {currentPlanetData && (
-                <p> {POLITICAL_SYSTEMS[currentPlanetData.politicalSystem]}</p>
-              )}
-            </CurrentStyle>
-            <CurrentStyle>
-              <strong>
-                <p>News: </p>
-              </strong>{' '}
-              {currentPlanetData && <p> {NEWS[currentPlanetData.news]}</p>}
-            </CurrentStyle>
-            <MarketTitle>Market</MarketTitle>
-            <CurrentStyle>
-              {currentPlanetData && (
-                <p>
-                  {Object.keys(currentMarketData).map(key => (
-                    <CurrentMarketBtns>
-                      <button className="item">{key}</button>
-                      <button className="number">
-                        {currentMarketData[key]}
-                      </button>
-                      <button className="buy">Buy</button>
-                      <button className="sell">Sell</button>
-                    </CurrentMarketBtns>
-                  ))}
-                </p>
-              )}{' '}
-            </CurrentStyle>
-            <ShipsTitle>Available Ships</ShipsTitle>
-
-            {currentPlanetData && (
-              <div>
-                {currentPlanetData.ships.map(ship => (
-                  <p key={ship.shipId}>
-                    <strong>{ship.displayName}</strong>
-                    <br></br>
-                    <br></br>
-                    Hull Strength: {ship.hullStrength}
-                    <br></br>
-                    Shield: {ship.shield}
-                    <br></br>
-                    Fuel: {ship.fuel}
-                    <br></br>
-                    Cargo Holds: {ship.cargoContainers}
-                    <br></br>
-                  </p>
-                ))}
-              </div>
-            )}
-          </CurrentStyleCol>
-          <GalacticChartStyles className="col-xs-4"></GalacticChartStyles>
-          <PlayerShipsStyle className="col-xs-3">
-          <p>Player Ship Added Soon</p>
-        </PlayerShipsStyle>
-        </PlayerStyleWrapper>
-
-        <div className="row start-xs">
-          <SelectedStyle className="col-xs-4">
-          <h4>Selected Planet Data</h4>
-
-          {selectedPlanet && <p>Planet ID: {selectedPlanet}</p>}
-
-          {selectedPlanetData && (
-            <React.Fragment>
-              <p>X-Coordinate: {selectedPlanetData.x}</p>
-              <p>Y-Coordinate: {selectedPlanetData.y}</p>
-              <p>Tech Level: {TECH_LEVELS[selectedPlanetData.techLevel]}</p>
-              <p>
-                Political System:{' '}
-                {POLITICAL_SYSTEMS[selectedPlanetData.politicalSystem]}
-              </p>
-              <p>News: {NEWS[selectedPlanetData.news]}</p>
-              <p>
-                Market:{' '}
-                {Object.keys(selectedMarketData).map(key => (
-                  <div>
-                    {key}: {selectedMarketData[key]}
-                  </div>
-                ))}
-              </p>
-              <div>
-                {selectedPlanetData.ships.map(ship => (
-                  <p key={ship.shipId}>
-                    {ship.displayName}: Hull Strength: {ship.hullStrength}
-                  </p>
-                ))}
-              </div>
-            </React.Fragment>
-          )}
-        </SelectedStyle>
-        </div>
-      </Wrapper> */}
     </React.Fragment>
   );
 }
