@@ -263,8 +263,10 @@ export function App() {
 
   return (
     <React.Fragment>
+      {/* Render info component */}
       <PageInfo></PageInfo>
       <Container>
+        {/* render top component */}
         <PageTop></PageTop>
         <Box className="row">
           <CurrentSystem className="col-xs-3">
