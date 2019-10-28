@@ -19,6 +19,10 @@ import { addPlayerXP } from './redux/increaseXP.action';
 
 import generatePlanet from './generatePlanet';
 
+// other
+
+import PageTop from './PageTop';
+
 // components
 
 const GalacticChart = styled.canvas`
@@ -41,15 +45,6 @@ const Button = styled.button`
 const Container = styled.div`
   font-family: 'Helvetica Neue';
   overflow-x: hidden;
-`;
-
-const Top = styled.div`
-  box-shadow: 0px 2px 5px #000000;
-  background-color: #f6f6f6;
-  position: relative;
-  z-index: 10;
-  color: #423e37;
-  font-family: 'HelveticaNeue-CondensedBold';
 `;
 
 const Box = styled.div`
@@ -338,20 +333,7 @@ function App() {
         </div>
       </Info>
       <Container>
-        <Top className="row center-xs space-between">
-          <div className="col-xs-3">
-            <h1>System Info</h1>
-          </div>
-          <div className="col-xs-3">
-            <h1>Cargo</h1>
-          </div>
-          <div className="col-xs-3">
-            <h1>Target Price</h1>
-          </div>
-          <div className="col-xs-3">
-            <h1>Target System</h1>
-          </div>
-        </Top>
+        <PageTop></PageTop>
         <Box className="row">
           <CurrentSystem className="col-xs-3">
             <p>
