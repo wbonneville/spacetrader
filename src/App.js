@@ -261,15 +261,6 @@ export function App() {
     dispatch(addPlayerXP(5));
   };
 
-  function PlanetName(props) {
-    return (
-      <p>
-        {props.color}
-        {currentPlanetData.planetName}
-      </p>
-    );
-  }
-
   return (
     <React.Fragment>
       <PageInfo></PageInfo>
