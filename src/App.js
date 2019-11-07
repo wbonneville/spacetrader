@@ -1,16 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import styled from 'styled-components';
 
 // data
 
-import { TECH_LEVELS } from './planetData';
-import { POLITICAL_SYSTEMS } from './planetData';
-import { NEWS } from './planetData';
-
-// import { EQUIPMENT } from './planetData';
+import { TECH_LEVELS, POLITICAL_SYSTEMS, NEWS } from './planetData';
 
 // actions
+
 import { selectPlanet } from './redux/selectPlanet.action';
 import { createPlanet } from './redux/planet.action';
 import { createMarket } from './redux/market.action';
@@ -27,139 +23,25 @@ import PageInfo from './PageInfo';
 
 // styled components
 
-const GalacticChart = styled.canvas`
-  background-color: white;
-  width: 1000px;
-  height: 370px;
-`;
-
-const Button = styled.button`
-  margin-top: 7%;
-  padding: 10px;
-  font-size: 14px;
-  width: 100px;
-  background-color: #171a21;
-  color: white;
-  border: 1px solid white;
-  text-transform: uppercase;
-`;
-
-const Container = styled.div`
-  font-family: 'Helvetica Neue';
-  overflow-x: hidden;
-`;
-
-const Box = styled.div`
-  align-items: flex-start;
-`;
-
-const BoxTwo = styled.div``;
-
-const CurrentSystem = styled.div`
-  padding-top: 2%;
-  padding-left: 3%;
-  font-size: 20px;
-  background-color: #6a7173;
-  z-index: 1;
-  color: white;
-  font-family: 'Helvetica Neue';
-  padding-bottom: 3%;
-  /* padding-bottom: 10%; */
-
-  & p {
-    font-weight: 300;
-    margin-bottom: -1px;
-    display: inline-block;
-  }
-`;
-
-const TargetCargo = styled.div`
-  background-color: #171a21;
-  text-align: left;
-  color: white;
-  font-size: 14px;
-`;
-
-const Chart = styled.div`
-  background-color: white;
-  color: white;
-  margin-top: -170px;
-  color: #423e37;
-  font-family: 'HelveticaNeue-CondensedBold';
-`;
-
-const Shipyard = styled.div`
-  background-color: #171a21;
-  margin-top: -160px;
-  color: white;
-  font-family: 'HelveticaNeue-CondensedBold';
-`;
-
-const Ex = styled.div`
-  background-color: #b79300;
-  box-shadow: 0px 1px 4px #000000;
-  position: relative;
-  z-index: 1;
-  color: #423e37;
-  font-family: 'HelveticaNeue-CondensedBold';
-`;
-
-const ExTwo = styled.div`
-  background-color: #b79300;
-  box-shadow: 0px 1px 4px #000000;
-  position: relative;
-  z-index: 1;
-  color: #423e37;
-  font-family: 'HelveticaNeue-CondensedBold';
-`;
-
-const Stats = styled.div`
-  background-color: #e8c223;
-  color: #423e37;
-  font-family: 'HelveticaNeue-CondensedBold';
-`;
-
-const White = styled.div`
-  background-color: white;
-  box-shadow: 0px 2px 4px #000000;
-  position: relative;
-  z-index: 2;
-  color: #423e37;
-  font-family: 'HelveticaNeue-CondensedBold';
-  text-align: center;
-`;
-
-const AmtBtn = styled.button`
-  background-color: #171a21;
-  color: white;
-  border: 1px solid #ffa3a3;
-  font-size: 12px;
-  padding: 3px;
-  padding-left: 10px;
-  padding-right: 10px;
-`;
-const AllBtn = styled.button`
-  background-color: #171a21;
-  color: white;
-  border: 1px solid white;
-  font-size: 12px;
-  padding: 3px;
-  padding-left: 16px;
-  padding-right: 16px;
-  margin-right: 4%;
-`;
-
-const CargoRowStyle = styled.div`
-  font-size: 12px;
-  height: 460px;
-`;
-
-const Price = styled.div`
-  & p {
-    font-size: 12px;
-    padding-bottom: 1.9%;
-  }
-`;
+import {
+  GalacticChart,
+  Button,
+  Container,
+  Box,
+  BoxTwo,
+  CurrentSystem,
+  TargetCargo,
+  Chart,
+  Shipyard,
+  Ex,
+  ExTwo,
+  Stats,
+  White,
+  AmtBtn,
+  AllBtn,
+  CargoRowStyle,
+  Price,
+} from './Styles';
 
 export function App() {
   // dispatch hook
@@ -186,10 +68,10 @@ export function App() {
   const planets = useSelector(state => state.planets);
   const markets = useSelector(state => state.markets);
 
-  // get player data
+  // get player data from the state
   const player = useSelector(state => state.player);
 
-  // selected planets data
+  // selected planets data from the state
   const selectedPlanet = useSelector(state => state.selectedPlanet);
   const selectedPlanetData = planets[selectedPlanet];
   const selectedMarketData = markets[selectedPlanet];
@@ -208,7 +90,6 @@ export function App() {
       const planet = planets[planetId];
 
       // set variables to random number on canvas
-
       const x = planet.x * canvas.current.width;
       const y = planet.y * canvas.current.height;
 
@@ -230,12 +111,17 @@ export function App() {
   // CLICK EVENT
 
   const handleCanvasClick = event => {
+    // get mouse coordinates on page
     const mouseX = event.pageX;
     const mouseY = event.pageY;
+    // set canvas coordinates
     const canvasX = canvas.current.offsetLeft;
     const canvasY = canvas.current.offsetTop;
+    // subtract canvas coordinates from mouse and multiply by 2
     const x = (mouseX - canvasX) * 2;
     const y = (mouseY - canvasY) * 2;
+
+    // loop through planets
     Object.keys(planets).forEach(planetId => {
       // get planet data
       const planet = planets[planetId];

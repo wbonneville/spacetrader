@@ -13,8 +13,6 @@ const defaultPlayersState = {
   engineerSkill: 0,
   emptyBays: 15,
 
-  //
-
   status: {
     normal: true,
     pirate: false,
