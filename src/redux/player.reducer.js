@@ -1,9 +1,6 @@
 const defaultPlayersState = {
-  shipId: '1',
-  planetId: '',
-
-  // code did not work when this was wrapped in person {}
-
+  shipId: "1",
+  planetId: "",
   credits: 1000,
   rank: 0,
   experience: 0,
@@ -15,20 +12,20 @@ const defaultPlayersState = {
 
   status: {
     normal: true,
-    pirate: false,
-  },
+    pirate: false
+  }
 };
 
 const playerGeneration = (state = defaultPlayersState, action) => {
   switch (action.type) {
-    case 'CREATE_PLAYER':
+    case "CREATE_PLAYER":
       return { ...state };
-    case 'WARP_PLAYER':
+    case "WARP_PLAYER":
       return {
         ...state,
-        planetId: action.planetId,
+        planetId: action.planetId
       };
-    case 'ADD_XP':
+    case "ADD_XP":
       return { ...state, experience: state.experience + 2 };
     default:
       return state;
