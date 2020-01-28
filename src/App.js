@@ -1,25 +1,25 @@
-import React, { useEffect, useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useEffect, useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 // data
 
-import { TECH_LEVELS, POLITICAL_SYSTEMS, NEWS } from './planetData';
+import { TECH_LEVELS, POLITICAL_SYSTEMS, NEWS } from "./planetData";
 
 // actions
 
-import { selectPlanet } from './redux/selectPlanet.action';
-import { createPlanet } from './redux/planet.action';
-import { createMarket } from './redux/market.action';
-import { createPlayer } from './redux/player.action';
-import { warpPlayer } from './redux/warp.action';
-import { addPlayerXP } from './redux/increaseXP.action';
+import { selectPlanet } from "./redux/selectPlanet.action";
+import { createPlanet } from "./redux/planet.action";
+import { createMarket } from "./redux/market.action";
+import { createPlayer } from "./redux/player.action";
+import { warpPlayer } from "./redux/warp.action";
+import { addPlayerXP } from "./redux/increaseXP.action";
 
-import generatePlanet from './generatePlanet';
+import generatePlanet from "./generatePlanet";
 
 // import render components
 
-import PageTop from './PageTop';
-import PageInfo from './PageInfo';
+import PageTop from "./PageTop";
+import PageInfo from "./PageInfo";
 
 // styled components
 
@@ -40,8 +40,8 @@ import {
   AmtBtn,
   AllBtn,
   CargoRowStyle,
-  Price,
-} from './Styles';
+  Price
+} from "./Styles";
 
 export function App() {
   // dispatch hook
@@ -82,7 +82,7 @@ export function App() {
 
   useEffect(() => {
     // provides context for the canvas to draw things
-    const ctxOne = canvas.current.getContext('2d');
+    const ctxOne = canvas.current.getContext("2d");
 
     // this loop takes planets as an argument and for each unique planet do code
     Object.keys(planets).forEach(planetId => {
@@ -99,9 +99,9 @@ export function App() {
       ctxOne.ellipse(x, y, 2, 2, 0, 0, Math.PI * 2);
       // if selected planet is equal to the current planet ID
       if (selectedPlanet === planetId) {
-        ctxOne.fillStyle = '#F31B10';
+        ctxOne.fillStyle = "#F31B10";
       } else {
-        ctxOne.fillStyle = 'black';
+        ctxOne.fillStyle = "black";
       }
 
       ctxOne.fill();
@@ -157,7 +157,7 @@ export function App() {
         <Box className="row">
           <CurrentSystem className="col-xs-3">
             <p>
-              Name:{' '}
+              Name:{" "}
               {currentPlanetData && (
                 <span> {currentPlanetData.planetName}</span>
               )}
@@ -167,6 +167,7 @@ export function App() {
             <br></br>
             <p>Resource:</p>
             <br></br>
+            {/* if currentPlanetData is true (a planet has been clicked) then render the x coordinate*/}
             <p>
               x:
               {currentPlanetData && <span> {currentPlanetData.x}</span>}
@@ -177,18 +178,19 @@ export function App() {
               {currentPlanetData && <span> {currentPlanetData.y}</span>}
             </p>
             <br></br>
+            {/* if there is a current planet, render the current planets tech level */}
             <p>
-              Tech Level:{' '}
+              Tech Level:{" "}
               {currentPlanetData && (
                 <span> {TECH_LEVELS[currentPlanetData.techLevel]}</span>
               )}
             </p>
             <br></br>
             <p>
-              Political System:{' '}
+              Political System:{" "}
               {currentPlanetData && (
                 <span>
-                  {' '}
+                  {" "}
                   {POLITICAL_SYSTEMS[currentPlanetData.politicalSystem]}
                 </span>
               )}
@@ -225,7 +227,7 @@ export function App() {
                         &nbsp; &nbsp;
                         <AmtBtn>{currentMarketData[key]}</AmtBtn>
                         &nbsp;
-                        <AllBtn>All</AllBtn>{' '}
+                        <AllBtn>All</AllBtn>{" "}
                       </p>
                     ))}
                   </p>
@@ -240,7 +242,7 @@ export function App() {
                         &nbsp; &nbsp;
                         <AmtBtn>{selectedMarketData[key]}</AmtBtn>
                         &nbsp;
-                        <AllBtn>All</AllBtn>{' '}
+                        <AllBtn>All</AllBtn>{" "}
                       </p>
                     ))}
                   </p>
@@ -263,7 +265,7 @@ export function App() {
           </TargetCargo>
           <CurrentSystem className="col-xs-3">
             <p>
-              Name:{' '}
+              Name:{" "}
               {selectedPlanet && <span> {selectedPlanetData.planetName}</span>}
             </p>
             <br></br>
@@ -282,17 +284,17 @@ export function App() {
             </p>
             <br></br>
             <p>
-              Tech Level:{' '}
+              Tech Level:{" "}
               {selectedPlanetData && (
                 <span> {TECH_LEVELS[selectedPlanetData.techLevel]}</span>
               )}
             </p>
             <br></br>
             <p>
-              Political System:{' '}
+              Political System:{" "}
               {selectedPlanetData && (
                 <span>
-                  {' '}
+                  {" "}
                   {POLITICAL_SYSTEMS[selectedPlanetData.politicalSystem]}
                 </span>
               )}
@@ -309,11 +311,11 @@ export function App() {
         </Box>
         <div className="row between-xs">
           <White className="col-xs-3">
-            {' '}
+            {" "}
             <h2>Dock</h2>
           </White>
           <White className="col-xs-3">
-            {' '}
+            {" "}
             <h2>Cargo Bays</h2>
           </White>
         </div>
@@ -374,7 +376,7 @@ export function App() {
         <Stats className="row center-xs">
           <div className="col-xs-2">
             <h4>
-              {' '}
+              {" "}
               <strong>XP:</strong> {player.experience}
             </h4>
           </div>
