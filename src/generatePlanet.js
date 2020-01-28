@@ -5,12 +5,12 @@ import {
   POLITICAL_SYSTEMS,
   NEWS,
   EQUIPMENT,
-  PLANET_NAMES_ONE,
-} from './planetData';
+  PLANET_NAMES_ONE
+} from "./planetData";
 
 // This function generates the planet
 
-const shortid = require('shortid');
+const shortid = require("shortid");
 
 function generatePlanet() {
   // set planetName = to random number from planet names array
@@ -24,18 +24,18 @@ function generatePlanet() {
   let threeNumbers = Math.floor(Math.random() * (999 - 100 + 1) + 100);
 
   // if planet name === Kepler, append three numbers
-  if (planetName === 'Kepler') {
-    planetName = 'Kepler ' + threeNumbers;
+  if (planetName === "Kepler") {
+    planetName = "Kepler " + threeNumbers;
   }
 
   // if planet name === HD, append two numbers
-  if (planetName === 'HD') {
-    planetName = 'HD ' + twoNumbers;
+  if (planetName === "HD") {
+    planetName = "HD " + twoNumbers;
   }
 
   // if planet name === OGLE-, append two numbers
-  if (planetName === 'OGLE-') {
-    planetName = 'OGLE- ' + twoNumbers;
+  if (planetName === "OGLE-") {
+    planetName = "OGLE- " + twoNumbers;
   }
 
   // use random shortid for planetId
@@ -51,12 +51,14 @@ function generatePlanet() {
 
   // planet data
   const planetData = {
+    // planet name = to planet name
     planetName,
+    // set x and y to random numbers
     x: Math.random(),
     y: Math.random(),
     techLevel,
     politicalSystem,
-    news,
+    news
   };
 
   // set market data to empty object
